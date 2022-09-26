@@ -43,12 +43,9 @@ public class PlayerController : MonoBehaviour
         transform.position = targetPos;
         isMoving = false;
     }
-    bool CanWalk(Vector3 targetPos)
+    bool CanWalk(Vector3 targetPos) //This checks if there's an object in the way
     {
         if (Physics2D.OverlapCircle(targetPos, 0.5f,Collidables) != null){
-            //(targetPos-new Vector3(0,0.25f,0), 1f, Collidables)!=null) //set to 0.25 and 0.5 originally
-
-            Debug.Log("test");
             return false;
         }
         
