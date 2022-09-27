@@ -32,7 +32,7 @@ public class PlayerController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         //Built-in Unity functions for player inputs
         input.x = Input.GetAxisRaw("Horizontal"); 
