@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class PlayerController : MonoBehaviour
 {
@@ -70,10 +71,18 @@ public class PlayerController : MonoBehaviour
         /*I use a circular collider instead of a square one so that the players won't get stuck
          * on corners -JC
          */
-        if (Physics2D.OverlapCircle(targetPos, 0.4f,Collidables) != null){
+        
+        if (Physics2D.OverlapCircle(targetPos, 0.1f,Collidables) != null){
             return false;
         }
         
         return true;
+    }
+    // Use this to display player circular collider with red circle when selected in scene
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        //Use the same vars you use to draw your Overlap Circle to draw your Wire Sphere.
+        Gizmos.DrawWireSphere(transform.position, 0.1f);
     }
 }
