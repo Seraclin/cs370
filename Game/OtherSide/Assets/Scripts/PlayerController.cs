@@ -16,7 +16,8 @@ public class PlayerController : MonoBehaviour
      */
     Vector2 input; //Input by players (Example: The "Up" button) -JC
     [SerializeField] float speed;
-    [SerializeField] bool isMoving = false; //Used for grid-based movement later on
+    [SerializeField] bool isMoving = false;
+    //Used for grid-based movement later on
 
     /*This is an InEngine layer which is pretty much is everything the player can collide with
      * For example: walls, enemies, etc.
@@ -29,6 +30,11 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
+    }
+    public void CollisionForce(int xForce, int yForce)
+    {
+        //Play animation depending on direction hit
         
     }
 
@@ -61,7 +67,9 @@ public class PlayerController : MonoBehaviour
      while((targetPos-transform.position).sqrMagnitude > Mathf.Epsilon)
         {
             transform.position = Vector3.MoveTowards(transform.position, targetPos, speed);
+          
             yield return null;
+            
         }
         transform.position = targetPos;
         isMoving = false;

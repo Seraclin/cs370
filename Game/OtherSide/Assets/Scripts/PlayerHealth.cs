@@ -11,6 +11,7 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] Slider slider;
     [SerializeField] bool invincibility;
     [SerializeField] float invincibilityTime;
+    [SerializeField] PlayerController pc;
 
 
 
@@ -23,6 +24,7 @@ public class PlayerHealth : MonoBehaviour
             health += h;
             slider.value = health;
             invincibility = true;
+            TakeDamage();
             Invoke("RemoveInvincibility", invincibilityTime);
         }
         else
@@ -31,7 +33,10 @@ public class PlayerHealth : MonoBehaviour
             slider.value = health;
         }
     }
+    void TakeDamage()
+    {
 
+    }
     void RemoveInvincibility()
     {
         invincibility = false;

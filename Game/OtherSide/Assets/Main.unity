@@ -5407,8 +5407,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: 2.5, y: 0}
-  m_SizeDelta: {x: -5, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &382980031
 GameObject:
@@ -5515,6 +5515,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0.02
   isMoving: 0
+  hit: 0
   Collidables:
     serializedVersion: 2
     m_Bits: 8
@@ -5619,6 +5620,7 @@ MonoBehaviour:
   slider: {fileID: 1513546194}
   invincibility: 0
   invincibilityTime: 1
+  pc: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -6578,7 +6580,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65b2dd8f2459649c18031e950b436c50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 0
+  damage: -10
 --- !u!1 &1513546192
 GameObject:
   m_ObjectHideFlags: 0

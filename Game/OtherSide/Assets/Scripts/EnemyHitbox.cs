@@ -5,6 +5,8 @@ using UnityEngine;
 public class EnemyHitbox : MonoBehaviour
 {
     [SerializeField] int damage; //Amount of damage done to player
+    int xForce;
+    int yForce;
 
     // Start is called before the first frame update
     void Start()
@@ -18,8 +20,28 @@ public class EnemyHitbox : MonoBehaviour
 
         if (collision.gameObject.tag == "Player")
         {
+            
+            //This code is probably bad
+            if(this.gameObject.transform.position.x<collision.gameObject.transform.position.x)
+            {
+            xForce = 1;
+            }
+            else
+            {
+            xForce = -1;
+            }
+            if (this.gameObject.transform.position.y < collision.gameObject.transform.position.y)
+            {
+                yForce = 1;
+            }
+            else
+            {
+                yForce = -1;
+            }
             PlayerHealth pHealth = collision.gameObject.GetComponent<PlayerHealth>();
-            pHealth.ChangeHealth(-10);
+            PlayerController pc = collision.gameObject.GetComponent<PlayerController>();
+            pHealth.ChangeHealth(damage);
+            pc.CollisionForce(xForce, yForce);
         }
     }
 }
