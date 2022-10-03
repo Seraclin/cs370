@@ -12,6 +12,7 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] bool invincibility;
     [SerializeField] float invincibilityTime;
     [SerializeField] PlayerController pc;
+    [SerializeField] Collider2D col;
 
 
 
@@ -24,7 +25,15 @@ public class PlayerHealth : MonoBehaviour
             health += h;
             slider.value = health;
             invincibility = true;
-            TakeDamage();
+            if(health < 0)
+            {
+                //FOR TESTING PURPOSES
+                Debug.Log("YOU DIED :)");
+                health = 100;
+                slider.value = health;
+            }
+            
+            col.enabled = false ;
             Invoke("RemoveInvincibility", invincibilityTime);
         }
         else
@@ -33,12 +42,10 @@ public class PlayerHealth : MonoBehaviour
             slider.value = health;
         }
     }
-    void TakeDamage()
-    {
-
-    }
+   
     void RemoveInvincibility()
     {
+        col.enabled = true;
         invincibility = false;
     }
 }
