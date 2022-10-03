@@ -12,6 +12,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] bool isMoving = false;
     [SerializeField] LayerMask Collidables;
     Vector2 input;
+    
     public GameObject player;
    
 
@@ -71,6 +72,7 @@ public class Enemy : MonoBehaviour
 
         if (Physics2D.OverlapCircle(targetPos, 0.4f, Collidables) != null)
         {
+           
             return false;
         }
 
@@ -79,14 +81,16 @@ public class Enemy : MonoBehaviour
 
 
     //The green circle collider around the enemy is the enemy's range -JC
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStayEnemy(Collider2D collision)
     {
    
         if (collision.gameObject.tag =="Player")
         {
             player = collision.gameObject;
-            Debug.Log("FoundPlayer");
+            
         }
     }
+
+    
 }
 
