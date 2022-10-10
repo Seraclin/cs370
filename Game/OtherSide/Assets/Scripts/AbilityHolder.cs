@@ -47,6 +47,7 @@ public class AbilityHolder : MonoBehaviour
                 }
                 else // ability timeup, go on cooldown
                 {
+                    ability.Deactivate(gameObject);
                     state = AbilityState.cooldown;
                     cooldownTime = ability.cooldownTime;
                 }

@@ -25,4 +25,5 @@ public class Ability : ScriptableObject
     // You can also add methods here
     public virtual void Activate(GameObject parent) { } // override this method for custom ability activation
 
+    public virtual void Deactivate(GameObject parent) { } // override this method for custom ability deactivation
 }
