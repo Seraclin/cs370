@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c3e8634b1f598e84f9ca5c47616160e0, type: 3}
-  m_Name: Melee
+  m_Name: Melee_Basic
   m_EditorClassIdentifier: 
-  abilityIcon: {fileID: 0}
-  abilityName: 
-  abilityDescription: 
-  cooldownTime: 0.5
-  activeTime: 0.3
+  abilityIcon: {fileID: 21300000, guid: 6333bfd578c18124198d670a203a1c63, type: 3}
+  abilityName: Spew
+  abilityDescription: A basic short-ranged ability
+  cooldownTime: 0.3
+  activeTime: 0.15
   damage: 10
   cost: 0
   meleeInstance: {fileID: 9088384887100896540, guid: f32dab9a53f4d444bae9b06530751bf6, type: 3}
