@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Melee_Basic
   m_EditorClassIdentifier: 
   abilityIcon: {fileID: 21300000, guid: 6333bfd578c18124198d670a203a1c63, type: 3}
-  abilityName: Spew
+  abilityName: Melee_basic
   abilityDescription: A basic short-ranged ability
   cooldownTime: 0.3
   activeTime: 0.15
