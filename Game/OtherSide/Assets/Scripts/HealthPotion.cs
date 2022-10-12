@@ -6,7 +6,6 @@ public class HealthPotion : MonoBehaviour
 {
     [SerializeField] int healing;
     public PlayerHealth pHealth;
-    public bool inventory;
 
     public void DoInteraction()
     {

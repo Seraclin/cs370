@@ -13,12 +13,9 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] float invincibilityTime;
     [SerializeField] PlayerController pc;
     [SerializeField] Collider2D col;
-    [SerializeField] GameObject DeathScreen;
 
-    private void Start()
-    {
-        this.gameObject.GetComponent<PlayerController>().enabled = true;
-    }
+
+
 
     public void ChangeHealth(int h)
     {
@@ -31,7 +28,8 @@ public class PlayerHealth : MonoBehaviour
             if(health < 0)
             {
                 //FOR TESTING PURPOSES
-                YouDied();
+                Debug.Log("YOU DIED :)");
+                health = 100;
                 slider.value = health;
             }
             
@@ -49,10 +47,5 @@ public class PlayerHealth : MonoBehaviour
     {
         col.enabled = true;
         invincibility = false;
-    }
-    void YouDied()
-    {
-        this.gameObject.SetActive(false);
-        Instantiate(DeathScreen);
     }
 }

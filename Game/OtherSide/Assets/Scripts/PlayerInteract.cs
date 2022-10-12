@@ -6,9 +6,8 @@ public class PlayerInteract : MonoBehaviour
 {
 
     public GameObject currentInteractable = null; //Variable for if we implement an "Interact" key
-    public Interactables currentInterObjScript = null;
-    public Inventory inventory;
-    [SerializeField] private bool triggerActive = false;
+    //public Interactables currentInterObjScript = null;
+    //public Inventory inventory;
 
     void Start()
     {
@@ -17,43 +16,7 @@ public class PlayerInteract : MonoBehaviour
 
     void Update()
     {
-        if (triggerActive)
-        {
-            //check if item goes into inventory
-            if (currentInterObjScript.inventory)
-            {
-                inventory.addItem(currentInteractable);
-            }
-            else if (currentInterObjScript.openable)
-            {
-                if (currentInterObjScript.locked)//is locked?
-                {
-                    //searching through inventory to find item
-                    if (inventory.FindItem(currentInterObjScript.itemNeeded))
-                    {
-                        //door is unlocked
-                        currentInterObjScript.locked = false;
-                        Debug.Log("unlocked");
-                    }
-                    else
-                    {
-                        Debug.Log("Still locked");
-                    }
-                }
-                //NOT locked
-
-                else
-                {
-                    Debug.Log("Opened");
-                    currentInteractable.SendMessage("DoInteraction");
-                }
-            }
-            else
-            {
-                currentInteractable.SendMessage("DoInteraction"); //automatic interaction
-            }
-
-        }
+        currentInteractable.SendMessage("DoInteraction"); //automatic interaction
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -62,9 +25,8 @@ public class PlayerInteract : MonoBehaviour
         if (other.gameObject.tag == "Inter")//function for if we use interact key
         {
             //Debug.Log(other.name); //testing
-            triggerActive = true;
             currentInteractable = other.gameObject;
-            currentInterObjScript = currentInteractable.GetComponent<Interactables>();
+            //currentInterObjScript = currentInteractable.GetComponent<Interactables>();
         }
         
 
@@ -76,7 +38,6 @@ public class PlayerInteract : MonoBehaviour
         {
             if (other.gameObject == currentInteractable.gameObject)
             {
-                triggerActive = false;
                 currentInteractable = null;
             }
             
