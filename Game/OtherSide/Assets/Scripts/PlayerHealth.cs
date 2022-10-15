@@ -13,6 +13,7 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] float invincibilityTime;
     [SerializeField] PlayerController pc;
     [SerializeField] Collider2D col;
+    [SerializeField] GameObject gameOverScreen;
 
 
 
@@ -28,7 +29,10 @@ public class PlayerHealth : MonoBehaviour
             if(health < 0)
             {
                 //FOR TESTING PURPOSES
-                Debug.Log("YOU DIED :)");
+                Debug.Log("u died");
+                GameObject newScreen = Instantiate(gameOverScreen);
+                newScreen.SetActive(true);
+                this.gameObject.SetActive(false);
                 health = 100;
                 slider.value = health;
             }
