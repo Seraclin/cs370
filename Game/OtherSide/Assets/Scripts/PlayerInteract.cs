@@ -33,18 +33,18 @@ public class PlayerInteract : MonoBehaviour
                     {
                         //door is unlocked
                         currentInterObjScript.locked = false;
-                        Debug.Log("unlocked");
+                        //Debug.Log("unlocked");
                     }
                     else
                     {
-                        Debug.Log("Still locked");
+                        //Debug.Log("Still locked");
                     }
                 }
                 //NOT locked
 
                 else
                 {
-                    Debug.Log("Opened");
+                    //Debug.Log("Opened");
                     currentInteractable.SendMessage("DoInteraction");
                 }
             }
