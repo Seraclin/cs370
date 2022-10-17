@@ -42,7 +42,7 @@ public class AbilityHolder : MonoBehaviour
             case AbilityState.active:
                 // what to do while ability is active or not
                 if (activeTime > 0)
-                { // TODO: might need to tweak this logic
+                { // TODO: might need to tweak this logic, if you want to deactivate early
                     activeTime -= Time.deltaTime;
                 }
                 else // ability timeup, go on cooldown

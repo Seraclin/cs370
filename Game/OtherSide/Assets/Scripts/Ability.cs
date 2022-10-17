@@ -23,7 +23,7 @@ public class Ability : ScriptableObject
     // ability range depends on the ability
     // audio should be handled by SoundManager (?)
     // You can also add methods here
-    public virtual void Activate(GameObject parent) { } // override this method for custom ability activation
+    public virtual void Activate(GameObject parent) { } // override this method for custom ability activation, maybe should return a bool
 
-    public virtual void Deactivate(GameObject parent) { } // override this method for custom ability deactivation
+    public virtual void Deactivate(GameObject parent) { } // override this method for custom ability deactivation, maybe should return a bool
 }

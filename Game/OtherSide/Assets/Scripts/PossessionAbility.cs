@@ -1,0 +1,94 @@
+using System.Collections;
+using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEngine;
+using static UnityEngine.RuleTile.TilingRuleOutput;
+/*
+ * This is the possession ability for the Player only. 
+ * You can think of this similar to Cappy in Mario Odyssey, where the player can possess a target,
+ * and temporarily gain different skills depending on the enemy.
+ * Currently, this only prints to the console, when the button is pressed, who's the closest possessable entity in range.
+ * It also changes the player sprite to that entity.
+ */
+[CreateAssetMenu(fileName = "New_PossessionAbility", menuName = "Scripts/PossessionAbility", order = 3)]
+
+public class PossessionAbility : Ability
+{
+    public Collider2D possessCollider; // possession collider, TODO: add
+    public float radius; // possession circular radius, currently using this for testing
+    public Sprite indicator; // something to indicate you are possessing something? TBD
+    public Sprite playerSprite; // player's original sprite
+    public float duration; // max duration you can possess something?
+    public float stamina; // a resource linked to possesion? TBD
+
+    [SerializeField] public KeyCode quitKey; // assign button in editor to quit possession early
+
+
+    private List<GameObject> possessable; // tracks what possessable objects are in-range
+    private GameObject closest = null; // closest thing to possess
+    private List<Ability> abilities; // tracks what abilities are granted during possession, currently unused
+
+
+
+
+    /* Activate is called when the skill is active
+     * define ability behavior: changes the player sprite to the closest enemy   
+     */
+    public override void Activate(GameObject parent)
+    {
+        Debug.Log("Possession button pressed");
+        // Vector3 playerPosition = parent.transform.position; // player's position
+        float minDistance = 0;
+        if(possessable.Count == 0) // if list is empty
+        {
+            Debug.Log("No possessable objects in range");
+            return;
+        }
+
+        Debug.Log("Possesion Activated");
+
+
+        foreach (GameObject obj in possessable)
+        {
+            float distance = (parent.transform.position - obj.transform.position).sqrMagnitude;
+            if(closest == null || distance < minDistance)
+            {
+                closest = obj;
+                minDistance = distance;
+            }
+        }
+
+        // Turn player sprite to the game object sprite, might mess up animations
+        parent.GetComponent<SpriteRenderer>().sprite = closest.GetComponent<SpriteRenderer>().sprite; // changes player's sprite to the possessed object's sprite
+        
+        // Move the player's position to in front of that possessed object's position? TODO: not used currently, Adjust later
+        // parent.transform.position = (closest.transform.position + new Vector3(-1, -1, 0));
+
+        // TODO: add enemy abilities to player
+        // TODO: destroy the enemy object
+
+        // TODO: Quit possession early
+        if (Input.GetKeyDown(quitKey))
+        {
+            Debug.Log("Possession deactivated early");
+
+        }
+
+    }
+
+    /* Deactivate is called when the skill is cooldown
+    *  Unposses the enemy
+    */
+    public override void Deactivate(GameObject parent)
+    {
+        Debug.Log("Possession deactivated");
+        parent.GetComponent<SpriteRenderer>().sprite = playerSprite; // changes player's sprite back to what it was orignally
+        // TODO: remove enemy abilities from player
+    }
+
+    private void checkPossessable() // adds valid possessable objects to possessable list
+    {
+        // TODO: determine what's possessable
+        // For now I just add the starting enemy
+    }
+}

@@ -5868,7 +5868,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b68073736887c84fb108fd9ead20d1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ability: {fileID: 11400000, guid: 76c7cc203abec1d45b9257bc89786da0, type: 2}
+  ability: {fileID: 11400000, guid: a3bb4efaa0c2a5642818f5d71552d6b2, type: 2}
   key: 32
 --- !u!1 &946819977 stripped
 GameObject:
@@ -6266,6 +6266,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f22379d52a4f4111baf53a4d764eff1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healing: 0
+  pHealth: {fileID: 0}
+  inventory: 0
+  openable: 0
+  locked: 0
+  itemNeeded: {fileID: 0}
 --- !u!58 &1328631021
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -6404,6 +6410,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healing: 50
   pHealth: {fileID: 1772144060888275838}
+  inventory: 0
 --- !u!58 &1430473422
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -8045,6 +8052,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentInteractable: {fileID: 0}
+  currentInterObjScript: {fileID: 0}
+  inventory: {fileID: 0}
+  triggerActive: 0
 --- !u!114 &1772144060888275838 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1772144060732249265, guid: 5aa8d1c6e81f043609b2142c3012d7ca, type: 3}
@@ -8142,6 +8152,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5544111371020350159, guid: 6f92e0745deec4d7dbc6dbd9804899d2, type: 3}
       propertyPath: m_Name
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 5544111371020350159, guid: 6f92e0745deec4d7dbc6dbd9804899d2, type: 3}
+      propertyPath: m_TagString
       value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 5544111371390996896, guid: 6f92e0745deec4d7dbc6dbd9804899d2, type: 3}
