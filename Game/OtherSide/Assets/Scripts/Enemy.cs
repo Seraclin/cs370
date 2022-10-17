@@ -12,6 +12,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] bool isMoving = false;
     [SerializeField] LayerMask Collidables;
     Vector2 input;
+    [SerializeField] SpriteRenderer ren;
     
     public GameObject player;
    
@@ -21,10 +22,13 @@ public class Enemy : MonoBehaviour
             if(player.transform.position.x <this.transform.position.x)
             {
                 input.x = -1;
+                ren.flipX = false;
+                
             }
             else
             {
                 input.x = 1;
+                ren.flipX = true;
 
             }
 
@@ -60,7 +64,7 @@ public class Enemy : MonoBehaviour
         while ((targetPos - transform.position).sqrMagnitude > Mathf.Epsilon)
         {
   
-            transform.position = Vector3.MoveTowards(transform.position, targetPos, speed);
+            transform.position = Vector3.MoveTowards(transform.position, targetPos, speed*Time.deltaTime);
             yield return null;
         }
         transform.position = targetPos;

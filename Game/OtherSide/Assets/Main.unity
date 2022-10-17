@@ -5890,6 +5890,11 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_EffectDistance: {x: 1, y: -1}
   m_UseGraphicAlpha: 1
+--- !u!212 &946819993 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 5544111371020350148, guid: 6f92e0745deec4d7dbc6dbd9804899d2, type: 3}
+  m_PrefabInstance: {fileID: 5544111372211661420}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1227821105
 GameObject:
   m_ObjectHideFlags: 0
@@ -6534,7 +6539,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1536712424
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7904,8 +7909,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1536712423}
     - target: {fileID: 1772144060732249268, guid: 5aa8d1c6e81f043609b2142c3012d7ca, type: 3}
+      propertyPath: ren
+      value: 
+      objectReference: {fileID: 1772144060888275845}
+    - target: {fileID: 1772144060732249268, guid: 5aa8d1c6e81f043609b2142c3012d7ca, type: 3}
       propertyPath: speed
-      value: 0.4
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 1772144060732249271, guid: 5aa8d1c6e81f043609b2142c3012d7ca, type: 3}
       propertyPath: m_RootOrder
@@ -8071,6 +8080,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1772144060732249271, guid: 5aa8d1c6e81f043609b2142c3012d7ca, type: 3}
   m_PrefabInstance: {fileID: 1772144060888275830}
   m_PrefabAsset: {fileID: 0}
+--- !u!212 &1772144060888275845 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 1772144060732249270, guid: 5aa8d1c6e81f043609b2142c3012d7ca, type: 3}
+  m_PrefabInstance: {fileID: 1772144060888275830}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5544111372211661420
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8137,6 +8151,14 @@ PrefabInstance:
     - target: {fileID: 5544111371020350149, guid: 6f92e0745deec4d7dbc6dbd9804899d2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5544111371020350150, guid: 6f92e0745deec4d7dbc6dbd9804899d2, type: 3}
+      propertyPath: ren
+      value: 
+      objectReference: {fileID: 946819993}
+    - target: {fileID: 5544111371020350150, guid: 6f92e0745deec4d7dbc6dbd9804899d2, type: 3}
+      propertyPath: speed
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 5544111371020350153, guid: 6f92e0745deec4d7dbc6dbd9804899d2, type: 3}
       propertyPath: m_Color.b
