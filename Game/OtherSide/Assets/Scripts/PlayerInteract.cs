@@ -9,6 +9,7 @@ public class PlayerInteract : MonoBehaviour
     public Interactables currentInterObjScript = null;
     public Inventory inventory;
     [SerializeField] private bool triggerActive = false;
+    [SerializeField] public KeyCode key;
 
     void Start()
     {
@@ -17,8 +18,14 @@ public class PlayerInteract : MonoBehaviour
 
     void Update()
     {
-        if (triggerActive)
+        if (triggerActive && Input.GetKeyDown(key))
         {
+            if (currentInterObjScript.isChest)
+            {
+                currentInteractable.SendMessage("openChest");
+                return;
+            }
+
             //check if item goes into inventory
             if (currentInterObjScript.inventory)
             {

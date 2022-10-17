@@ -9,15 +9,33 @@ public class Interactables : MonoBehaviour
     public bool inventory; // check if item can be put into inventory
     public bool openable; // check if item is openable
     public bool locked; // check if item is locked
-    public GameObject itemNeeded; //Item needed to interact
+    public GameObject itemNeeded;//Item needed to interact
+
+    //chest values
+    public bool isChest;
+    public GameObject itemInChest;
+    private bool chestOpened;
+    public Transform spawnPoint;
     
     public void DoInteraction()
     {
         //pick up use/store.
         gameObject.SetActive(false);
 
+        if (healing != 0)
+        {
+            pHealth.ChangeHealth(healing);
+        }
+    }
 
-        pHealth.ChangeHealth(healing);
+    public void openChest()
+    {
+        if (!chestOpened)
+        {
+            chestOpened = true;
+            //GameObject item = Instantiate(itemInChest, spawnPoint.position, spawnPoint.rotation) as GameObject;
+            itemInChest.transform.position = spawnPoint.position;
+        }
     }
     
 }
