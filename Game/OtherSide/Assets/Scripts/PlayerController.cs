@@ -17,6 +17,8 @@ public class PlayerController : MonoBehaviour
     Vector2 input; //Input by players (Example: The "Up" button) -JC
     [SerializeField] float speed;
     [SerializeField] bool isMoving = false;
+
+    [SerializeField] SpriteRenderer ren;
     //Used for grid-based movement later on
 
     /*This is an InEngine layer which is pretty much is everything the player can collide with
@@ -25,6 +27,7 @@ public class PlayerController : MonoBehaviour
      * Fore example: The sky, clouds, etc -JC
      */
     [SerializeField] LayerMask Collidables;
+ 
     
 
     // Start is called before the first frame update
@@ -44,6 +47,18 @@ public class PlayerController : MonoBehaviour
         //Built-in Unity functions for player inputs
         input.x = Input.GetAxisRaw("Horizontal"); 
         input.y = Input.GetAxisRaw("Vertical");
+
+        //For flipping animation
+        if (input.x > 0)
+        {
+               ren.flipX = true;
+               
+        }
+        if (input.x < 0)
+        {
+                ren.flipX = false;
+                
+        }
 
         //If input!=Zero then that means a button is being pressed -JC
         if (input != Vector2.zero && !isMoving)
@@ -66,7 +81,7 @@ public class PlayerController : MonoBehaviour
         isMoving = true;
      while((targetPos-transform.position).sqrMagnitude > Mathf.Epsilon)
         {
-            transform.position = Vector3.MoveTowards(transform.position, targetPos, speed);
+            transform.position = Vector3.MoveTowards(transform.position, targetPos, speed*Time.deltaTime);
           
             yield return null;
             

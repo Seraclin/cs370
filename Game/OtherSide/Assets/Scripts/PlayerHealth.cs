@@ -28,8 +28,7 @@ public class PlayerHealth : MonoBehaviour
             invincibility = true;
             if(health < 0)
             {
-                //FOR TESTING PURPOSES
-                Debug.Log("u died");
+                //RESTART GAME -JC
                 GameObject newScreen = Instantiate(gameOverScreen);
                 newScreen.SetActive(true);
                 this.gameObject.SetActive(false);
