@@ -6672,34 +6672,13 @@ GameObject:
   m_Component:
   - component: {fileID: 1638187216}
   - component: {fileID: 1638187215}
-  - component: {fileID: 1638187214}
   m_Layer: 0
-  m_Name: ghost_placeholder_idle_spritesheet_0
-  m_TagString: Untagged
+  m_Name: possession_placeholder
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!95 &1638187214
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1638187213}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 542a74b0d762a6841a399df353cbe219, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!212 &1638187215
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6741,7 +6720,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 208273754, guid: d86522a706148a947b7f7331663a197f, type: 3}
+  m_Sprite: {fileID: -731001344, guid: 1dcf0bdb89af0b54da7f37d7cf4a1297, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -7907,6 +7886,10 @@ PrefabInstance:
       propertyPath: speed
       value: 0.4
       objectReference: {fileID: 0}
+    - target: {fileID: 1772144060732249270, guid: 5aa8d1c6e81f043609b2142c3012d7ca, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 208273754, guid: d86522a706148a947b7f7331663a197f, type: 3}
     - target: {fileID: 1772144060732249271, guid: 5aa8d1c6e81f043609b2142c3012d7ca, type: 3}
       propertyPath: m_RootOrder
       value: 0

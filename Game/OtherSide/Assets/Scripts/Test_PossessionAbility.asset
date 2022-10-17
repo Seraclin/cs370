@@ -15,8 +15,8 @@ MonoBehaviour:
   abilityIcon: {fileID: -313928177, guid: 1dcf0bdb89af0b54da7f37d7cf4a1297, type: 3}
   abilityName: Possess
   abilityDescription: Temporarily control an enemy.
-  cooldownTime: 2
-  activeTime: 20
+  cooldownTime: 0
+  activeTime: 5
   damage: 0
   cost: 0
   possessCollider: {fileID: 0}
