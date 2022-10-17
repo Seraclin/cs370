@@ -19,27 +19,31 @@ public class Enemy : MonoBehaviour
 
     void FixedUpdate()
     { if (player != null) {
-            if(player.transform.position.x <this.transform.position.x)
-            {
-                input.x = -1;
-                ren.flipX = false;
-                
-            }
-            else
-            {
-                input.x = 1;
-                ren.flipX = true;
 
-            }
-
-            if (player.transform.position.y < this.transform.position.y)
+            if (player.GetComponent<SpriteRenderer>().color.a > 0.5f)
             {
-                input.y = -1;
-            }
-            else
-            {
-                input.y = 1;
+                if (player.transform.position.x < this.transform.position.x)
+                {
+                    input.x = -1;
+                    ren.flipX = false;
 
+                }
+                else
+                {
+                    input.x = 1;
+                    ren.flipX = true;
+
+                }
+
+                if (player.transform.position.y < this.transform.position.y)
+                {
+                    input.y = -1;
+                }
+                else
+                {
+                    input.y = 1;
+
+                }
             }
 
 

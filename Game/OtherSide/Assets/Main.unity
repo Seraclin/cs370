@@ -8239,6 +8239,20 @@ SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 1772144060732249270, guid: 5aa8d1c6e81f043609b2142c3012d7ca, type: 3}
   m_PrefabInstance: {fileID: 1772144060888275830}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1772144060888275850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 897331065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b68073736887c84fb108fd9ead20d1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ability: {fileID: 11400000, guid: 20b553c2a7ce7584fab1f3428fabcc1a, type: 2}
+  key: 99
 --- !u!1001 &5544111372211661420
 PrefabInstance:
   m_ObjectHideFlags: 0
