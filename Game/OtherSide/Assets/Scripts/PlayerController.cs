@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviour
      * Fore example: The sky, clouds, etc -JC
      */
     [SerializeField] LayerMask Collidables;
-    int oldDir = -1;
+ 
     
 
     // Start is called before the first frame update
@@ -47,15 +47,17 @@ public class PlayerController : MonoBehaviour
         //Built-in Unity functions for player inputs
         input.x = Input.GetAxisRaw("Horizontal"); 
         input.y = Input.GetAxisRaw("Vertical");
+
+        //For flipping animation
         if (input.x > 0)
         {
                ren.flipX = true;
-                oldDir = 1; 
+               
         }
         if (input.x < 0)
         {
                 ren.flipX = false;
-                oldDir = -1;
+                
         }
 
         //If input!=Zero then that means a button is being pressed -JC

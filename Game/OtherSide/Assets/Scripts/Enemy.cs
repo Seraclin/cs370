@@ -11,10 +11,10 @@ public class Enemy : MonoBehaviour
     [SerializeField] float speed;
     [SerializeField] bool isMoving = false;
     [SerializeField] LayerMask Collidables;
-    Vector2 input;
+    [SerializeField] Vector2 input;
     [SerializeField] SpriteRenderer ren;
-    
-    public GameObject player;
+
+    [SerializeField] GameObject player;
    
 
     void FixedUpdate()
