@@ -14,8 +14,9 @@ public class Enemy : MonoBehaviour
     [SerializeField] Vector2 input;
     [SerializeField] SpriteRenderer ren;
 
-    [SerializeField] GameObject player;
-   
+    [SerializeField] public GameObject player;
+    [SerializeField] public bool isDead = false;
+
 
     void FixedUpdate()
     { if (player != null) {
@@ -94,6 +95,7 @@ public class Enemy : MonoBehaviour
    
         if (collision.gameObject.tag =="Player")
         {
+            Debug.Log("Player detected");
             player = collision.gameObject;
             
         }

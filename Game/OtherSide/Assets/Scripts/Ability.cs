@@ -17,7 +17,7 @@ public class Ability : ScriptableObject
 
     [SerializeField] public float cooldownTime; // ability cooldown in seconds
     [SerializeField] public float activeTime; // ability duration in seconds
-    [SerializeField] public float damage; // ability damage to enemies
+    [SerializeField] public int damage; // ability damage to enemies
     [SerializeField] public int cost; // how much ability costs resource-wise, ints for now
 
     // ability range depends on the ability

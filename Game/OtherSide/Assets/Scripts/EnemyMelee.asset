@@ -9,13 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c612413694f96a41aa825e58862e353, type: 3}
-  m_Name: PhaseAbility
+  m_Script: {fileID: 11500000, guid: c3e8634b1f598e84f9ca5c47616160e0, type: 3}
+  m_Name: EnemyMelee
   m_EditorClassIdentifier: 
   abilityIcon: {fileID: 21300000, guid: 6333bfd578c18124198d670a203a1c63, type: 3}
-  abilityName: Phase
+  abilityName: 
   abilityDescription: 
-  cooldownTime: 5
-  activeTime: 3
-  damage: 0
+  cooldownTime: 3
+  activeTime: 0.5
+  damage: -20
   cost: 0
+  meleeInstance: {fileID: 9088384887100896540, guid: f32dab9a53f4d444bae9b06530751bf6, type: 3}
+  owner: {fileID: 0}
