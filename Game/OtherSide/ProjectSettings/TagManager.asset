@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - Inter
+  - Ability
   layers:
   - Default
   - TransparentFX

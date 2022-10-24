@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 7739128195428349963}
   - component: {fileID: 8216082288583306630}
   - component: {fileID: 5483284061912549221}
+  - component: {fileID: 5852002620956642464}
   m_Layer: 0
   m_Name: Melee_Basic_hitbox
-  m_TagString: Untagged
+  m_TagString: Ability
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -111,3 +112,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.5, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &5852002620956642464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9088384887100896540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fba4ccd35818c99488c25aa5f25d3842, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageA: -20
+  durationA: 5
