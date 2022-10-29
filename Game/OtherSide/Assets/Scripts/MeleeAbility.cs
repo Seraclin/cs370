@@ -31,12 +31,12 @@ public class MeleeAbility : Ability
         if (ren.flipX)
         {
             meleeInstance.GetComponent<SpriteRenderer>().flipX = false;
-            cloneSkillPrefab = Instantiate(meleeInstance, spawnPosition.position + new Vector3(1, 0, 0), spawnPosition.rotation);
+            cloneSkillPrefab = Instantiate(meleeInstance, spawnPosition.position + new Vector3(1, 0, 0), spawnPosition.rotation,parent.transform);
         }
         else
         {
             meleeInstance.GetComponent<SpriteRenderer>().flipX = true;
-            cloneSkillPrefab = Instantiate(meleeInstance, spawnPosition.position - new Vector3(1, 0, 0), spawnPosition.rotation);
+            cloneSkillPrefab = Instantiate(meleeInstance, spawnPosition.position - new Vector3(1, 0, 0), spawnPosition.rotation,parent.transform);
         }
         
     }
