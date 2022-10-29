@@ -23,3 +23,4 @@ MonoBehaviour:
   projectileRange: 100
   projectileSpeed: 2
   projectileSize: 1
+  fireballInstance: {fileID: 252192651959519564, guid: d33da0af3bcf14ca883bd0a90874d0dd, type: 3}

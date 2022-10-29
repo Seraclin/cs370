@@ -3144,6 +3144,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
+  m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -3286,6 +3287,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1492188676016683495, guid: ecfb3ab26ae1f4b188c68a2c1f3fa495, type: 3}
@@ -3341,6 +3343,7 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: ecfb3ab26ae1f4b188c68a2c1f3fa495, type: 3}
 --- !u!1 &213175010 stripped
 GameObject:
@@ -5752,6 +5755,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 4987936480329219728, guid: e9026641560724127a3d04a4392e6d96, type: 3}
@@ -5807,6 +5811,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: e9026641560724127a3d04a4392e6d96, type: 3}
 --- !u!1 &503339289
 GameObject:
@@ -5960,6 +5965,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1581008643133770871, guid: 002bc1e9bed104138942f7df58a735a0, type: 3}
@@ -6011,6 +6017,7 @@ PrefabInstance:
       value: Door (Unlocked)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 002bc1e9bed104138942f7df58a735a0, type: 3}
 --- !u!1 &580061868
 GameObject:
@@ -6062,6 +6069,7 @@ TilemapCollider2D:
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0.00001
+  m_UseDelaunayMesh: 0
 --- !u!483693784 &580061871
 TilemapRenderer:
   m_ObjectHideFlags: 0
@@ -6299,6 +6307,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 653245379444602898, guid: 3f4c57cb408524da197d7fee66e92a03, type: 3}
@@ -6354,6 +6363,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 3f4c57cb408524da197d7fee66e92a03, type: 3}
 --- !u!1 &687180497
 GameObject:
@@ -6888,6 +6898,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 8024846704086168208, guid: 0ae35fe0ff1a54adf84413712e94fea3, type: 3}
@@ -6947,6 +6958,7 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 213175010}
     m_RemovedComponents: []
+    m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ae35fe0ff1a54adf84413712e94fea3, type: 3}
 --- !u!1 &897331065 stripped
 GameObject:
@@ -7505,6 +7517,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
+  m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -7739,6 +7752,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 7182387741111805836, guid: 0db40888fcf8048b4ba1ccb7f8123542, type: 3}
@@ -7794,6 +7808,7 @@ PrefabInstance:
       value: Health Potion (50)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 0db40888fcf8048b4ba1ccb7f8123542, type: 3}
 --- !u!1 &1711154743
 GameObject:
@@ -7845,6 +7860,7 @@ TilemapCollider2D:
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0.00001
+  m_UseDelaunayMesh: 0
 --- !u!483693784 &1711154746
 TilemapRenderer:
   m_ObjectHideFlags: 0
@@ -8846,7 +8862,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_SendPointerHoverToParent: 1
   m_HorizontalAxis: Horizontal
   m_VerticalAxis: Vertical
   m_SubmitButton: Submit
@@ -8889,6 +8904,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 6037641397817622017, guid: dd61190b2717e4cac972cb03fe9cb8cc, type: 3}
@@ -8940,12 +8956,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: dd61190b2717e4cac972cb03fe9cb8cc, type: 3}
 --- !u!1001 &1772144060888275830
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1772144059446901415, guid: 5aa8d1c6e81f043609b2142c3012d7ca, type: 3}
@@ -9101,6 +9119,13 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 1772144060732249271, guid: 5aa8d1c6e81f043609b2142c3012d7ca, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1536712427}
+    - targetCorrespondingSourceObject: {fileID: 1772144060732249271, guid: 5aa8d1c6e81f043609b2142c3012d7ca, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 89900715}
   m_SourcePrefab: {fileID: 100100000, guid: 5aa8d1c6e81f043609b2142c3012d7ca, type: 3}
 --- !u!114 &1772144060888275832
 MonoBehaviour:
@@ -9186,11 +9211,26 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+--- !u!114 &1772144060888275860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 897331065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b68073736887c84fb108fd9ead20d1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ability: {fileID: 11400000, guid: 76c7cc203abec1d45b9257bc89786da0, type: 2}
+  key: 0
 --- !u!1001 &5544111372211661420
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 5544111371020350148, guid: 6f92e0745deec4d7dbc6dbd9804899d2, type: 3}
@@ -9286,4 +9326,5 @@ PrefabInstance:
       value: -25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 6f92e0745deec4d7dbc6dbd9804899d2, type: 3}
