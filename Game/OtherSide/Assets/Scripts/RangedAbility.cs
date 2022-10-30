@@ -18,9 +18,9 @@ public class RangedAbility : Ability
     private Transform spawnPosition; // position of generating the instance
     //public int projectileRange; // how far the projectile can travel in pixels
     private GameObject cloneSkillPrefab; // store generated ability object
-    private SpriteRenderer ren;
+
     private Vector3 direction;
-    public float projectileSpeed; // how fast the projectile travels across the range
+    public float projectileSpeed; // how fast the projectile travels across the range, it's actually the force
     //public float projectileSize; // how big the projectile is
     // public float projectileDuration; // how long the projectile exists, don't need this if we have an 'activeTime' in the base Ability class
     // Two options: calculate predetermined distance by having projectile travel from start to projectileRange at 'speed', or we can have it only last for a 'duration' and it travels at 'speed'
@@ -30,7 +30,7 @@ public class RangedAbility : Ability
         Debug.Log("Range Ability activated");
 
         spawnPosition = parent.transform;
-        ren = parent.GetComponent<SpriteRenderer>();
+
 
         Vector3 mousePosition = Input.mousePosition;
         mousePosition.z = Camera.main.transform.position.z * -1;

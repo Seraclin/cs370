@@ -16,7 +16,7 @@ MonoBehaviour:
   abilityName: Melee_basic
   abilityDescription: A basic short-ranged ability
   cooldownTime: 0.3
-  activeTime: 0.15
+  activeTime: 0.5
   damage: 10
   cost: 0
   meleeInstance: {fileID: 9088384887100896540, guid: f32dab9a53f4d444bae9b06530751bf6, type: 3}
