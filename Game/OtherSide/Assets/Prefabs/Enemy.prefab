@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: 5544111371020350152}
   - component: {fileID: 5544111371020350150}
   - component: {fileID: 5544111371020350144}
+  - component: {fileID: 946819986}
+  - component: {fileID: 946820001}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -79,13 +81,13 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 208273754, guid: d86522a706148a947b7f7331663a197f, type: 3}
+  m_SortingOrder: -4
+  m_Sprite: {fileID: 526839123, guid: dc621f968ea884545bf288451c230bd0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.16, y: 0.16}
+  m_Size: {x: 1, y: 2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -109,7 +111,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 1, y: 1}
-    newSize: {x: 0.16, y: 0.16}
+    newSize: {x: 1, y: 2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -133,7 +135,7 @@ Tilemap:
   m_TileColorArray: []
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_Origin: {x: 0, y: 0, z: 0}
   m_Size: {x: 0, y: 0, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
@@ -165,7 +167,7 @@ Animator:
   m_GameObject: {fileID: 5544111371020350159}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 542a74b0d762a6841a399df353cbe219, type: 2}
+  m_Controller: {fileID: 9100000, guid: c54d96119eafead4d919f3eb425b7ca9, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -187,13 +189,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91872f55b9a854c69a3be569791afaf0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.015
+  speed: 1.5
   isMoving: 0
   Collidables:
     serializedVersion: 2
     m_Bits: 8
   input: {x: 0, y: 0}
-  ren: {fileID: 0}
+  ren: {fileID: 5544111371020350148}
   player: {fileID: 0}
   isDead: 0
 --- !u!50 &5544111371020350144
@@ -217,6 +219,34 @@ Rigidbody2D:
   m_SleepingMode: 0
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!114 &946819986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5544111371020350159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfabb0440166ab443bba8876756fdfa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 1, y: -1}
+  m_UseGraphicAlpha: 1
+--- !u!114 &946820001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5544111371020350159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aeb88c9427d8ab6458c7b1b60f1d6978, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ability: {fileID: 11400000, guid: 11242807e9058db408f714bd55f18d5a, type: 2}
 --- !u!1 &5544111371390996900
 GameObject:
   m_ObjectHideFlags: 0
@@ -341,7 +371,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65b2dd8f2459649c18031e950b436c50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: -10
+  damage: -25
 --- !u!1 &8650384685090676381
 GameObject:
   m_ObjectHideFlags: 0

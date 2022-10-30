@@ -26,13 +26,13 @@ public class Enemy : MonoBehaviour
                 if (player.transform.position.x < this.transform.position.x)
                 {
                     input.x = -1;
-                    ren.flipX = false;
+                    ren.flipX = true;
 
                 }
                 else
                 {
                     input.x = 1;
-                    ren.flipX = true;
+                    ren.flipX = false;
 
                 }
 
