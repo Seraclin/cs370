@@ -89,17 +89,7 @@ public class Enemy : MonoBehaviour
     }
 
 
-    //The green circle collider around the enemy is the enemy's range -JC
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-   
-        if (collision.gameObject.tag =="Player")
-        {
-            Debug.Log("Player detected");
-            player = collision.gameObject;
-            
-        }
-    }
+    
 
     
 }

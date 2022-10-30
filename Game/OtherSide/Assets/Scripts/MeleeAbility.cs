@@ -15,7 +15,6 @@ public class MeleeAbility : Ability
     public GameObject meleeInstance; // The prefab of melee (currently it's a placeholder from the existing sprites)
     private Transform spawnPosition; // The position of generating the meleeInstance
     private GameObject cloneSkillPrefab; // Reference to the generated melee object
-    public GameObject owner;
     private SpriteRenderer ren;
 
     /* Activate is called when the skill is active
@@ -24,7 +23,6 @@ public class MeleeAbility : Ability
     public override void Activate(GameObject parent) 
     {
         Debug.Log("Melee Ability activated");
-        owner = parent;
         spawnPosition = parent.transform;
         ren = parent.GetComponent<SpriteRenderer>();
 
@@ -38,6 +36,7 @@ public class MeleeAbility : Ability
             meleeInstance.GetComponent<SpriteRenderer>().flipX = true;
             cloneSkillPrefab = Instantiate(meleeInstance, spawnPosition.position - new Vector3(1, 0, 0), spawnPosition.rotation,parent.transform);
         }
+        cloneSkillPrefab.tag = parent.tag + "Ability";
         
     }
 
