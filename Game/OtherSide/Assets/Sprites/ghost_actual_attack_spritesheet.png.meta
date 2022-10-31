@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: dc621f968ea884545bf288451c230bd0
+guid: a5e90616a2b7bf744b44ec87aa9eee05
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -49,7 +49,7 @@ TextureImporter:
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spriteGenerateFallbackPhysicsShape: 1
+  spriteGenerateFallbackPhysicsShape: 0
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -165,7 +165,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: enemy1_idle_spritesheet_0
+      name: ghost_actual_attack_spritesheet_0
       rect:
         serializedVersion: 2
         x: 0
@@ -179,14 +179,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c284c9c98bf0cfa46917e30e9e38afaf
-      internalID: 526839123
+      spriteID: 32d6a8ce49195be4f9c8862f7652c724
+      internalID: -1673083665
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy1_idle_spritesheet_1
+      name: ghost_actual_attack_spritesheet_1
       rect:
         serializedVersion: 2
         x: 16
@@ -200,8 +200,134 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e9a94a9343f3f4e4497d0b2bf774ba8b
-      internalID: 128122873
+      spriteID: e774c7f0cd79c874f9a9571f0b23bb75
+      internalID: -2030550983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ghost_actual_attack_spritesheet_2
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4254879ea32d3246bf4c0023aa7b0e9
+      internalID: 1424033212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ghost_actual_attack_spritesheet_3
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b78845eabf21544b97a4645de73e73f
+      internalID: -1185939351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ghost_actual_attack_spritesheet_4
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c823202532c2aa04b81d7cb5a74ac66d
+      internalID: 992289698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ghost_actual_attack_spritesheet_5
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b45abd1b675a3794991d2e368c86f3b5
+      internalID: 231400196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ghost_actual_attack_spritesheet_6
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 658500122740d99418099e2169b496e8
+      internalID: -681836145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ghost_actual_attack_spritesheet_7
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95deb37686184684ab58846af26bbfe7
+      internalID: 2099250616
       vertices: []
       indices: 
       edges: []
@@ -217,8 +343,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      enemy1_idle_spritesheet_1: 128122873
-      enemy1_idle_spritesheet_0: 526839123
+      ghost_actual_attack_spritesheet_7: 2099250616
+      ghost_actual_attack_spritesheet_1: -2030550983
+      ghost_actual_attack_spritesheet_5: 231400196
+      ghost_actual_attack_spritesheet_4: 992289698
+      ghost_actual_attack_spritesheet_2: 1424033212
+      ghost_actual_attack_spritesheet_3: -1185939351
+      ghost_actual_attack_spritesheet_0: -1673083665
+      ghost_actual_attack_spritesheet_6: -681836145
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

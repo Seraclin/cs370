@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: dc621f968ea884545bf288451c230bd0
+guid: 0e0a44ab8130ea44ca02af658b27c5a3
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -49,7 +49,7 @@ TextureImporter:
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spriteGenerateFallbackPhysicsShape: 1
+  spriteGenerateFallbackPhysicsShape: 0
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -165,7 +165,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: enemy1_idle_spritesheet_0
+      name: ghost_actual_idle_spritesheet_0
       rect:
         serializedVersion: 2
         x: 0
@@ -179,14 +179,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c284c9c98bf0cfa46917e30e9e38afaf
-      internalID: 526839123
+      spriteID: fdd47b22f4c5c3048b5a79b9f258a85e
+      internalID: -1191696021
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy1_idle_spritesheet_1
+      name: ghost_actual_idle_spritesheet_1
       rect:
         serializedVersion: 2
         x: 16
@@ -200,8 +200,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e9a94a9343f3f4e4497d0b2bf774ba8b
-      internalID: 128122873
+      spriteID: 378d346c373f3ad4b952b8c7d357a6ba
+      internalID: 1386039998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ghost_actual_idle_spritesheet_2
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 380d8c94df0d8554e83ca2a2fbc297e6
+      internalID: -909146285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ghost_actual_idle_spritesheet_3
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 644d30ea1d6ae7447b4ce0f17883b0c5
+      internalID: 1657891347
       vertices: []
       indices: 
       edges: []
@@ -217,8 +259,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      enemy1_idle_spritesheet_1: 128122873
-      enemy1_idle_spritesheet_0: 526839123
+      ghost_actual_idle_spritesheet_3: 1657891347
+      ghost_actual_idle_spritesheet_0: -1191696021
+      ghost_actual_idle_spritesheet_1: 1386039998
+      ghost_actual_idle_spritesheet_2: -909146285
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
