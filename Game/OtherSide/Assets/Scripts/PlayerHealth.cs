@@ -15,7 +15,12 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] Collider2D col;
     [SerializeField] GameObject gameOverScreen;
 
+    [SerializeField] Animator anim;  // for animations to transition
 
+    private void Start()
+    {
+        anim = GetComponent<Animator>();
+    }
 
 
     public void ChangeHealth(int h)
@@ -26,8 +31,12 @@ public class PlayerHealth : MonoBehaviour
             health += h;
             slider.value = health;
             invincibility = true;
-            if(health < 0)
+            if(health < 0)  // player is dead
             {
+                // Death animation - Sam
+                anim.SetBool("isDead", true);
+                // TODO: Delay death screen
+
                 //RESTART GAME -JC
                 GameObject newScreen = Instantiate(gameOverScreen);
                 newScreen.SetActive(true);

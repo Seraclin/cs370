@@ -51,13 +51,17 @@ public class PlayerController : MonoBehaviour
         //For flipping animation
         if (input.x > 0)
         {
-               ren.flipX = true;
+               ren.flipX = false;
                
         }
         if (input.x < 0)
         {
-                ren.flipX = false;
+                ren.flipX = true;
                 
+        }
+        if(input.y > 0) // facing up
+        {
+            // TODO: Might add an animation to have it facing up
         }
 
         //If input!=Zero then that means a button is being pressed -JC
