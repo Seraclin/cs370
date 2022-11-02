@@ -16,8 +16,14 @@ public class Enemy : MonoBehaviour
 
     [SerializeField] public GameObject player;
     [SerializeField] public bool isDead = false;
+    [SerializeField] int health = 15;
 
-
+    public void ChangeHealth(int h)
+    {
+        Debug.Log(h);
+        health = health - h;
+        if (health <= 0) Destroy(this.gameObject);
+    }
     void FixedUpdate()
     { if (player != null) {
 
