@@ -99,7 +99,7 @@ public class PlayerController : MonoBehaviour
          * on corners -JC
          */
         
-        if (Physics2D.OverlapCircle(targetPos, 0.4f,Collidables) != null){
+        if (Physics2D.OverlapCircle(targetPos-new Vector3(0,0.15f,0), 0.4f,Collidables) != null){
             return false;
         }
         
