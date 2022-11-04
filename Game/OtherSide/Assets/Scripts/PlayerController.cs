@@ -51,13 +51,17 @@ public class PlayerController : MonoBehaviour
         //For flipping animation
         if (input.x > 0)
         {
-               ren.flipX = true;
+               ren.flipX = false;
                
         }
         if (input.x < 0)
         {
-                ren.flipX = false;
+                ren.flipX = true;
                 
+        }
+        if(input.y > 0) // facing up
+        {
+            // TODO: Might add an animation to have it facing up
         }
 
         //If input!=Zero then that means a button is being pressed -JC
@@ -95,7 +99,7 @@ public class PlayerController : MonoBehaviour
          * on corners -JC
          */
         
-        if (Physics2D.OverlapCircle(targetPos, 0.4f,Collidables) != null){
+        if (Physics2D.OverlapCircle(targetPos-new Vector3(0,0.15f,0), 0.4f,Collidables) != null){
             return false;
         }
         

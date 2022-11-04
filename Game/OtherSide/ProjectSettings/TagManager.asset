@@ -6,7 +6,9 @@ TagManager:
   tags:
   - Enemy
   - Inter
-  - Ability
+  - PlayerAbility
+  - EnemyAbility
+  - Wall
   layers:
   - Default
   - TransparentFX

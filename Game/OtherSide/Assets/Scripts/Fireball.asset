@@ -19,7 +19,5 @@ MonoBehaviour:
   activeTime: 0.5
   damage: 10
   cost: 0
-  projectile: {fileID: -1108690041, guid: 1dcf0bdb89af0b54da7f37d7cf4a1297, type: 3}
-  projectileRange: 100
-  projectileSpeed: 2
-  projectileSize: 1
+  RangeInstance: {fileID: 8210739079414165366, guid: f922e92d5a20b984e99aeb0d70c33355, type: 3}
+  projectileSpeed: 400

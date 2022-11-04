@@ -16,8 +16,7 @@ MonoBehaviour:
   abilityName: 
   abilityDescription: 
   cooldownTime: 3
-  activeTime: 0.5
+  activeTime: 0.3
   damage: -20
   cost: 0
   meleeInstance: {fileID: 9088384887100896540, guid: f32dab9a53f4d444bae9b06530751bf6, type: 3}
-  owner: {fileID: 0}

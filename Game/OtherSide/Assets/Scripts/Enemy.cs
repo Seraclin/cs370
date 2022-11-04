@@ -16,8 +16,14 @@ public class Enemy : MonoBehaviour
 
     [SerializeField] public GameObject player;
     [SerializeField] public bool isDead = false;
+    [SerializeField] int health = 15;
 
-
+    public void ChangeHealth(int h)
+    {
+        Debug.Log(h);
+        health = health - h;
+        if (health <= 0) Destroy(this.gameObject);
+    }
     void FixedUpdate()
     { if (player != null) {
 
@@ -26,13 +32,13 @@ public class Enemy : MonoBehaviour
                 if (player.transform.position.x < this.transform.position.x)
                 {
                     input.x = -1;
-                    ren.flipX = false;
+                    ren.flipX = true;
 
                 }
                 else
                 {
                     input.x = 1;
-                    ren.flipX = true;
+                    ren.flipX = false;
 
                 }
 
@@ -89,17 +95,7 @@ public class Enemy : MonoBehaviour
     }
 
 
-    //The green circle collider around the enemy is the enemy's range -JC
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-   
-        if (collision.gameObject.tag =="Player")
-        {
-            Debug.Log("Player detected");
-            player = collision.gameObject;
-            
-        }
-    }
+    
 
     
 }
