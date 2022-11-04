@@ -3,37 +3,53 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /*
- * This is the possession ability for the Player only. 
+ * This is the possession skill for the Player only. 
  * You can think of this similar to Cappy in Mario Odyssey, where the player can possess a target,
- * and temporarily gain different skills depending on the enemy.
+ * and temporarily gain different abilities depending on the enemy.
  * Currently, this only prints to the console, when the button is pressed, who's the closest possessable entity in range.
- * It also changes the player sprite to that entity.
+ * It also changes the player sprite/animation to that entity.
+ * Treat this as a customly defined skill (i.e. doesn't use AbilityHolder.cs), since it's uniquely for the player only
  */
-[CreateAssetMenu(fileName = "New_PossessionAbility", menuName = "Scripts/PossessionAbility", order = 3)]
+// [CreateAssetMenu(fileName = "New_PossessionAbility", menuName = "Scripts/PossessionAbility", order = 3)]
 
-public class PossessionAbility : Ability
+public class PossessionAbility : MonoBehaviour
 {
-    public Collider2D possessCollider; // possession collider, TODO: add
+    [SerializeField] public KeyCode key; // assign button in editor for possession, press again to end early
+
+    [SerializeField] public Sprite abilityIcon; // icon for ability
+    [SerializeField] public string abilityName; // name of the ability
+    [SerializeField] public string abilityDescription; // description of ability
+    [SerializeField] public Collider2D possessCollider; // possession collider, TODO: add
+    [SerializeField] public float stamina; // a resource linked to possesion? possession HP?
+    [SerializeField] public Sprite indicator; // something to indicate you are possessing something? TODO
+
     public float radius; // possession circular radius, currently using this for testing
-    public Sprite indicator; // something to indicate you are possessing something? TBD
-    public Sprite playerSprite; // player's original sprite
     public float duration; // max duration you can possess something?
-    public float stamina; // a resource linked to possesion? TBD
 
-    [SerializeField] public KeyCode quitKey; // assign button in editor to quit possession early
-
-
+    // Player original information to store for when you unpossess
+    private Sprite originalSprite;
+    private Animation anim;
+    // private vars for tracking possession information
     private List<GameObject> possessable; // tracks what possessable objects are in-range
     private GameObject closest = null; // closest thing to possess
-    private List<Ability> abilities; // tracks what abilities are granted during possession, currently unused
+    private List<Ability> abilities; // tracks what abilities are granted during possession
+
+    void Start()
+    {
+        
+    }
+
+    void Update()
+    {
+        
+    }
 
 
-
-
-    /* Activate is called when the skill is active
-     * define ability behavior: changes the player sprite to the closest enemy   
+    /* Possess the closest isPossessable object, if possible
+     * Returns true if successfully possess, otherwise returns false
+     * Max range is the collider possessCollider
      */
-    public override void Activate(GameObject parent)
+    public bool activate(GameObject parent)
     {
         Debug.Log("Possession button pressed");
         // Vector3 playerPosition = parent.transform.position; // player's position
@@ -79,13 +95,14 @@ public class PossessionAbility : Ability
             Debug.Log("Possession deactivated early");
 
         }
+        return false; // TODO: change later
 
     }
 
     /* Deactivate is called when the skill is cooldown
     *  Unposses the enemy
     */
-    public override void Deactivate(GameObject parent)
+    public void Deactivate(GameObject parent)
     {
         Debug.Log("Possession deactivated");
         parent.GetComponent<SpriteRenderer>().sprite = playerSprite; // changes player's sprite back to what it was orignally
@@ -127,4 +144,4 @@ public class PossessionAbility : Ability
         }
         return bestTarget;
     }
-}
+} // end of file
