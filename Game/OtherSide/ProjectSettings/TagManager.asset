@@ -8,6 +8,7 @@ TagManager:
   - Inter
   - PlayerAbility
   - EnemyAbility
+  - Wall
   layers:
   - Default
   - TransparentFX

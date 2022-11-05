@@ -22404,7 +22404,7 @@ GameObject:
   - component: {fileID: 1711154745}
   m_Layer: 3
   m_Name: Tilemap - Collision
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26211,6 +26211,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1772144060732249268, guid: 5aa8d1c6e81f043609b2142c3012d7ca, type: 3}
+      propertyPath: speed
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 1772144060732249271, guid: 5aa8d1c6e81f043609b2142c3012d7ca, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -26258,6 +26262,26 @@ PrefabInstance:
     - target: {fileID: 1772144060732249289, guid: 5aa8d1c6e81f043609b2142c3012d7ca, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 3779777390717560810, guid: 5aa8d1c6e81f043609b2142c3012d7ca, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4248700900998694115, guid: 5aa8d1c6e81f043609b2142c3012d7ca, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6546927345430764989, guid: 5aa8d1c6e81f043609b2142c3012d7ca, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9013862116354767586, guid: 5aa8d1c6e81f043609b2142c3012d7ca, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9172885621000437246, guid: 5aa8d1c6e81f043609b2142c3012d7ca, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5aa8d1c6e81f043609b2142c3012d7ca, type: 3}
@@ -26387,6 +26411,10 @@ PrefabInstance:
     - target: {fileID: 5544111371020350149, guid: 6f92e0745deec4d7dbc6dbd9804899d2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5544111371020350150, guid: 6f92e0745deec4d7dbc6dbd9804899d2, type: 3}
+      propertyPath: health
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 5544111371020350159, guid: 6f92e0745deec4d7dbc6dbd9804899d2, type: 3}
       propertyPath: m_Name

@@ -4,17 +4,8 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    [SerializeField] int damage; //this is the amount of damage done by the weapon
+    
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -24,14 +15,19 @@ public class Bullet : MonoBehaviour
 
             if (collision.gameObject.tag == "Enemy")
             {
+                
+                Enemy eScript = collision.gameObject.GetComponent<Enemy>();
+                eScript.ChangeHealth(damage);
                 Destroy(gameObject);
-                Debug.Log("Damage Enemy");
-            } else if (collision.gameObject.tag == "Environment")
+               
+            }
+            if (collision.gameObject.tag == "Wall")
             {
                 Destroy(gameObject);
-                Debug.Log("Hit wall");
+               
             }
         }
+       
         
     }
 }
