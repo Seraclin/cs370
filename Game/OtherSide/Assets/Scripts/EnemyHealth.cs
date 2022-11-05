@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
-    [SerializeField] int maxHealth = 100;
-    [SerializeField] int health = 100; // enemy's current health
+    [SerializeField] public int maxHealth = 100; // made these public so I can grab -Sam
+    [SerializeField] public int health = 100; // enemy's current health
 
     [SerializeField] bool invincibility;
     [SerializeField] float invincibilityTime;
