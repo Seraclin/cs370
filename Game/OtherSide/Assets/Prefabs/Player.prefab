@@ -2192,18 +2192,10 @@ GameObject:
   - component: {fileID: 1772144060732249267}
   - component: {fileID: 1772144060732249264}
   - component: {fileID: 1772144060732249265}
-  - component: {fileID: 897331066}
-  - component: {fileID: 1772144060888275832}
   - component: {fileID: 1772144060888275833}
-  - component: {fileID: 1772144060888275850}
   - component: {fileID: 1772144060888275855}
   - component: {fileID: 1772144060888275860}
-  - component: {fileID: 9013862116354767586}
-  - component: {fileID: 3779777390717560810}
-  - component: {fileID: 9172885621000437246}
-  - component: {fileID: 6546927345430764989}
-  - component: {fileID: 5832447866042382467}
-  - component: {fileID: 4248700900998694115}
+  - component: {fileID: 1772144060888275850}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -2229,6 +2221,7 @@ Transform:
   - {fileID: 89900715}
   - {fileID: 1496141762948914342}
   - {fileID: 9040767589652071089}
+  - {fileID: 3265758068097037887}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2407,34 +2400,6 @@ MonoBehaviour:
   col: {fileID: 1772144060732249269}
   gameOverScreen: {fileID: 1536712423}
   anim: {fileID: 0}
---- !u!114 &897331066
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1772144060732249289}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b68073736887c84fb108fd9ead20d1b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ability: {fileID: 11400000, guid: a3bb4efaa0c2a5642818f5d71552d6b2, type: 2}
-  key: 32
---- !u!114 &1772144060888275832
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1772144060732249289}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b68073736887c84fb108fd9ead20d1b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ability: {fileID: 11400000, guid: 680a8df092559914ba6f49a40b01eb1b, type: 2}
-  key: 102
 --- !u!114 &1772144060888275833
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2452,20 +2417,6 @@ MonoBehaviour:
   inventory: {fileID: 1772144060888275855}
   triggerActive: 0
   key: 101
---- !u!114 &1772144060888275850
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1772144060732249289}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b68073736887c84fb108fd9ead20d1b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ability: {fileID: 11400000, guid: 20b553c2a7ce7584fab1f3428fabcc1a, type: 2}
-  key: 99
 --- !u!114 &1772144060888275855
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2498,52 +2449,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ability: {fileID: 11400000, guid: 76c7cc203abec1d45b9257bc89786da0, type: 2}
   key: 323
---- !u!114 &9013862116354767586
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1772144060732249289}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b68073736887c84fb108fd9ead20d1b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ability: {fileID: 11400000, guid: a3bb4efaa0c2a5642818f5d71552d6b2, type: 2}
-  key: 32
---- !u!114 &3779777390717560810
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1772144060732249289}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b68073736887c84fb108fd9ead20d1b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ability: {fileID: 11400000, guid: 680a8df092559914ba6f49a40b01eb1b, type: 2}
-  key: 102
---- !u!114 &9172885621000437246
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1772144060732249289}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7d58a54169a3434caee0b8e18168617, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentInteractable: {fileID: 0}
-  currentInterObjScript: {fileID: 0}
-  inventory: {fileID: 5832447866042382467}
-  triggerActive: 0
-  key: 101
---- !u!114 &6546927345430764989
+--- !u!114 &1772144060888275850
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2557,38 +2463,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ability: {fileID: 11400000, guid: 20b553c2a7ce7584fab1f3428fabcc1a, type: 2}
   key: 99
---- !u!114 &5832447866042382467
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1772144060732249289}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 12ac40665d2f24a4c8eb6bb31864adf8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inventory:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
---- !u!114 &4248700900998694115
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1772144060732249289}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b68073736887c84fb108fd9ead20d1b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ability: {fileID: 11400000, guid: 76c7cc203abec1d45b9257bc89786da0, type: 2}
-  key: 323
 --- !u!1 &1772144060870621504
 GameObject:
   m_ObjectHideFlags: 0
@@ -3726,3 +3600,79 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 235e8a0dfa29f4db4a67d2c5fcf2609b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &9203197904526100098
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3265758068097037887}
+  - component: {fileID: 7817374123500790019}
+  - component: {fileID: 8863263754624862161}
+  m_Layer: 0
+  m_Name: PossessCollider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3265758068097037887
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9203197904526100098}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1772144060732249271}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &7817374123500790019
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9203197904526100098}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 2
+--- !u!114 &8863263754624862161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9203197904526100098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4891a0655e48d5459e424e634062178, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: 32
+  player: {fileID: 1772144060732249289}
+  abilityIcon: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
+  abilityName: Possession
+  abilityDescription: Possess the closest dead enemy and gain its abilities.
+  stamina: 0
+  indicator: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
+  cooldown: 0.3
+  radius: 2
+  duration: 0
+  anim: {fileID: 0}
+  abil0:
+  - {fileID: 11400000, guid: 76c7cc203abec1d45b9257bc89786da0, type: 2}
+  - {fileID: 11400000, guid: 20b553c2a7ce7584fab1f3428fabcc1a, type: 2}
+  - {fileID: 0}

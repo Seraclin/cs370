@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c612413694f96a41aa825e58862e353, type: 3}
   m_Name: PhaseAbility
   m_EditorClassIdentifier: 
-  abilityIcon: {fileID: 21300000, guid: 6333bfd578c18124198d670a203a1c63, type: 3}
+  abilityIcon: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
   abilityName: Phase
-  abilityDescription: 
-  cooldownTime: 5
+  abilityDescription: Temporarily go undetected for a short period of time.
+  cooldownTime: 2
   activeTime: 3
   damage: 0
   cost: 0
