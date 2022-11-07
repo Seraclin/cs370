@@ -27,7 +27,6 @@ public class Enemy : MonoBehaviour
 
     public void ChangeHealth(int h)
     {
-        Debug.Log(h);
         health = health - h;
         if (health <= 0)
         {
@@ -48,7 +47,7 @@ public class Enemy : MonoBehaviour
         {
             if (player != null)
             {
-                if (player.GetComponent<SpriteRenderer>().color.a > 0.5f)
+                if (player.GetComponent<SpriteRenderer>().color.a > 0.8f)
                 {
                     if (player.transform.position.x < this.transform.position.x)
                     {
@@ -90,7 +89,7 @@ public class Enemy : MonoBehaviour
         {
             if (player != null)
             {
-                if (player.GetComponent<SpriteRenderer>().color.a > 0.5f)
+                if (player.GetComponent<SpriteRenderer>().color.a > 0.8f)
                 {
                     if (player.transform.position.x < this.transform.position.x)
                     {
