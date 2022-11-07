@@ -5,7 +5,18 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     [SerializeField] int damage; //this is the amount of damage done by the weapon
-    
+    [SerializeField] float duration;
+    void FixedUpdate()
+    {
+        if (duration > 0)
+        {
+            duration -= Time.deltaTime;
+        } else
+        {
+            Destroy(gameObject);
+        }
+    }
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

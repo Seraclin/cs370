@@ -30,11 +30,20 @@ public class RangedAbility : Ability
         Debug.Log("Range Ability activated");
 
         spawnPosition = parent.transform;
+        Vector3 displacement = new Vector3(0, 0, 0);
 
-
-        Vector3 mousePosition = Input.mousePosition;
-        mousePosition.z = Camera.main.transform.position.z * -1;
-        Vector3 displacement = Camera.main.ScreenToWorldPoint(mousePosition) - spawnPosition.position;
+        if (parent.tag == "Player")
+        {
+            Vector3 mousePosition = Input.mousePosition;
+            mousePosition.z = Camera.main.transform.position.z * -1;
+            displacement = Camera.main.ScreenToWorldPoint(mousePosition) - spawnPosition.position;
+        } else if (parent.tag == "Enemy")
+        {
+            Vector3 playerPosition = parent.GetComponent<Enemy>().player.GetComponent<Transform>().position;
+            displacement = playerPosition - spawnPosition.position;
+        }
+        
+        
         direction = displacement.normalized;
 
         cloneSkillPrefab = Instantiate(RangeInstance, spawnPosition.position + direction, spawnPosition.rotation);
@@ -54,7 +63,7 @@ public class RangedAbility : Ability
     public override void Deactivate(GameObject parent) // 
     {
         Debug.Log("Range Ability deactivated");
-        Destroy(cloneSkillPrefab);
+        //Destroy(cloneSkillPrefab);
     }
 
 
