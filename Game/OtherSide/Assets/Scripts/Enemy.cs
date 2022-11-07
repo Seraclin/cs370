@@ -17,6 +17,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] public GameObject player;
     [SerializeField] public bool isDead = false;
     [SerializeField] int health = 15;
+    public bool isPossessable;
 
     public void ChangeHealth(int h)
     {
@@ -33,6 +34,7 @@ public class Enemy : MonoBehaviour
             df.GetComponent<CircleCollider2D>().enabled = false;
             ren.color = new Color(ren.color.r, ren.color.g, ren.color.b, .2f);
             Destroy(this.gameObject, 10.0f);
+            isPossessable = true;
         }
     }
     void FixedUpdate()
