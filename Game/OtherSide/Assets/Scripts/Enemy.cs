@@ -19,7 +19,6 @@ public class Enemy : MonoBehaviour
 
     [SerializeField] public GameObject player;
     [SerializeField] int health = 15;
-    public bool isPossessable;
 
     void Start()
     {
@@ -41,13 +40,12 @@ public class Enemy : MonoBehaviour
             hitbox.GetComponent<EnemyHitbox>().enabled = false;
             df.GetComponent<EnemyDetectionField>().enabled = false;
             df.GetComponent<CircleCollider2D>().enabled = false;
-            ren.color = new Color(ren.color.r, ren.color.g, ren.color.b, .2f);
-            Destroy(this.gameObject, 10.0f);
-            isPossessable = true;
+            ren.color = new Color(ren.color.r, ren.color.g, ren.color.b, .5f);
+            Destroy(this.gameObject, 5f);
         }
     }
     void FixedUpdate()
-    {
+    { 
         if (!isRanged)
         {
             if (player != null)
@@ -137,7 +135,7 @@ public class Enemy : MonoBehaviour
             }
         }
     }
-
+ 
     IEnumerator Move(Vector3 targetPos, float inputx, float inputy)
     {
         isMoving = true;
@@ -167,11 +165,11 @@ public class Enemy : MonoBehaviour
 
     bool CanWalk(Vector3 targetPos)
     {
-
+       
 
         if (Physics2D.OverlapCircle(targetPos, 0.4f, Collidables) != null)
         {
-
+           
             return false;
         }
 
@@ -179,7 +177,8 @@ public class Enemy : MonoBehaviour
     }
 
 
+    
 
-
-
+    
 }
+
