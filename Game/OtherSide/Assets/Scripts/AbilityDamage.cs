@@ -8,8 +8,8 @@ using UnityEngine;
  */
 public class AbilityDamage : MonoBehaviour
 {
-    [SerializeField] int damageA = -20; // TODO: replace with Ability object's damage
-    [SerializeField] float durationA = 5; // duration of ability TODO: replace with Ability object's duration 
+    public int damage; // TODO: replace with Ability object's damage
+    [SerializeField] float duration = 5; // duration of ability TODO: replace with Ability object's duration 
 
     // Start is called before the first frame update
     void Start()
@@ -24,22 +24,32 @@ public class AbilityDamage : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        // On collision of the this abilities collider with enemy/player call their respective change health
-        // TODO: check who is owner of attack, so they don't get damage from their own attack
-        if(collision.gameObject.tag == "Enemy")
+        if (gameObject.tag != collision.gameObject.tag + "Ability")
         {
-            Debug.Log("Ability hit an enemy! Its health changed by "+ damageA);
-            EnemyHealth eHealth = collision.gameObject.GetComponent<EnemyHealth>();
-            eHealth.ChangeHealth(damageA); // TODO: fix null ref here when enemies attack other enemies
-            // collision.gameObject.GetComponent<EnemyHealth>.ChangeHealth(this.)
-        }
-        if(collision.gameObject.tag == "Player")
-        {
-            Debug.Log("Ability hit the player! Your health changed by "+damageA);
-            PlayerHealth pHealth = collision.gameObject.GetComponent<PlayerHealth>();
-            pHealth.ChangeHealth(damageA); // TODO: pass in damage value from Ability object
+
+
+            if (collision.gameObject.tag == "Enemy")
+            {
+
+                Enemy eScript = collision.gameObject.GetComponent<Enemy>();
+                eScript.ChangeHealth(damage);
+                Destroy(gameObject, 0.2f);
+
+            }
+            else if (collision.gameObject.tag == "Wall")
+            {
+                Destroy(gameObject);
+            }
+            else if (collision.gameObject.tag == "Player")
+            {
+                Debug.Log("Player hit, health reduce by " + damage);
+                PlayerHealth eScript = collision.gameObject.GetComponent<PlayerHealth>();
+                eScript.ChangeHealth(0 - damage);
+                Destroy(gameObject, 0.2f);
+            }
 
         }
+
 
     }
 }

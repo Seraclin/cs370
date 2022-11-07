@@ -139,7 +139,7 @@ public class Enemy : MonoBehaviour
     IEnumerator Move(Vector3 targetPos, float inputx, float inputy)
     {
         isMoving = true;
-        Debug.Log((targetPos - transform.position).sqrMagnitude);
+        
         while ((targetPos - transform.position).sqrMagnitude > Mathf.Epsilon)
         {
             transform.position = Vector3.MoveTowards(transform.position, targetPos, speed*Time.deltaTime);

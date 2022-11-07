@@ -56,6 +56,8 @@ public class RangedAbility : Ability
 
         cloneSkillPrefab.GetComponent<Rigidbody2D>().AddForce(direction * projectileSpeed, ForceMode2D.Force);
 
+        cloneSkillPrefab.GetComponent<Bullet>().damage = damage;
+
     }
 
     /* Deactivate is called when the skill is cooldown

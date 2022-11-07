@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    [SerializeField] int damage; //this is the amount of damage done by the weapon
+    public int damage; //this is the amount of damage done by the weapon
     [SerializeField] float duration;
+
+
     void FixedUpdate()
     {
         if (duration > 0)

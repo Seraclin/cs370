@@ -37,7 +37,8 @@ public class MeleeAbility : Ability
             cloneSkillPrefab = Instantiate(meleeInstance, spawnPosition.position + new Vector3(1, 0, 0), spawnPosition.rotation,parent.transform);
         }
         cloneSkillPrefab.tag = parent.tag + "Ability";
-        
+
+        cloneSkillPrefab.GetComponent<AbilityDamage>().damage = damage;
     }
 
     /* Deactivate is called when the skill is cooldown
