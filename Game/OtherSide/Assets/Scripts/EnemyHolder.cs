@@ -29,7 +29,7 @@ public class EnemyHolder : MonoBehaviour
         switch (state) // check AbilityState and switch accordingly
         {
             case AbilityState.ready:
-                if (gameObject.GetComponent<Enemy>().player != null && gameObject.GetComponent<Enemy>().player.GetComponent<SpriteRenderer>().color.a > 0.5f) // cast ability if player is detected
+                if (gameObject.GetComponent<Enemy>().player != null) // cast ability if player is detected
                 {
                     ability.Activate(gameObject); // activate ability on the GameObject that the script is attached to
                     state = AbilityState.active;

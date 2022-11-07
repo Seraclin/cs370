@@ -5,20 +5,10 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     [SerializeField] int damage; //this is the amount of damage done by the weapon
-    [SerializeField] float duration;
-    void FixedUpdate()
-    {
-        if (duration > 0)
-        {
-            duration -= Time.deltaTime;
-        } else
-        {
-            Destroy(gameObject);
-        }
-    }
+    Rigidbody2D rb;
+    
 
-
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         if (gameObject.tag != collision.gameObject.tag + "Ability")
         {
@@ -28,6 +18,7 @@ public class Bullet : MonoBehaviour
             {
                 
                 Enemy eScript = collision.gameObject.GetComponent<Enemy>();
+                
                 eScript.ChangeHealth(damage);
                 Destroy(gameObject);
                

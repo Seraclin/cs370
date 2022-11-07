@@ -19996,7 +19996,6 @@ Transform:
   - {fileID: 226129905}
   - {fileID: 5544111372211661421}
   - {fileID: 1731555622}
-  - {fileID: 2298937805207535123}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -25879,11 +25878,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5544111371020350149, guid: 6f92e0745deec4d7dbc6dbd9804899d2, type: 3}
   m_PrefabInstance: {fileID: 1731555621}
   m_PrefabAsset: {fileID: 0}
---- !u!212 &1731555630 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 5544111371020350148, guid: 6f92e0745deec4d7dbc6dbd9804899d2, type: 3}
-  m_PrefabInstance: {fileID: 1731555621}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1733245887 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3750356912810411407, guid: 825991e87d90c424197356463561c061, type: 3}
@@ -26460,11 +26454,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 402163b8b251940279e70a7ce301475b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &2298937805207535123 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7233263586582013294, guid: 257489386ebe92e43bed82772cfaf518, type: 3}
-  m_PrefabInstance: {fileID: 8901014093182360445}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3750356912445997340
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26596,64 +26585,3 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5544111371020350149, guid: 6f92e0745deec4d7dbc6dbd9804899d2, type: 3}
   m_PrefabInstance: {fileID: 5544111372211661420}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &8901014093182360445
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 242589833}
-    m_Modifications:
-    - target: {fileID: 2923140738659992581, guid: 257489386ebe92e43bed82772cfaf518, type: 3}
-      propertyPath: ren
-      value: 
-      objectReference: {fileID: 1731555630}
-    - target: {fileID: 7233263586582013284, guid: 257489386ebe92e43bed82772cfaf518, type: 3}
-      propertyPath: m_Name
-      value: RangedEnemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 7233263586582013294, guid: 257489386ebe92e43bed82772cfaf518, type: 3}
-      propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7233263586582013294, guid: 257489386ebe92e43bed82772cfaf518, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7233263586582013294, guid: 257489386ebe92e43bed82772cfaf518, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7233263586582013294, guid: 257489386ebe92e43bed82772cfaf518, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7233263586582013294, guid: 257489386ebe92e43bed82772cfaf518, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7233263586582013294, guid: 257489386ebe92e43bed82772cfaf518, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7233263586582013294, guid: 257489386ebe92e43bed82772cfaf518, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7233263586582013294, guid: 257489386ebe92e43bed82772cfaf518, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7233263586582013294, guid: 257489386ebe92e43bed82772cfaf518, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7233263586582013294, guid: 257489386ebe92e43bed82772cfaf518, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7233263586582013294, guid: 257489386ebe92e43bed82772cfaf518, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 257489386ebe92e43bed82772cfaf518, type: 3}
