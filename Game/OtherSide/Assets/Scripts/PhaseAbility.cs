@@ -13,7 +13,7 @@ public class PhaseAbility : Ability
         Debug.Log("Phase Ability activated");
         objectRenderer = parent.GetComponent<SpriteRenderer>();
         original = objectRenderer.color;
-        objectRenderer.color = new Color(1f, 1f, 1f, .1f);
+        objectRenderer.color = new Color(1f, 1f, 1f, .5f);
     }
 
     /* Deactivate is called when the skill is cooldown
