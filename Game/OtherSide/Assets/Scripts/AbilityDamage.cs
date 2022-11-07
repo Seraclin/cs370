@@ -30,7 +30,7 @@ public class AbilityDamage : MonoBehaviour
         {
             Debug.Log("Ability hit an enemy! Its health changed by "+ damageA);
             EnemyHealth eHealth = collision.gameObject.GetComponent<EnemyHealth>();
-            eHealth.ChangeHealth(damageA);
+            eHealth.ChangeHealth(damageA); // TODO: fix null ref here when enemies attack other enemies
             // collision.gameObject.GetComponent<EnemyHealth>.ChangeHealth(this.)
         }
         if(collision.gameObject.tag == "Player")
