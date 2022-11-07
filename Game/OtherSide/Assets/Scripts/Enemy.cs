@@ -30,15 +30,18 @@ public class Enemy : MonoBehaviour
         health = health - h;
         if (health <= 0)
         {
+            GameObject hitbox = this.gameObject.GetComponent<Transform>().GetChild(0).gameObject;
             GameObject df = this.gameObject.GetComponent<Transform>().GetChild(1).gameObject;
             isPossessable = true;
             isDead = true;
             isMoving = false;
             player = null;
+            hitbox.GetComponent<BoxCollider2D>().enabled = false;
+            hitbox.GetComponent<EnemyHitbox>().enabled = false;
             df.GetComponent<EnemyDetectionField>().enabled = false;
             df.GetComponent<CircleCollider2D>().enabled = false;
             ren.color = new Color(ren.color.r, ren.color.g, ren.color.b, .5f);
-            Destroy(this.gameObject, 3f);
+            Destroy(this.gameObject, 5f);
         }
     }
     void FixedUpdate()
