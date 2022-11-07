@@ -20398,7 +20398,7 @@ PrefabInstance:
     - target: {fileID: 4987936480329219730, guid: e9026641560724127a3d04a4392e6d96, type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: 3a8651540a5c044deb70188bbd4a8860, type: 3}
+      objectReference: {fileID: 8300000, guid: ba1f164a75b6c46b1977be437a6c2859, type: 3}
     - target: {fileID: 4987936480329219733, guid: e9026641560724127a3d04a4392e6d96, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -20505,6 +20505,10 @@ PrefabInstance:
     - target: {fileID: 1581008643133770871, guid: 002bc1e9bed104138942f7df58a735a0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1581008643133770876, guid: 002bc1e9bed104138942f7df58a735a0, type: 3}
+      propertyPath: m_Constraints
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1581008643133770877, guid: 002bc1e9bed104138942f7df58a735a0, type: 3}
       propertyPath: m_Name
@@ -20717,6 +20721,10 @@ PrefabInstance:
     - target: {fileID: 653245379444602899, guid: 3f4c57cb408524da197d7fee66e92a03, type: 3}
       propertyPath: m_Name
       value: Door (Locked)
+      objectReference: {fileID: 0}
+    - target: {fileID: 653245379444602909, guid: 3f4c57cb408524da197d7fee66e92a03, type: 3}
+      propertyPath: m_Constraints
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 653245379444602910, guid: 3f4c57cb408524da197d7fee66e92a03, type: 3}
       propertyPath: m_RootOrder
