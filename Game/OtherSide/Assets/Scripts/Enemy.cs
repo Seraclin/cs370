@@ -39,7 +39,7 @@ public class Enemy : MonoBehaviour
             df.GetComponent<EnemyDetectionField>().enabled = false;
             df.GetComponent<CircleCollider2D>().enabled = false;
             ren.color = new Color(ren.color.r, ren.color.g, ren.color.b, .2f);
-            Destroy(this.gameObject, 3f);
+            Destroy(this.gameObject, 10.0f);
         }
     }
     void FixedUpdate()

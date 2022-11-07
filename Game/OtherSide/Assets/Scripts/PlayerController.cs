@@ -99,7 +99,7 @@ public class PlayerController : MonoBehaviour
          * on corners -JC
          */
         
-        if (Physics2D.OverlapCircle(targetPos-new Vector3(0,0.15f,0), 0.4f,Collidables) != null){
+        if (Physics2D.OverlapCircle(targetPos-new Vector3(0,0.15f,0), 0.3f,Collidables) != null){
             return false;
         }
         
@@ -110,6 +110,6 @@ public class PlayerController : MonoBehaviour
     {
         Gizmos.color = Color.red;
         //Use the same vars you use to draw your Overlap Circle to draw your Wire Sphere.
-        Gizmos.DrawWireSphere(transform.position, 0.4f);
+        Gizmos.DrawWireSphere(transform.position-new Vector3(0, 0.15f, 0), 0.3f);
     }
 }

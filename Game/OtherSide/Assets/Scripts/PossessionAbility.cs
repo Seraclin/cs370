@@ -140,7 +140,7 @@ public class PossessionAbility : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision) // in possessable range
     {
-        if(collision.tag == "Enemy")
+        if(collision.tag == "Enemy" && collision.gameObject.GetComponent<Enemy>().isPossessable)
         {
             Debug.Log("Possessable object in range");
             possessable.Add(collision.gameObject);
@@ -149,7 +149,7 @@ public class PossessionAbility : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D collision) // leaves possessable range
     {
-        if (collision.tag == "Enemy" && possessable.Contains(collision.gameObject))  // TODO: remove reliance on "Enemy" tag and add 'posessable' variable/tag for things that you can possess?
+        if (collision.tag == "Enemy" && possessable.Contains(collision.gameObject) && collision.gameObject.GetComponent<Enemy>().isPossessable)  // TODO: remove reliance on "Enemy" tag and add 'posessable' variable/tag for things that you can possess?
         {
             possessable.Remove(collision.gameObject);
         }
@@ -170,7 +170,7 @@ public class PossessionAbility : MonoBehaviour
 
         // GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
         Debug.Log("All possessable objects:" + possessable.ToString());
-        GameObject closestObj = GetClosestPossessable(possessable, parent.transform);
+        GameObject closestObj = GetClosestPossessable(parent.transform);
         if (closestObj == null) // another redundant check for null exception
         {
             return false;
@@ -210,10 +210,13 @@ public class PossessionAbility : MonoBehaviour
         anim.SetBool("isPossessing", true); // plays possession animation, TODO: add a better possession animation, it currently just uses the death animation
         // TODO: Move the player's position to in front of that possessed object's position? Potential clipping issues
         // parent.transform.position = (closest.transform.position + new Vector3(0, -1.0f, 0));
-        Invoke(nameof(changeAnims), 0.9f); // delay so you can see possession animtion TODO: kinda clunky and inconsistent
-        
-        
-        // TODO: destroy the enemy corpse object when successfully possessed, or after set time frame
+        Invoke(nameof(changeAnims), 0.7f); // delay to see possession animtion TODO: animations clunky and inconsistent, replace with coroutine
+
+
+        /* TODO: destroy the enemy corpse object when successfully possessed, or after set time frame coroutine?
+           possessable.Remove(closest);
+           Destroy(closest);
+        */
         // TODO: add indicator of what you're currently possessing
         return true;
 
@@ -226,7 +229,10 @@ public class PossessionAbility : MonoBehaviour
     private void changeAnims()
     {
         player.GetComponent<SpriteRenderer>().sprite = closest.GetComponent<SpriteRenderer>().sprite; // changes player's sprite to the possessed object's sprite
-        player.GetComponent<SpriteRenderer>().color = closest.GetComponent<SpriteRenderer>().color; // get enemy color
+        Color playerColor = player.GetComponent<SpriteRenderer>().color; // player color ref
+        playerColor = closest.GetComponent<SpriteRenderer>().color; // get enemy color
+        playerColor.a = 1.0f; // makes the player completely opaque
+        player.GetComponent<SpriteRenderer>().color = playerColor; // set player color
 
         if (closest.GetComponent<Animator>() != null) // check if enemy has an animation to use
         {
@@ -271,26 +277,38 @@ public class PossessionAbility : MonoBehaviour
             }
         }*/
     }
-    private GameObject GetClosestPossessable(List<GameObject> posList, Transform fromThis)
+    private GameObject GetClosestPossessable(Transform fromThis)
     { // returns the closest enemy to the player by Euclidean distance
         GameObject bestTarget = null;
-        if(posList.Count == 0)
+        // Delete any null elements in possessable, e.g. corpse times out for possession
+        for (int i = 0; i < possessable.Count; i++)
+        {
+            if (possessable[i] == null)
+            {
+                possessable.RemoveAt(i);
+                i--;
+            }
+        }
+
+        if (possessable.Count == 0) // check if any possessables
         {
             return null;
         }
         float closestDistanceSqr = Mathf.Infinity;
         Vector3 currentPosition = fromThis.position;
-        foreach (GameObject potentialTarget in posList)
+        int count = 0;
+        foreach (GameObject potentialTarget in possessable)
         {
             Transform potentialTargetTransform = potentialTarget.transform;
             Vector3 directionToTarget = potentialTargetTransform.position - currentPosition;
             float dSqrToTarget = directionToTarget.sqrMagnitude;
-            if (dSqrToTarget < closestDistanceSqr)
+            if (dSqrToTarget < closestDistanceSqr && potentialTarget != null)
             {
                 closestDistanceSqr = dSqrToTarget;
                 bestTarget = potentialTarget;
             }
         }
+        
         return bestTarget;
     }
 } // end of file

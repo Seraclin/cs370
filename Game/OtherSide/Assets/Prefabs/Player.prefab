@@ -3668,7 +3668,7 @@ MonoBehaviour:
   abilityDescription: Possess the closest dead enemy and gain its abilities.
   stamina: 0
   indicator: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
-  cooldown: 0.3
+  cooldown: 0.2
   radius: 2
   duration: 0
   anim: {fileID: 0}
