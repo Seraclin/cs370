@@ -13,7 +13,10 @@ public class Enemy : MonoBehaviour
     [SerializeField] LayerMask Collidables;
     [SerializeField] Vector2 input;
     [SerializeField] SpriteRenderer ren;
-
+    //Re-Added stuff to compile correctly?
+    [SerializeField] public bool isPossessable = false;
+    [SerializeField] bool isRanged;
+    //End
     [SerializeField] public GameObject player;
     [SerializeField] public bool isDead = false;
     [SerializeField] int health = 15;
