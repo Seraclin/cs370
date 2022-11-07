@@ -22,18 +22,7 @@ public class Enemy : MonoBehaviour
     {
         Debug.Log(h);
         health = health - h;
-        if (health <= 0)
-        {
-            GameObject df = this.gameObject.GetComponent<Transform>().GetChild(1).gameObject;
-            isPossessable = true;
-            isDead = true;
-            isMoving = false;
-            player = null;
-            df.GetComponent<EnemyDetectionField>().enabled = false;
-            df.GetComponent<CircleCollider2D>().enabled = false;
-            ren.color = new Color(ren.color.r, ren.color.g, ren.color.b, .5f);
-            Destroy(this.gameObject, 3f);
-        }
+        if (health <= 0) Destroy(this.gameObject);
     }
     void FixedUpdate()
     { if (player != null) {
@@ -65,7 +54,7 @@ public class Enemy : MonoBehaviour
             }
 
 
-
+          
             if (input != Vector2.zero && !isMoving)
             {
                 var targetPos = transform.position;
@@ -79,13 +68,13 @@ public class Enemy : MonoBehaviour
             }
         }
     }
-
+ 
     IEnumerator Move(Vector3 targetPos, float inputx, float inputy)
     {
         isMoving = true;
         while ((targetPos - transform.position).sqrMagnitude > Mathf.Epsilon)
         {
-
+  
             transform.position = Vector3.MoveTowards(transform.position, targetPos, speed*Time.deltaTime);
             yield return null;
         }
@@ -94,11 +83,11 @@ public class Enemy : MonoBehaviour
     }
     bool CanWalk(Vector3 targetPos)
     {
-
+       
 
         if (Physics2D.OverlapCircle(targetPos, 0.4f, Collidables) != null)
         {
-
+           
             return false;
         }
 
@@ -106,7 +95,8 @@ public class Enemy : MonoBehaviour
     }
 
 
+    
 
-
-
+    
 }
+

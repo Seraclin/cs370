@@ -23,19 +23,11 @@ public class Bullet : MonoBehaviour
                 Destroy(gameObject);
                
             }
-            else if(collision.gameObject.tag == "Wall")
+            if (collision.gameObject.tag == "Wall")
             {
                 Destroy(gameObject);
                
             }
-            else if(collision.gameObject.tag == "Player")
-            {
-                
-                PlayerHealth eScript = collision.gameObject.GetComponent<PlayerHealth>();
-                eScript.ChangeHealth(0-damage);
-                Destroy(gameObject);
-            }
-            
         }
        
         
