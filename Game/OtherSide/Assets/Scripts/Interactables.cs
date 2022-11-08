@@ -16,6 +16,7 @@ public class Interactables : MonoBehaviour
     public GameObject itemInChest;
     private bool chestOpened;
     public Transform spawnPoint;
+    private Interactables itemInChestScript;
     
     public void DoInteraction()
     {
@@ -33,7 +34,12 @@ public class Interactables : MonoBehaviour
         if (!chestOpened)
         {
             chestOpened = true;
-            //GameObject item = Instantiate(itemInChest, spawnPoint.position, spawnPoint.rotation) as GameObject;
+            /*
+            GameObject item = Instantiate(itemInChest, spawnPoint.position, spawnPoint.rotation) as GameObject;
+            itemInChestScript = item.GetComponent<Interactables>();
+            itemInChestScript.
+            */
+            itemInChest.SetActive(true);
             itemInChest.transform.position = spawnPoint.position;
         }
     }

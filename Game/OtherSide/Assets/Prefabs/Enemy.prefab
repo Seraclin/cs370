@@ -61,7 +61,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -191,13 +191,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1.5
   isMoving: 0
+  isPossessable: 0
+  isDead: 0
+  isRanged: 0
   Collidables:
     serializedVersion: 2
     m_Bits: 8
   input: {x: 0, y: 0}
   ren: {fileID: 5544111371020350148}
   player: {fileID: 0}
-  isDead: 0
+  health: 15
 --- !u!50 &5544111371020350144
 Rigidbody2D:
   serializedVersion: 4
@@ -301,7 +304,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
