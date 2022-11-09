@@ -23,7 +23,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 300}
   m_MaxSize: {x: 32384, y: 24288}
   vertical: 1
-  controlID: 28800
+  controlID: 32601
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -140,7 +140,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 300}
   m_MaxSize: {x: 32384, y: 24288}
   vertical: 0
-  controlID: 28801
+  controlID: 32602
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -166,7 +166,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 300}
   m_MaxSize: {x: 24288, y: 24288}
   vertical: 1
-  controlID: 28802
+  controlID: 32603
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -192,7 +192,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 8096}
   vertical: 0
-  controlID: 28803
+  controlID: 32604
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -249,7 +249,7 @@ MonoBehaviour:
     m_SaveData: []
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 0}
+      scrollPos: {x: 0, y: 84.5}
       m_SelectedIDs: 
       m_LastClickedID: 0
       m_ExpandedIDs: a67effff6880ffff24fbfffff06e0000386f0000406f00004a6f0000546f0000a66f0000d26f0000de6f0000e86f00000a700000127000001e700000
@@ -295,8 +295,8 @@ MonoBehaviour:
     y: 0
     width: 399
     height: 370.5
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 202, y: 221}
+  m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 9}
   m_Panes:
   - {fileID: 9}
@@ -550,9 +550,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 1.9392595, y: -0.45947346, z: 78.76116}
+    m_Target: {x: -0.8053363, y: -0.43394032, z: 105.22334}
     speed: 2
-    m_Value: {x: 1.9392595, y: -0.45947346, z: 78.76116}
+    m_Value: {x: -0.8053363, y: -0.43394032, z: 105.22334}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -603,9 +603,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 9.017111
+    m_Target: 13.142398
     speed: 2
-    m_Value: 9.017111
+    m_Value: 13.142398
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -790,8 +790,8 @@ MonoBehaviour:
     y: 370.5
     width: 1125
     height: 161.5
-  m_MinSize: {x: 101, y: 121}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 100, y: 100}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 13}
   m_Panes:
   - {fileID: 13}
@@ -827,7 +827,7 @@ MonoBehaviour:
     m_SaveData: []
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 28660
+  m_LastSelectedObjectID: 28682
 --- !u!114 &14
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -896,24 +896,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Packages/com.unity.2d.spriteshape/Editor/ObjectMenuCreation/DefaultAssets/Sprite
-      Shapes
+    - Assets/Backgrounds
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Packages/com.unity.2d.spriteshape/Editor/ObjectMenuCreation/DefaultAssets/Sprite
-    Shapes
+  - Assets/Backgrounds
   m_LastFoldersGridSize: -1
   m_LastProjectPath: /Users/jessiecoleman/Documents/GitHub/cs370/Game/OtherSide
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 440}
-    m_SelectedIDs: ca880000
-    m_LastClickedID: 35018
-    m_ExpandedIDs: 0000000062740000a0740000ce830000dc8600003c8a000000ca9a3bffffff7f
+    scrollPos: {x: 0, y: 79}
+    m_SelectedIDs: 62770000
+    m_LastClickedID: 30562
+    m_ExpandedIDs: 000000006274000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -966,8 +964,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: f46f0000
-    m_LastClickedInstanceID: 28660
+    m_SelectedInstanceIDs: 0a700000
+    m_LastClickedInstanceID: 28682
     m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: c6230000fc5f00000a610000e4600000c05e00008461000070940000ca640000b664000066600000aa76000062940000
     m_RenameOverlay:
@@ -1086,8 +1084,8 @@ MonoBehaviour:
     m_CachedPref: -160
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
-  m_LastInspectedObjectInstanceID: 28660
-  m_LastVerticalScrollValue: 39.600002
+  m_LastInspectedObjectInstanceID: 28682
+  m_LastVerticalScrollValue: 0
   m_GlobalObjectId: 
   m_InspectorMode: 0
   m_LockTracker:
