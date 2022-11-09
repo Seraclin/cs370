@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Photon.Pun;
 using Photon.Realtime;
-public class MenuController : MonoBehaviour
+public class MenuController : MonoBehaviourPunCallbacks
 {
     [SerializeField] private string versionName = "0.1";
     [SerializeField] private GameObject usernameMenu;
@@ -23,10 +23,15 @@ public class MenuController : MonoBehaviour
 
     private void Start()
     {
+        usernameMenu.SetActive(false);
+    }
+
+    public void MultiplayerSelected()
+    {
         usernameMenu.SetActive(true);
     }
 
-    private void OnConnectedToMaster()
+    public override void OnConnectedToMaster()
     {
         PhotonNetwork.JoinLobby(TypedLobby.Default);
         Debug.Log("Connected");
