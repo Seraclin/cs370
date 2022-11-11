@@ -10,6 +10,7 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] int health = 100;
     [SerializeField] Slider slider;
     [SerializeField] bool invincibility;
+    bool isDeathAnim; //checks if player is dead (so u cant die twice)
     [SerializeField] float invincibilityTime;
     [SerializeField] PlayerController pc;
     [SerializeField] Collider2D col;
@@ -31,18 +32,19 @@ public class PlayerHealth : MonoBehaviour
             health += h;
             slider.value = health;
             invincibility = true;
-            if(health < 0)  // player is dead
+            if(health < 0 && !isDeathAnim)  // player is dead
             {
+                isDeathAnim = true;
                 // Death animation - Sam
                 anim.SetBool("isDead", true);
                 // TODO: Delay death screen
 
                 //RESTART GAME -JC
-                GameObject newScreen = Instantiate(gameOverScreen);
-                newScreen.SetActive(true);
-                this.gameObject.SetActive(false);
-                health = 100;
-                slider.value = health;
+                pc.enabled = false;
+                Invoke("Death", 1f);
+                //newScreen.SetActive(true);
+              
+                
             }
             
             col.enabled = false ;
@@ -54,9 +56,24 @@ public class PlayerHealth : MonoBehaviour
             slider.value = health;
         }
     }
-   
+    void Death()
+    {
+        gameOverScreen.SetActive(true);
+        Debug.Log("died");
+        Invoke("Respawn", 0.95f);
+    }
+    void Respawn()
+    {
+        gameOverScreen.SetActive(false);
+        health = 100;
+        slider.value = health;
+        pc.enabled = true;
+        isDeathAnim = false;
+        anim.SetBool("isDead", false);
+    }
     void RemoveInvincibility()
     {
+
         col.enabled = true;
         invincibility = false;
     }
