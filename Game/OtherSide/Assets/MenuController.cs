@@ -59,6 +59,7 @@ public class MenuController : MonoBehaviourPunCallbacks
     public void SetUsername()
     {
         usernameMenu.SetActive(false);
-        PhotonNetwork.NickName = usernameInput.text;
+        PhotonNetwork.NickName = usernameInput.text.ToLower();
+        Debug.Log(PhotonNetwork.NickName);
     }
 }
