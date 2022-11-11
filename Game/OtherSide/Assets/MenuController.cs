@@ -7,7 +7,6 @@ using Photon.Realtime;
 public class MenuController : MonoBehaviourPunCallbacks
 {
     [SerializeField] private string versionName = "0.1";
-    [SerializeField] private GameObject onlineMenu;
     [SerializeField] private GameObject usernameMenu;
     [SerializeField] private GameObject connectPanel;
 
@@ -24,12 +23,12 @@ public class MenuController : MonoBehaviourPunCallbacks
 
     private void Start()
     {
-        startBtn.SetActive(false);
+        usernameMenu.SetActive(false);
     }
 
     public void MultiplayerSelected()
     {
-        onlineMenu.SetActive(true);
+        usernameMenu.SetActive(true);
     }
 
     public override void OnConnectedToMaster()
@@ -45,7 +44,7 @@ public class MenuController : MonoBehaviourPunCallbacks
     }
     public void ChangeUsernameInput()
     {
-        if (usernameInput.text.Length < 3 || usernameInput.text.Length>10)
+        if (usernameInput.text.Length < 3)
         {
             startBtn.SetActive(false);
 
