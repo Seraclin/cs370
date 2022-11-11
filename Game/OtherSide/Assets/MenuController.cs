@@ -8,6 +8,7 @@ public class MenuController : MonoBehaviourPunCallbacks
 {
     [SerializeField] private string versionName = "0.1";
     [SerializeField] private GameObject usernameMenu;
+    [SerializeField] private GameObject onlineMenu;
     [SerializeField] private GameObject connectPanel;
 
     [SerializeField] private InputField usernameInput;
@@ -23,12 +24,12 @@ public class MenuController : MonoBehaviourPunCallbacks
 
     private void Start()
     {
-        usernameMenu.SetActive(false);
+        onlineMenu.SetActive(false);
     }
 
     public void MultiplayerSelected()
     {
-        usernameMenu.SetActive(true);
+        onlineMenu.SetActive(true);
     }
 
     public override void OnConnectedToMaster()
@@ -44,7 +45,7 @@ public class MenuController : MonoBehaviourPunCallbacks
     }
     public void ChangeUsernameInput()
     {
-        if (usernameInput.text.Length < 3)
+        if (usernameInput.text.Length < 3 || usernameInput.text.Length > 10)
         {
             startBtn.SetActive(false);
 
