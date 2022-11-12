@@ -7,9 +7,9 @@ using UnityEngine.Tilemaps;
 public class TileMapVisualizer : MonoBehaviour
 {
     [SerializeField]
-    private Tilemap floorTilemap ,wallTilemap;
+    private Tilemap floorTilemap ,wallTilemap, torchMap;
     [SerializeField]
-    private TileBase floorTile, wallTop;
+    private TileBase floorTile, wallTop, torch;
 
     public void PaintFloorTiles(IEnumerable<Vector2Int> floorPositions)
     {
