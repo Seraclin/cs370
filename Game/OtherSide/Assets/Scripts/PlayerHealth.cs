@@ -59,7 +59,6 @@ public class PlayerHealth : MonoBehaviour
     void Death()
     {
         gameOverScreen.SetActive(true);
-        Debug.Log("died");
         Invoke("Respawn", 0.95f);
     }
     void Respawn()
