@@ -36,7 +36,7 @@ public class PlayerHealth : MonoBehaviour
             {
                 isDeathAnim = true;
                 // Death animation - Sam
-                anim.SetBool("isDead", true);
+              //  anim.SetBool("isDead", true);
                 // TODO: Delay death screen
 
                 //RESTART GAME -JC
