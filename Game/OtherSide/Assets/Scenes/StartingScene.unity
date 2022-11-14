@@ -3144,6 +3144,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Background Music
       objectReference: {fileID: 0}
+    - target: {fileID: 4987936480329219730, guid: e9026641560724127a3d04a4392e6d96, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4987936480329219733, guid: e9026641560724127a3d04a4392e6d96, type: 3}
       propertyPath: m_RootOrder
       value: 3
