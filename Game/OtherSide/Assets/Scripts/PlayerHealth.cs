@@ -17,16 +17,17 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] GameObject gameOverScreen;
 
     [SerializeField] Animator anim;  // for animations to transition
+    [SerializeField] GameObject particleHit; // particle prefab
+    private GameObject phit; // particle when you get hit
 
     private void Start()
     {
         anim = GetComponent<Animator>();
+        
     }
-
 
     public void ChangeHealth(int h)
     {
-
         if (h < 0 && invincibility == false)
         {
             health += h;
@@ -41,7 +42,7 @@ public class PlayerHealth : MonoBehaviour
 
                 //RESTART GAME -JC
                 pc.enabled = false;
-                Invoke("Death", 1f);
+                Invoke("Death", 1.2f);
                 //newScreen.SetActive(true);
               
                 
@@ -55,11 +56,18 @@ public class PlayerHealth : MonoBehaviour
             health += h;
             slider.value = health;
         }
+        if(isDeathAnim == false)
+        {
+            // hit particle effect
+            phit = Instantiate(particleHit, gameObject.transform);
+            phit.GetComponent<ParticleSystem>().Play();
+            Destroy(phit, phit.GetComponent<ParticleSystem>().main.duration);
+        }
     }
     void Death()
     {
         gameOverScreen.SetActive(true);
-        Invoke("Respawn", 0.95f);
+        // Invoke("Respawn", 0.95f);
     }
     void Respawn()
     {
