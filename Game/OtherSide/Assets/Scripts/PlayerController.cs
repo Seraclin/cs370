@@ -50,6 +50,17 @@ public class PlayerController : MonoBehaviourPunCallbacks
         //Play animation depending on direction hit
         
     }
+    [PunRPC] //syncs animation flips across devices
+     void FlipFalse()
+    {
+        ren.flipX = false;
+    }
+    [PunRPC]
+     void FlipTrue()
+    {
+        ren.flipX = true;
+
+    }
 
     // Update is called once per frame
     void FixedUpdate()
@@ -64,13 +75,15 @@ public class PlayerController : MonoBehaviourPunCallbacks
         //For flipping animation
         if (input.x > 0)
         {
-               ren.flipX = false;
+            pv.RPC("FlipFalse", RpcTarget.AllBuffered);
+              
                
         }
         if (input.x < 0)
         {
-                ren.flipX = true;
-                
+            pv.RPC("FlipTrue", RpcTarget.AllBuffered);
+
+
         }
         if(input.y > 0) // facing up
         {
