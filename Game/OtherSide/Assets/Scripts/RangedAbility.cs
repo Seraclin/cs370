@@ -28,6 +28,7 @@ public class RangedAbility : Ability
     public override void Activate(GameObject parent)
     {
         Debug.Log("Range Ability activated");
+        FindObjectOfType<AudioManager>().Play("fireballAttack"); 
 
         spawnPosition = parent.transform;
         Vector3 displacement = new Vector3(0, 0, 0);

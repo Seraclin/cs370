@@ -25,6 +25,8 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         ren = gameObject.GetComponent<SpriteRenderer>();
+
+        FindObjectOfType<AudioManager>().Play("ghostApproach"); 
     }
 
     public void ChangeHealth(int h)
@@ -141,6 +143,7 @@ public class Enemy : MonoBehaviour
  
     IEnumerator Move(Vector3 targetPos, float inputx, float inputy)
     {
+
         isMoving = true;
         
         while ((targetPos - transform.position).sqrMagnitude > Mathf.Epsilon)
@@ -154,6 +157,8 @@ public class Enemy : MonoBehaviour
 
     IEnumerator RangedMove(Vector3 targetPos, float inputx, float inputy)
     {
+
+        
         isMoving = true;
         Debug.Log((targetPos - transform.position).sqrMagnitude);
         while ((targetPos - transform.position).sqrMagnitude > Mathf.Epsilon)

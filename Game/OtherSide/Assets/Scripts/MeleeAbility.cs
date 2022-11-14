@@ -24,6 +24,8 @@ public class MeleeAbility : Ability
     public override void Activate(GameObject parent) 
     {
         Debug.Log("Melee Ability activated");
+        FindObjectOfType<AudioManager>().Play("meleeAttack"); 
+
         spawnPosition = parent.transform;
         Vector3 displacement = new Vector3(0, 0, 0);
 

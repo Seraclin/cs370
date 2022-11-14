@@ -21,6 +21,9 @@ public class Sound {
 
     public bool loop;
 
+    // public float minDistance;
+    // public float maxDistance;  
+
     [HideInInspector]
     public AudioSource source;
 }
