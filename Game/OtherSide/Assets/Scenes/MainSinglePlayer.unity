@@ -27096,7 +27096,7 @@ Tilemap:
       - {fileID: 21300000, guid: 0038c56ee886c4d7aa0a8795d79e2832, type: 3}
       - {fileID: 21300000, guid: 73d3eeb16ddb548228abb4c0fc7ba3e8, type: 3}
       - {fileID: 21300000, guid: 632d4532bd67a416895fd80f550a977b, type: 3}
-      m_AnimationSpeed: 10.000001
+      m_AnimationSpeed: 10
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 36, y: -7, z: 0}
@@ -27286,7 +27286,7 @@ Tilemap:
       - {fileID: 21300000, guid: a82b48abe41254f21a9281df25f39946, type: 3}
       - {fileID: 21300000, guid: 218c2372465e54481b83ef09e9a2daf5, type: 3}
       - {fileID: 21300000, guid: 7383f1ee8f56b40669fd48d0be6b2b7c, type: 3}
-      m_AnimationSpeed: 10.000001
+      m_AnimationSpeed: 10
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   m_TileAssetArray:
@@ -27652,7 +27652,7 @@ MonoBehaviour:
   - name: Theme
     clip: {fileID: 8300000, guid: 0201cca26dd1c490ba39080ec997fcc9, type: 3}
     volume: 0.666
-    pitch: 0.71
+    pitch: 1
     loop: 1
     source: {fileID: 0}
 --- !u!4 &2129617317
