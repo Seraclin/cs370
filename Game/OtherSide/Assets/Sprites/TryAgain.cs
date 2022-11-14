@@ -7,7 +7,7 @@ public class TryAgain : MonoBehaviour
 {
    public void RestartGame()
     {
-        SceneManager.LoadScene("Main");
+        SceneManager.LoadScene("MainSinglePlayer");
     } 
     
 }

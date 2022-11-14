@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.UIElements;
+using Photon.Pun;
+using Photon.Realtime;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviourPunCallbacks
 {
     /*IMPORTANT So in Unity, it's good practice to not use public variables and instead use
      * [SerializeField]. SerializeField variables can be changed via the Unity Engine itself.
@@ -18,7 +21,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float speed;
     [SerializeField] bool isMoving = false;
 
-    [SerializeField] SpriteRenderer ren;
+    public SpriteRenderer ren;
+    public Text playerName; //will probably move this to another script (displays player nickname)
+    public GameObject playerCam;
     //Used for grid-based movement later on
 
     /*This is an InEngine layer which is pretty much is everything the player can collide with
@@ -27,12 +32,17 @@ public class PlayerController : MonoBehaviour
      * Fore example: The sky, clouds, etc -JC
      */
     [SerializeField] LayerMask Collidables;
+    public PhotonView pv; //for online
  
     
 
-    // Start is called before the first frame update
-    void Start()
+    // Awake runs before start()
+    void Awake()
     {
+        if(pv.IsMine)
+        {
+            playerCam.SetActive(true);
+        }
         
     }
     public void CollisionForce(int xForce, int yForce)
@@ -45,8 +55,11 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         //Built-in Unity functions for player inputs
-        input.x = Input.GetAxisRaw("Horizontal"); 
-        input.y = Input.GetAxisRaw("Vertical");
+        if (pv.IsMine)
+        {
+            input.x = Input.GetAxisRaw("Horizontal");
+            input.y = Input.GetAxisRaw("Vertical");
+        }
 
         //For flipping animation
         if (input.x > 0)
