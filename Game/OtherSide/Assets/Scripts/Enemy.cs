@@ -22,6 +22,8 @@ public class Enemy : MonoBehaviour
 
     [SerializeField] float deathTime;
 
+    [SerializeField] float distancing; // for ranged enemy only
+
     void Start()
     {
         ren = gameObject.GetComponent<SpriteRenderer>();
@@ -97,7 +99,10 @@ public class Enemy : MonoBehaviour
         {
             if (player != null)
             {
-                if (player.GetComponent<SpriteRenderer>().color.a > 0.8f)
+                float dis;
+                dis = Vector3.Distance(gameObject.transform.position, gameObject.GetComponent<Enemy>().player.transform.position);
+
+                if (player.GetComponent<SpriteRenderer>().color.a > 0.8f && dis < distancing)
                 {
                     if (player.transform.position.x < this.transform.position.x)
                     {
@@ -160,7 +165,7 @@ public class Enemy : MonoBehaviour
 
         
         isMoving = true;
-        Debug.Log((targetPos - transform.position).sqrMagnitude);
+        
         while ((targetPos - transform.position).sqrMagnitude > Mathf.Epsilon)
         {
             transform.position = Vector3.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
