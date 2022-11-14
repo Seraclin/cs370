@@ -29,12 +29,18 @@ public class EnemyHolder : MonoBehaviour
         switch (state) // check AbilityState and switch accordingly
         {
             case AbilityState.ready:
-                if (gameObject.GetComponent<Enemy>().player != null && gameObject.GetComponent<Enemy>().player.GetComponent<SpriteRenderer>().color.a > 0.8f) // cast ability if player is detected
+                if (gameObject.GetComponent<Enemy>().player != null) 
                 {
-                    ability.Activate(gameObject); // activate ability on the GameObject that the script is attached to
-                    state = AbilityState.active;
-                    activeTime = ability.activeTime;
-                    Debug.Log("Enemy Attack");
+                    float dis;
+                    dis = Vector3.Distance(gameObject.transform.position, gameObject.GetComponent<Enemy>().player.transform.position);
+                    //Debug.Log(dis);
+                    if (dis < ability.range && gameObject.GetComponent<Enemy>().player.GetComponent<SpriteRenderer>().color.a > 0.8f) // cast ability if player is detected
+                    {
+                        ability.Activate(gameObject); // activate ability on the GameObject that the script is attached to
+                        state = AbilityState.active;
+                        activeTime = ability.activeTime;
+                        Debug.Log("Enemy Attack");
+                    }
                 }
                 break;
             case AbilityState.active:

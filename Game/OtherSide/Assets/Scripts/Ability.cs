@@ -22,6 +22,8 @@ public class Ability : ScriptableObject
 
     [SerializeField] public float knockback; // how much ability will knockback objects, 0 for no knockback
 
+    [SerializeField] public float range; // for enemy only: the ability is only triggered when player is whthin range
+
 
     // ability range depends on the ability
     // audio should be handled by SoundManager (?)
