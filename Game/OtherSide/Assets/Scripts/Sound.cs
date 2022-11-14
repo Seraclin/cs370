@@ -1,10 +1,17 @@
 using UnityEngine.Audio;
 using UnityEngine;
 
+/**
+ * The sound class
+ */
+
 [System.Serializable]
 public class Sound {
+
+    // name of the sound
     public string name;
 
+    // audio clip
     public AudioClip clip; 
 
     [Range(0f, 1f)]
