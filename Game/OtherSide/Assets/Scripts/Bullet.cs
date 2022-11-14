@@ -1,13 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class Bullet : MonoBehaviour
 {
     public int damage; //this is the amount of damage done by the weapon
     [SerializeField] float duration;
 
+    [SerializeField] GameObject particleTrail; // particle trail
+    [SerializeField] GameObject particleImpact; // particle hit
 
+    void Start()
+    {
+        if (particleTrail != null) // display projectile trail
+        {
+            GameObject ptrail = Instantiate(particleTrail, gameObject.transform);
+            ptrail.GetComponent<ParticleSystem>().Play();
+        }
+    }
     void FixedUpdate()
     {
         if (duration > 0)
@@ -16,6 +27,12 @@ public class Bullet : MonoBehaviour
         }
         else
         {
+            if (particleImpact != null) // play projectile impact particles, which self-destroy after playing
+            {
+                GameObject phit = Instantiate(particleImpact, gameObject.transform);
+                // phit.GetComponent<ParticleSystem>().Play();
+                // Destroy(phit, phit.GetComponent<ParticleSystem>().main.duration);
+            }
             Destroy(gameObject);
         }
     }
@@ -25,7 +42,19 @@ public class Bullet : MonoBehaviour
     {
         if (gameObject.tag != collision.gameObject.tag + "Ability")
         {
-
+            if (particleImpact != null && (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "Player")) // play projectile impact particles, which self-destroy after playing
+            {
+                // public static Object Instantiate(Object original, Vector3 position, Quaternion rotation);
+                Transform pos = gameObject.transform;
+                GameObject phit = Instantiate(particleImpact, collision.transform.position, Quaternion.identity);
+                // phit.GetComponent<ParticleSystem>().Play();
+                // Destroy(phit, phit.GetComponent<ParticleSystem>().main.duration);
+            }
+            else if (particleImpact != null && (collision.gameObject.tag == "Wall")) // wall needs it's own case
+            {
+                Transform pos = gameObject.transform;
+                GameObject phit = Instantiate(particleImpact, gameObject.transform.position, Quaternion.identity);
+            }
 
             if (collision.gameObject.tag == "Enemy")
             {

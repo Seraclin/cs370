@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
+using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
 
 /*
@@ -26,7 +27,7 @@ public class PossessionAbility : MonoBehaviour
     [SerializeField] public string abilityDescription; // description of ability
     // [SerializeField] public Collider2D possessCollider; // possession collider, TODO: add
     [SerializeField] public int stamina; // a resource linked to possesion? possession HP?
-    [SerializeField] public Sprite indicator; // something to indicate you are possessing something? TODO
+    [SerializeField] public GameObject indicator; // something to indicate you are possessing something? TODO
     [SerializeField] public float cooldown; // cd for how when you can possess again after unpossessing, 0.2 or higher is recommended as framerate will screw up lower times
 
 
@@ -36,6 +37,7 @@ public class PossessionAbility : MonoBehaviour
     private float cooldownTime; // tracking current cooldown time
     [SerializeField] public Animator anim; // anim component to use
     private bool isPossessing = false; // true, if you are currently "possessing" something, use AbilityState active instead
+    private GameObject indicatorObj; // delete this when not possessing anything
 
     // Old: Player original information to store for when you unpossess, denoted with zero 0
     private Sprite sprite0; // player sprite
@@ -147,9 +149,16 @@ public class PossessionAbility : MonoBehaviour
         }
         
     }
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.tag == "Enemy" && collision.gameObject.GetComponent<Enemy>().isPossessable && !possessable.Contains(collision.gameObject))
+        {
+            possessable.Add(collision.gameObject);
+        }
+    }
     private void OnTriggerExit2D(Collider2D collision) // leaves possessable range
     {
-        if (collision.tag == "Enemy" && possessable.Contains(collision.gameObject) && collision.gameObject.GetComponent<Enemy>().isPossessable)  // TODO: remove reliance on "Enemy" tag and add 'posessable' variable/tag for things that you can possess?
+        if (possessable.Contains(collision.gameObject))  // TODO: remove reliance on "Enemy" tag and add 'posessable' variable/tag for things that you can possess?
         {
             possessable.Remove(collision.gameObject);
         }
@@ -204,20 +213,25 @@ public class PossessionAbility : MonoBehaviour
             }
         }
 
-       
-
         // Change player sprite/anims to the target game object sprite/animation, might mess up animations
         anim.SetBool("isPossessing", true); // plays possession animation, TODO: add a better possession animation, it currently just uses the death animation
+
         // TODO: Move the player's position to in front of that possessed object's position? Potential clipping issues
-        // parent.transform.position = (closest.transform.position + new Vector3(0, -1.0f, 0));
-        Invoke(nameof(changeAnims), 0.7f); // delay to see possession animtion TODO: animations clunky and inconsistent, replace with coroutine
+        gameObject.transform.parent.position = (closest.transform.position);
 
-
-        /* TODO: destroy the enemy corpse object when successfully possessed, or after set time frame coroutine?
-           possessable.Remove(closest);
-           Destroy(closest);
-        */
+        Invoke(nameof(changeAnims), 0.8f); // delay to see possession animtion TODO: animations clunky and inconsistent, replace with coroutine
+        // TODO: Use an if statement to check animation tree instead, normalized time is % animation is done playing
+        /*Debug.LogWarning(anim.GetCurrentAnimatorStateInfo(0).normalizedTime);
+        if (anim.GetCurrentAnimatorStateInfo(0).IsName("Possession_Enter"))
+        {
+            Debug.Log("Should change animations now...");
+            changeAnims();
+        }*/
         // TODO: add indicator of what you're currently possessing
+        // public static Object Instantiate(Object original, Vector3 position, Quaternion rotation, Transform parent);
+        // indicatorObj = Instantiate(indicator, (gameObject.transform.position + new Vector3(0, 1.0f, 0)), Quaternion.identity, gameObject.transform.parent);
+        gameObject.transform.GetChild(0).gameObject.SetActive(true); // should show the indicator
+
         return true;
 
     }
@@ -243,6 +257,9 @@ public class PossessionAbility : MonoBehaviour
             Debug.Log("Enemy doesn't have an animation!");
             player.GetComponent<Animator>().enabled = !player.GetComponent<Animator>().enabled;
         }
+        // TODO: destroy the enemy corpse object when successfully possessed, or after set time frame coroutine?
+           possessable.Remove(closest);
+           Destroy(closest);
     }
 
     /* Deactivate is called when the skill is cooldown
@@ -260,10 +277,11 @@ public class PossessionAbility : MonoBehaviour
         {
             abilsTemp[i].ability = abil0[i];
         }
+        gameObject.transform.GetChild(0).gameObject.SetActive(false); // should hide the indicator
 
     }
 
-    private void checkPossessable() // adds valid possessable objects to possessable list
+    private void checkPossessable() // adds valid possessable objects to possessable list, unused
     {
         // TODO: determine what's possessable, unused currently
         // For now, this is unused
