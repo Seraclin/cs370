@@ -436,3 +436,4 @@ MonoBehaviour:
   ren: {fileID: 0}
   player: {fileID: 0}
   health: 15
+  deathTime: 20

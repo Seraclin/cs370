@@ -15,7 +15,8 @@ public class MeleeAbility : Ability
     public GameObject meleeInstance; // The prefab of melee (currently it's a placeholder from the existing sprites)
     private Transform spawnPosition; // The position of generating the meleeInstance
     private GameObject cloneSkillPrefab; // Reference to the generated melee object
-    private SpriteRenderer ren;
+
+    private Vector3 direction;
 
     /* Activate is called when the skill is active
      * define ability behavior: generate an object with a collider as the hitbox of the melee   
@@ -24,19 +25,29 @@ public class MeleeAbility : Ability
     {
         Debug.Log("Melee Ability activated");
         spawnPosition = parent.transform;
-        ren = parent.GetComponent<SpriteRenderer>();
+        Vector3 displacement = new Vector3(0, 0, 0);
 
-        if (ren.flipX)
+        if (parent.tag == "Player")
         {
-            meleeInstance.GetComponent<SpriteRenderer>().flipX = true;
-            cloneSkillPrefab = Instantiate(meleeInstance, spawnPosition.position - new Vector3(1, 0, 0), spawnPosition.rotation,parent.transform);
+            Vector3 mousePosition = Input.mousePosition;
+            mousePosition.z = Camera.main.transform.position.z * -1;
+            displacement = Camera.main.ScreenToWorldPoint(mousePosition) - spawnPosition.position;
         }
-        else
+        else if (parent.tag == "Enemy")
         {
-            meleeInstance.GetComponent<SpriteRenderer>().flipX = false;
-            cloneSkillPrefab = Instantiate(meleeInstance, spawnPosition.position + new Vector3(1, 0, 0), spawnPosition.rotation,parent.transform);
+            Vector3 playerPosition = parent.GetComponent<Enemy>().player.GetComponent<Transform>().position;
+            displacement = playerPosition - spawnPosition.position;
         }
+
+
+        direction = displacement.normalized;
+
+        cloneSkillPrefab = Instantiate(meleeInstance, spawnPosition.position + direction, spawnPosition.rotation, parent.transform);
+
         cloneSkillPrefab.tag = parent.tag + "Ability";
+
+        float rotZ = Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg;
+        cloneSkillPrefab.transform.rotation = Quaternion.Euler(0f, 0f, -rotZ - 90);
 
         cloneSkillPrefab.GetComponent<AbilityDamage>().damage = damage;
     }

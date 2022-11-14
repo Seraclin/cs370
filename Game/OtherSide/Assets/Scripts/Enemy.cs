@@ -20,6 +20,8 @@ public class Enemy : MonoBehaviour
     [SerializeField] public GameObject player;
     [SerializeField] int health = 15;
 
+    [SerializeField] float deathTime;
+
     void Start()
     {
         ren = gameObject.GetComponent<SpriteRenderer>();
@@ -36,12 +38,13 @@ public class Enemy : MonoBehaviour
             isDead = true;
             isMoving = false;
             player = null;
+            gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePosition;
             hitbox.GetComponent<BoxCollider2D>().enabled = false;
             hitbox.GetComponent<EnemyHitbox>().enabled = false;
             df.GetComponent<EnemyDetectionField>().enabled = false;
             df.GetComponent<CircleCollider2D>().enabled = false;
             ren.color = new Color(ren.color.r, ren.color.g, ren.color.b, .5f);
-            Destroy(this.gameObject, 5f);
+            Destroy(this.gameObject, deathTime);
         }
     }
     void FixedUpdate()
