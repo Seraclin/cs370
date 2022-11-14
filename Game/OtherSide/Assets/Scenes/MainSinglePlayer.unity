@@ -18031,6 +18031,44 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &171117925 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2333548383453265291, guid: 5aa8d1c6e81f043609b2142c3012d7ca, type: 3}
+  m_PrefabInstance: {fileID: 1772144060888275830}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &171117927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 171117925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
 --- !u!1001 &171422026
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27058,7 +27096,7 @@ Tilemap:
       - {fileID: 21300000, guid: 0038c56ee886c4d7aa0a8795d79e2832, type: 3}
       - {fileID: 21300000, guid: 73d3eeb16ddb548228abb4c0fc7ba3e8, type: 3}
       - {fileID: 21300000, guid: 632d4532bd67a416895fd80f550a977b, type: 3}
-      m_AnimationSpeed: 10
+      m_AnimationSpeed: 10.000001
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 36, y: -7, z: 0}
@@ -27128,7 +27166,7 @@ Tilemap:
       - {fileID: 21300000, guid: a82b48abe41254f21a9281df25f39946, type: 3}
       - {fileID: 21300000, guid: 218c2372465e54481b83ef09e9a2daf5, type: 3}
       - {fileID: 21300000, guid: 7383f1ee8f56b40669fd48d0be6b2b7c, type: 3}
-      m_AnimationSpeed: 10.000001
+      m_AnimationSpeed: 10
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 12, y: 0, z: 0}
@@ -27248,7 +27286,7 @@ Tilemap:
       - {fileID: 21300000, guid: a82b48abe41254f21a9281df25f39946, type: 3}
       - {fileID: 21300000, guid: 218c2372465e54481b83ef09e9a2daf5, type: 3}
       - {fileID: 21300000, guid: 7383f1ee8f56b40669fd48d0be6b2b7c, type: 3}
-      m_AnimationSpeed: 10
+      m_AnimationSpeed: 10.000001
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   m_TileAssetArray:
@@ -27696,6 +27734,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 447066013060112428, guid: 5aa8d1c6e81f043609b2142c3012d7ca, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -2089092206, guid: f201b7cfaa5db49169e103193b20e4b7, type: 3}
     - target: {fileID: 1772144059540867189, guid: 5aa8d1c6e81f043609b2142c3012d7ca, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
