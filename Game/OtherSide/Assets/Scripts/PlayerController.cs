@@ -76,13 +76,14 @@ public class PlayerController : MonoBehaviourPunCallbacks
         if (input.x > 0)
         {
             pv.RPC("FlipFalse", RpcTarget.AllBuffered);
-              
-               
+            ren.flipX = false;
+
+
         }
         if (input.x < 0)
         {
             pv.RPC("FlipTrue", RpcTarget.AllBuffered);
-
+            ren.flipX = true;
 
         }
         if(input.y > 0) // facing up
