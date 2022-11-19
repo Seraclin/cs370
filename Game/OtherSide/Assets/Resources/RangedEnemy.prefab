@@ -203,6 +203,8 @@ GameObject:
   - component: {fileID: 2923140738659992633}
   - component: {fileID: 2923140738659992586}
   - component: {fileID: 2923140738659992581}
+  - component: {fileID: 2532581260021697496}
+  - component: {fileID: 796955449216713336}
   m_Layer: 0
   m_Name: RangedEnemy
   m_TagString: Enemy
@@ -412,6 +414,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ability: {fileID: 11400000, guid: 9fb1fa00993e4644993c43735e55106c, type: 2}
+  cdCoefficient: 1
+  state: 0
 --- !u!114 &2923140738659992581
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -437,3 +441,34 @@ MonoBehaviour:
   player: {fileID: 0}
   health: 15
   deathTime: 20
+  distancing: 0
+--- !u!114 &2532581260021697496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7233263586582013284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aeb88c9427d8ab6458c7b1b60f1d6978, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ability: {fileID: 11400000, guid: 53c280bb95e830041b5df49f8537be77, type: 2}
+  cdCoefficient: 1
+  state: 0
+--- !u!114 &796955449216713336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7233263586582013284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 061bef25f37ac724988f69d54989d8dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  holderArray:
+  - {fileID: 2923140738659992586}
+  - {fileID: 2532581260021697496}
