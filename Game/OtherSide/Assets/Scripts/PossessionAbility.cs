@@ -216,18 +216,12 @@ public class PossessionAbility : MonoBehaviour
         // Change player sprite/anims to the target game object sprite/animation, might mess up animations
         anim.SetBool("isPossessing", true); // plays possession animation, TODO: add a better possession animation, it currently just uses the death animation
 
-        // TODO: Move the player's position to in front of that possessed object's position? Potential clipping issues
+        // Move the player's position to in front of that possessed object's position? Potential clipping issues
         gameObject.transform.parent.position = (closest.transform.position);
 
-        Invoke(nameof(changeAnims), 0.8f); // delay to see possession animtion TODO: animations clunky and inconsistent, replace with coroutine
-        // TODO: Use an if statement to check animation tree instead, normalized time is % animation is done playing
-        /*Debug.LogWarning(anim.GetCurrentAnimatorStateInfo(0).normalizedTime);
-        if (anim.GetCurrentAnimatorStateInfo(0).IsName("Possession_Enter"))
-        {
-            Debug.Log("Should change animations now...");
-            changeAnims();
-        }*/
-        // TODO: add indicator of what you're currently possessing
+        StartCoroutine("changeAnims"); // delay to see possession animtion with coroutine
+                                       // 
+        // add indicator of what you're currently possessing
         // public static Object Instantiate(Object original, Vector3 position, Quaternion rotation, Transform parent);
         // indicatorObj = Instantiate(indicator, (gameObject.transform.position + new Vector3(0, 1.0f, 0)), Quaternion.identity, gameObject.transform.parent);
         gameObject.transform.GetChild(0).gameObject.SetActive(true); // should show the indicator
@@ -235,13 +229,16 @@ public class PossessionAbility : MonoBehaviour
         return true;
 
     }
-    
+
     /*
      * Helper method to switch visual elements such sprite/animations from player -> closest gameObject
      */
 
-    private void changeAnims()
+    IEnumerator changeAnims()
     {
+        player.GetComponent<PlayerController>().enabled = false; // don't let player move during this time
+        yield return new WaitUntil(() => anim.GetCurrentAnimatorStateInfo(0).normalizedTime <= 1.0f); // wait for transition
+        yield return new WaitForSeconds(anim.GetCurrentAnimatorStateInfo(0).length); // wait for possess animation
         player.GetComponent<SpriteRenderer>().sprite = closest.GetComponent<SpriteRenderer>().sprite; // changes player's sprite to the possessed object's sprite
         Color playerColor = player.GetComponent<SpriteRenderer>().color; // player color ref
         playerColor = closest.GetComponent<SpriteRenderer>().color; // get enemy color
@@ -254,12 +251,13 @@ public class PossessionAbility : MonoBehaviour
         }
         else
         {
-            Debug.Log("Enemy doesn't have an animation!");
+            Debug.LogWarning("'"+closest.name+"' Enemy doesn't have an animation!");
             player.GetComponent<Animator>().enabled = !player.GetComponent<Animator>().enabled;
         }
-        // TODO: destroy the enemy corpse object when successfully possessed, or after set time frame coroutine?
-           possessable.Remove(closest);
-           Destroy(closest);
+        // destroy the enemy corpse object when successfully possessed
+        possessable.Remove(closest);
+        Destroy(closest);
+        player.GetComponent<PlayerController>().enabled = true; // let player move now
     }
 
     /* Deactivate is called when the skill is cooldown
