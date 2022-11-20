@@ -6,25 +6,9 @@ using UnityEngine;
  * handles the logic for cooldowns provided by 
  * the Ability ScriptableObject attached to this script.
  */
-public class AbilityHolder : MonoBehaviour
+public class AbilityHolder : Holder
 {
-    [SerializeField] public Ability ability; // add an ability object in editor
-    float cooldownTime; // this should be inherited from Ability
-
-    float activeTime; // to keep track of how long ability lasts, can use Time.delta possibly
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        // This is not needed.
-    }
-    enum AbilityState // an ability is either ready, being activated, or on cooldown
-    {
-        ready,
-        active,
-        cooldown
-    }
-    AbilityState state = AbilityState.ready; // default ability state is ready
+    
     [SerializeField] public KeyCode key; // assign button in editor
     // Update is called once per frame
     void Update()
@@ -49,7 +33,7 @@ public class AbilityHolder : MonoBehaviour
                 {
                     ability.Deactivate(gameObject);
                     state = AbilityState.cooldown;
-                    cooldownTime = ability.cooldownTime;
+                    cooldownTime = ability.cooldownTime * cdCoefficient;
                 }
             break;
             case AbilityState.cooldown:

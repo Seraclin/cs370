@@ -5,7 +5,7 @@ using UnityEngine;
 public class AbilityArray : MonoBehaviour
 {
 
-    [SerializeField] public AbilityHolder[] holderArray;
+    [SerializeField] public Holder[] holderArray;
     // Start is called before the first frame update
     void Start()
     {
