@@ -18,22 +18,27 @@ public class Enemy : MonoBehaviour
     [SerializeField] SpriteRenderer ren;
 
     [SerializeField] public GameObject player;
-    [SerializeField] int health = 15;
+    [SerializeField] int maxhealth = 15;
 
     [SerializeField] float deathTime;
 
     [SerializeField] float distancing; // for ranged enemy only
+    int health;
 
     void Start()
     {
         ren = gameObject.GetComponent<SpriteRenderer>();
-
+        health = maxhealth;
         FindObjectOfType<AudioManager>().Play("ghostApproach"); 
     }
 
     public void ChangeHealth(int h)
     {
-        health = health - h;
+        health = health + h;
+        if (health > maxhealth)
+        {
+            health = maxhealth;
+        }
         if (health <= 0)
         {
             GameObject hitbox = this.gameObject.GetComponent<Transform>().GetChild(0).gameObject;

@@ -5,7 +5,7 @@ using static UnityEngine.GraphicsBuffer;
 
 public class Bullet : MonoBehaviour
 {
-    public int damage; //this is the amount of damage done by the weapon
+    internal int damage; //this is the amount of damage done by the weapon
     [SerializeField] float duration;
 
     [SerializeField] GameObject particleTrail; // particle trail
@@ -60,7 +60,7 @@ public class Bullet : MonoBehaviour
             {
 
                 Enemy eScript = collision.gameObject.GetComponent<Enemy>();
-                eScript.ChangeHealth(damage);
+                eScript.ChangeHealth(0 - damage);
                 Destroy(gameObject);
 
             }

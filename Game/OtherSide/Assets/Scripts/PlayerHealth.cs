@@ -61,6 +61,10 @@ public class PlayerHealth : MonoBehaviour
         else // invincible or healing
         {
             health += h;
+            if (health > maxHealth)
+            {
+                health = maxHealth;
+            }
             slider.value = health;
         }
         if(isDeathAnim == false && particleHit != null && h != 0)

@@ -2606,6 +2606,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ability: {fileID: 11400000, guid: 76c7cc203abec1d45b9257bc89786da0, type: 2}
+  cdCoefficient: 0
+  state: 0
   key: 323
 --- !u!114 &1772144060888275850
 MonoBehaviour:
@@ -2620,7 +2622,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ability: {fileID: 11400000, guid: 20b553c2a7ce7584fab1f3428fabcc1a, type: 2}
-  key: 99
+  cdCoefficient: 0
+  state: 0
+  key: 324
 --- !u!114 &5088242647296013457
 MonoBehaviour:
   m_ObjectHideFlags: 0
