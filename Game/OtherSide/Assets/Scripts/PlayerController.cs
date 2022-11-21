@@ -112,7 +112,7 @@ public class PlayerController : MonoBehaviourPunCallbacks
         isMoving = true;
      while((targetPos-transform.position).sqrMagnitude > Mathf.Epsilon)
         {
-            transform.position = Vector3.MoveTowards(transform.position, targetPos, speed*Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, targetPos, speed*Time.deltaTime); // TODO: fix lag
           
             yield return null;
             

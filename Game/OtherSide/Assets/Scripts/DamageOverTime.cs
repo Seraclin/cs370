@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 
-public class Bullet : MonoBehaviour
+public class DamageOverTime : MonoBehaviour
 {
     internal int damage; //this is the amount of damage done by the weapon
     [SerializeField] float duration;
@@ -38,7 +38,7 @@ public class Bullet : MonoBehaviour
     }
 
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         if (gameObject.tag != collision.gameObject.tag + "Ability")
         {
@@ -60,8 +60,9 @@ public class Bullet : MonoBehaviour
             {
 
                 Enemy eScript = collision.gameObject.GetComponent<Enemy>();
+                // Debug.Log(damage);
                 eScript.ChangeHealth(0 - damage);
-                Destroy(gameObject);
+                // Destroy(gameObject);
 
             }
             else if (collision.gameObject.tag == "Wall")
@@ -73,7 +74,7 @@ public class Bullet : MonoBehaviour
 
                 PlayerHealth eScript = collision.gameObject.GetComponent<PlayerHealth>();
                 eScript.ChangeHealth(0 - damage);
-                Destroy(gameObject);
+                // Destroy(gameObject);
             }
 
         }

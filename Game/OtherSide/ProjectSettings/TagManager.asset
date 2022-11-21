@@ -9,6 +9,8 @@ TagManager:
   - PlayerAbility
   - EnemyAbility
   - Wall
+  - Ability
+  - Audio
   layers:
   - Default
   - TransparentFX

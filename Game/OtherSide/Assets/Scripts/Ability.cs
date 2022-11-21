@@ -24,6 +24,8 @@ public class Ability : ScriptableObject
 
     [SerializeField] public float range; // for enemy only: the ability is only triggered when player is whthin range
 
+    [SerializeField] public bool isPassive;
+
 
     // ability range depends on the ability
     // audio should be handled by SoundManager (?)

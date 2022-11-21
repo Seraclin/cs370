@@ -28,11 +28,17 @@ public class PlayerHealth : MonoBehaviour
 
     public void ChangeHealth(int h)
     {
-        if (h < 0 && invincibility == false)
+        if (invincibility && h < 0) // negate incoming damage, when invincible
+        {
+            h = 0;
+        }
+
+        if (h < 0 && invincibility == false) // take incoming dmg
         {
             health += h;
             slider.value = health;
             invincibility = true;
+
             if(health < 0 && !isDeathAnim)  // player is dead
             {
                 isDeathAnim = true;
@@ -48,17 +54,22 @@ public class PlayerHealth : MonoBehaviour
                 
             }
             
-            col.enabled = false ;
+            // col.enabled = false ; // don't disable the box collider as it leads to undefined behavior for other triggers - Sam
+            // instead negate damage to 0 when invincible
             Invoke("RemoveInvincibility", invincibilityTime);
         }
-        else
+        else // invincible or healing
         {
             health += h;
+            if (health > maxHealth)
+            {
+                health = maxHealth;
+            }
             slider.value = health;
         }
-        if(isDeathAnim == false)
+        if(isDeathAnim == false && particleHit != null && h != 0)
         {
-            // hit particle effect
+            // hit particle effect, only when damage is not zero
             phit = Instantiate(particleHit, gameObject.transform);
             phit.GetComponent<ParticleSystem>().Play();
             Destroy(phit, phit.GetComponent<ParticleSystem>().main.duration);
@@ -80,8 +91,7 @@ public class PlayerHealth : MonoBehaviour
     }
     void RemoveInvincibility()
     {
-
-        col.enabled = true;
+        col.enabled = true; // use something else for invincibility
         invincibility = false;
     }
 }

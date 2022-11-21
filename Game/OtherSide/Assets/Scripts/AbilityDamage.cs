@@ -8,8 +8,8 @@ using UnityEngine;
  */
 public class AbilityDamage : MonoBehaviour
 {
-    public int damage; // TODO: replace with Ability object's damage
-    [SerializeField] float duration = 5; // duration of ability TODO: replace with Ability object's duration 
+    internal int damage; // TODO: replace with Ability object's damage
+    // [SerializeField] float duration = 5; // duration of ability TODO: replace with Ability object's duration 
 
     // Start is called before the first frame update
     void Start()
@@ -30,9 +30,12 @@ public class AbilityDamage : MonoBehaviour
 
             if (collision.gameObject.tag == "Enemy")
             {
-
                 Enemy eScript = collision.gameObject.GetComponent<Enemy>();
-                eScript.ChangeHealth(damage);
+                if (!eScript.isDead)
+                {
+                    gameObject.transform.parent.gameObject.GetComponent<AbilityArray>().holderArray[1].ability.Activate(gameObject.transform.parent.gameObject);
+                }
+                eScript.ChangeHealth(0 - damage);
                 Destroy(gameObject, 0.2f);
 
             }
@@ -42,9 +45,10 @@ public class AbilityDamage : MonoBehaviour
             }
             else if (collision.gameObject.tag == "Player")
             {
-                Debug.Log("Player hit, health reduce by " + damage);
+                // Debug.Log("Player hit, health reduce by " + damage);
                 PlayerHealth eScript = collision.gameObject.GetComponent<PlayerHealth>();
                 eScript.ChangeHealth(0 - damage);
+                gameObject.transform.parent.gameObject.GetComponent<AbilityArray>().holderArray[1].ability.Activate(gameObject.transform.parent.gameObject);
                 Destroy(gameObject, 0.2f);
             }
 
