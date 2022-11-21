@@ -23,7 +23,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] float deathTime;
 
     [SerializeField] float distancing; // for ranged enemy only
-    int health;
+    [SerializeField] int health;
 
     void Start()
     {
