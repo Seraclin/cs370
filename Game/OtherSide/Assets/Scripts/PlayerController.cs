@@ -95,8 +95,8 @@ public class PlayerController : MonoBehaviourPunCallbacks
         if (input != Vector2.zero && !isMoving)
         {
             var targetPos = transform.position;
-            targetPos.x += input.x / 16; //I'm assuming the game will be 16X16pixels here.
-            targetPos.y += input.y / 16;
+            targetPos.x += input.x/4; 
+            targetPos.y += input.y/4;
             if (CanWalk(targetPos)) {
                 /*The reason I use couroutine/IEnumerator instead of just moving on update is because
                  * 1. We are doing grid based movement. Each player should move a pixel at a time
@@ -110,10 +110,11 @@ public class PlayerController : MonoBehaviourPunCallbacks
     IEnumerator Move(Vector3 targetPos, float inputx, float inputy)
     {
         isMoving = true;
-     while((targetPos-transform.position).sqrMagnitude > Mathf.Epsilon)
+        float elapsedTime = 0;
+     while(elapsedTime < 0.05f)
         {
-            transform.position = Vector3.MoveTowards(transform.position, targetPos, speed*Time.deltaTime); // TODO: fix lag
-          
+            transform.position = Vector3.Lerp(transform.position, targetPos, elapsedTime/0.05f); // TODO: fix lag
+            elapsedTime += Time.deltaTime;
             yield return null;
             
         }
