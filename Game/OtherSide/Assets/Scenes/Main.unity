@@ -21716,7 +21716,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &905867669
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22716,7 +22716,7 @@ GameObject:
   - component: {fileID: 1486867047}
   - component: {fileID: 1486867046}
   m_Layer: 0
-  m_Name: Image
+  m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -22739,9 +22739,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -4.8107, y: 3.0415}
+  m_AnchoredPosition: {x: -537.7255, y: -303.04}
   m_SizeDelta: {x: 827.27, y: 606.08}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0, y: 0}
 --- !u!114 &1486867046
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22755,7 +22755,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.7830189, g: 0.32872018, b: 0.32872018, a: 1}
+  m_Color: {r: 0.754717, g: 0.19579923, b: 0.19579923, a: 0.79607844}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -27994,6 +27994,10 @@ PrefabInstance:
     - target: {fileID: 1772144060732249289, guid: 5aa8d1c6e81f043609b2142c3012d7ca, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3170129626798855158, guid: 5aa8d1c6e81f043609b2142c3012d7ca, type: 3}
+      propertyPath: sceneViewId
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3486940504922856088, guid: 5aa8d1c6e81f043609b2142c3012d7ca, type: 3}
       propertyPath: sceneViewId
