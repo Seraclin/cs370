@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
+using Photon.Realtime;
 
-public class Enemy : MonoBehaviour
+public class Enemy : MonoBehaviourPunCallbacks
 
 
 {
@@ -24,12 +26,18 @@ public class Enemy : MonoBehaviour
 
     [SerializeField] float distancing; // for ranged enemy only
     [SerializeField] int health;
+    public PhotonView pv;
+    [SerializeField] GameObject enemySpawner;
+    [SerializeField] Vector3 ogPos;
 
     void Start()
     {
+        enemySpawner = this.transform.parent.gameObject;
+        ogPos = this.transform.position;
         ren = gameObject.GetComponent<SpriteRenderer>();
         health = maxhealth;
-        FindObjectOfType<AudioManager>().Play("ghostApproach"); 
+        FindObjectOfType<AudioManager>().Play("ghostApproach");
+        pv = GetComponent<PhotonView>();
     }
 
     public void ChangeHealth(int h)
@@ -53,8 +61,30 @@ public class Enemy : MonoBehaviour
             df.GetComponent<EnemyDetectionField>().enabled = false;
             df.GetComponent<CircleCollider2D>().enabled = false;
             ren.color = new Color(ren.color.r, ren.color.g, ren.color.b, .5f);
-            Destroy(this.gameObject, deathTime);
+            
+            pv.RPC("DestroyOnline", RpcTarget.OthersBuffered);
+            if (PhotonNetwork.IsMasterClient)
+            {
+   
+                EnemySpawner es = enemySpawner.GetComponent<EnemySpawner>();
+                es.SpawnEnemy(ogPos, this.gameObject);
+                
+            }
+           
+            Invoke("DestroyEnemy", deathTime);
+            
         }
+    }
+
+    [PunRPC] void DestroyOnline()
+    {
+        Destroy(this.gameObject);
+    }
+    void DestroyEnemy()
+    {
+        PhotonNetwork.Destroy(this.gameObject);
+        Destroy(this.gameObject);
+
     }
     void FixedUpdate()
     { 

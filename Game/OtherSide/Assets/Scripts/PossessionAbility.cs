@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Reflection;
 using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
+using Photon.Pun;
+using Photon.Realtime;
 
 /*
  * TLDR: Viego passive but with Yuumi duration
@@ -16,7 +18,7 @@ using UnityEngine;
  */
 // [CreateAssetMenu(fileName = "New_PossessionAbility", menuName = "Scripts/PossessionAbility", order = 3)]
 
-public class PossessionAbility : MonoBehaviour
+public class PossessionAbility : MonoBehaviourPunCallbacks
 {
     [SerializeField] public KeyCode key; // assign button in editor for possession, press again to end early
     [SerializeField] public GameObject player; // player Game object
@@ -144,7 +146,7 @@ public class PossessionAbility : MonoBehaviour
     {
         if(collision.tag == "Enemy" && collision.gameObject.GetComponent<Enemy>().isPossessable)
         {
-            Debug.Log("Possessable object in range");
+           // Debug.Log("Possessable object in range");
             possessable.Add(collision.gameObject);
         }
         
@@ -257,6 +259,7 @@ public class PossessionAbility : MonoBehaviour
         // destroy the enemy corpse object when successfully possessed
         possessable.Remove(closest);
         Destroy(closest);
+        PhotonNetwork.Destroy(closest);
         player.GetComponent<PlayerController>().enabled = true; // let player move now
     }
 

@@ -439,9 +439,13 @@ MonoBehaviour:
   input: {x: 0, y: 0}
   ren: {fileID: 0}
   player: {fileID: 0}
-  health: 15
+  maxhealth: 15
   deathTime: 20
   distancing: 0
+  health: 15
+  pv: {fileID: 0}
+  enemySpawner: {fileID: 0}
+  ogPos: {x: 0, y: 0, z: 0}
 --- !u!114 &2532581260021697496
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -18,12 +18,13 @@ public class PlayerController : MonoBehaviourPunCallbacks
      *Yall might need to download the input manager plugin (forgot the exact name) -JC
      */
     Vector2 input; //Input by players (Example: The "Up" button) -JC
-    [SerializeField] float speed;
+    [SerializeField] float speed = 25f;
     [SerializeField] bool isMoving = false;
 
     public SpriteRenderer ren;
     public Text playerName; //will probably move this to another script (displays player nickname)
     public GameObject playerCam;
+   
     //Used for grid-based movement later on
 
     /*This is an InEngine layer which is pretty much is everything the player can collide with
@@ -39,6 +40,7 @@ public class PlayerController : MonoBehaviourPunCallbacks
     // Awake runs before start()
     void Awake()
     {
+        speed = 1 / speed;
         if(pv.IsMine)
         {
             playerCam.SetActive(true);
@@ -75,14 +77,14 @@ public class PlayerController : MonoBehaviourPunCallbacks
         //For flipping animation
         if (input.x > 0)
         {
-            pv.RPC("FlipFalse", RpcTarget.AllBuffered);
+            pv.RPC("FlipFalse", RpcTarget.OthersBuffered);
             ren.flipX = false;
 
 
         }
         if (input.x < 0)
         {
-            pv.RPC("FlipTrue", RpcTarget.AllBuffered);
+            pv.RPC("FlipTrue", RpcTarget.OthersBuffered);
             ren.flipX = true;
 
         }
@@ -111,9 +113,9 @@ public class PlayerController : MonoBehaviourPunCallbacks
     {
         isMoving = true;
         float elapsedTime = 0;
-     while(elapsedTime < 0.05f)
+     while(elapsedTime < speed)
         {
-            transform.position = Vector3.Lerp(transform.position, targetPos, elapsedTime/0.05f); // TODO: fix lag
+            transform.position = Vector3.Lerp(transform.position, targetPos, elapsedTime/speed);
             elapsedTime += Time.deltaTime;
             yield return null;
             

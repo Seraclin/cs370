@@ -19,6 +19,9 @@ GameObject:
   - component: {fileID: 946820001}
   - component: {fileID: 401914776906737235}
   - component: {fileID: 8135222698073075019}
+  - component: {fileID: 6737484841764921069}
+  - component: {fileID: -9168544423122029372}
+  - component: {fileID: 8512345479893123940}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -202,9 +205,13 @@ MonoBehaviour:
   input: {x: 0, y: 0}
   ren: {fileID: 5544111371020350148}
   player: {fileID: 0}
-  health: 15
+  maxhealth: 15
   deathTime: 20
   distancing: 0
+  health: 15
+  pv: {fileID: 0}
+  enemySpawner: {fileID: 0}
+  ogPos: {x: 0, y: 0, z: 0}
 --- !u!50 &5544111371020350144
 Rigidbody2D:
   serializedVersion: 4
@@ -286,6 +293,64 @@ MonoBehaviour:
   ability: {fileID: 11400000, guid: ddac31bd2a082f94bad72e6296724e23, type: 2}
   cdCoefficient: 0
   state: 0
+--- !u!114 &6737484841764921069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5544111371020350159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowLayerWeightsInspector: 1
+  ShowParameterInspector: 1
+  m_SynchronizeParameters: []
+  m_SynchronizeLayers:
+  - SynchronizeType: 0
+    LayerIndex: 0
+--- !u!114 &-9168544423122029372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5544111371020350159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 0
+  m_UseLocal: 1
+--- !u!114 &8512345479893123940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5544111371020350159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents:
+  - {fileID: 6737484841764921069}
+  - {fileID: -9168544423122029372}
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &5544111371390996900
 GameObject:
   m_ObjectHideFlags: 0
