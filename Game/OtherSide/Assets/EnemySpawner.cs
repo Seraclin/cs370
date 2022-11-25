@@ -17,9 +17,13 @@ public class EnemySpawner : MonoBehaviourPunCallbacks
             GameObject child = transform.GetChild(i).gameObject;
             Debug.Log(child.name);
             GameObject newEnemy = PhotonNetwork.Instantiate(child.name, child.transform.position, Quaternion.identity, 0);
+            if (PhotonNetwork.IsMasterClient)
+            {
+                newEnemy.transform.parent = this.transform;
+                newEnemy.name = newEnemy.name.Substring(0, newEnemy.name.Length - 7);
+            }
+
             Destroy(child);
-            newEnemy.transform.parent = this.transform;
-            newEnemy.name = newEnemy.name.Substring(0, newEnemy.name.Length - 7);
 
         }
     }

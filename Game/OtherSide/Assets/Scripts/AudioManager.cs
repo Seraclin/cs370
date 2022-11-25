@@ -43,10 +43,10 @@ public class AudioManager : MonoBehaviour
      * then call FindObjectOfType<AudioManager>().Play("name") to play the sound.
      */ 
     public void Play(string name) {
-        Debug.Log("Play sound:" + name); 
+       // Debug.Log("Play sound:" + name); 
         Sound s = Array.Find(sounds, sound => sound.name == name); 
         if (s == null) {
-            Debug.LogWarning("Sound:" + name + "not found!"); 
+           // Debug.LogWarning("Sound:" + name + "not found!"); 
             return;
         }
         s.source.Play(); 

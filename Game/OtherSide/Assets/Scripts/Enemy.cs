@@ -67,7 +67,7 @@ public class Enemy : MonoBehaviourPunCallbacks
             {
    
                 EnemySpawner es = enemySpawner.GetComponent<EnemySpawner>();
-                es.SpawnEnemy(ogPos, this.gameObject);
+                
                 
             }
            
