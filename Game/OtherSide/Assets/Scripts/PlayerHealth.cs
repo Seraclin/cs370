@@ -19,6 +19,8 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] Animator anim;  // for animations to transition
     [SerializeField] GameObject particleHit; // particle prefab
     private GameObject phit; // particle when you get hit
+    private bool tookdamage = false; // returns true if health was decreased, otherwise false
+
 
     private void Start()
     {
@@ -26,16 +28,19 @@ public class PlayerHealth : MonoBehaviour
         
     }
 
-    public void ChangeHealth(int h)
+    public bool ChangeHealth(int h)
     {
+        tookdamage = false; // returns true if health was decreased, otherwise false
         if (invincibility && h < 0) // negate incoming damage, when invincible
         {
             h = 0;
+            tookdamage = false;
         }
 
         if (h < 0 && invincibility == false) // take incoming dmg
         {
             health += h;
+            tookdamage = true; // we take damage
             slider.value = health;
             invincibility = true;
 
@@ -43,7 +48,7 @@ public class PlayerHealth : MonoBehaviour
             {
                 isDeathAnim = true;
                 // Death animation - Sam
-              //  anim.SetBool("isDead", true);
+                anim.SetBool("isDead", true);
                 // TODO: Delay death screen
 
                 //RESTART GAME -JC
@@ -61,6 +66,8 @@ public class PlayerHealth : MonoBehaviour
         else // invincible or healing
         {
             health += h;
+            tookdamage = false; // we take no damage
+
             if (health > maxHealth)
             {
                 health = maxHealth;
@@ -74,6 +81,7 @@ public class PlayerHealth : MonoBehaviour
             phit.GetComponent<ParticleSystem>().Play();
             Destroy(phit, phit.GetComponent<ParticleSystem>().main.duration);
         }
+        return tookdamage;
     }
     void Death()
     {

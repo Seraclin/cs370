@@ -148,4 +148,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   duration: 2
   particleTrail: {fileID: 8060286846786946212, guid: 5ce9eac351ea98b4ba21796bd16e523d, type: 3}
-  particleImpact: {fileID: 4448921864022606379, guid: 13087b1da724c0c4da8e76e46bd43689, type: 3}
+  particleImpact: {fileID: 4448921864022606379, guid: 3d912ff49adda684697dd61209928c6f, type: 3}

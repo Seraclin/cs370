@@ -202,11 +202,11 @@ GameObject:
   - component: {fileID: 2938398021888079869}
   - component: {fileID: 2938398021888079867}
   - component: {fileID: 7221498386743629481}
-  - component: {fileID: 7221498386743629466}
   - component: {fileID: 7035759347821437800}
+  - component: {fileID: 7221498386743629466}
   - component: {fileID: 1500252231445866608}
   m_Layer: 0
-  m_Name: Thrower_Enemy
+  m_Name: Zombie
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -219,7 +219,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2938398021888079860}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -7, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -270,8 +270,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -4
-  m_Sprite: {fileID: 526839123, guid: dc621f968ea884545bf288451c230bd0, type: 3}
-  m_Color: {r: 0.07186719, g: 0.8018868, b: 0.17777571, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 39ea463bebdd1504cb7a2b2aed3e1957, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -355,7 +355,7 @@ Animator:
   m_GameObject: {fileID: 2938398021888079860}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: c54d96119eafead4d919f3eb425b7ca9, type: 2}
+  m_Controller: {fileID: 9100000, guid: 686066e3b9c25d048a15c6ecd4feae82, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -387,11 +387,15 @@ MonoBehaviour:
     m_Bits: 8
   input: {x: 0, y: 0}
   ren: {fileID: 2938398021888079871}
+  anim: {fileID: 2938398021888079859}
   player: {fileID: 0}
   maxhealth: 15
   deathTime: 20
   distancing: 0
   health: 15
+  pv: {fileID: 0}
+  enemySpawner: {fileID: 0}
+  ogPos: {x: 0, y: 0, z: 0}
 --- !u!50 &2938398021888079867
 Rigidbody2D:
   serializedVersion: 4
@@ -428,21 +432,6 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_EffectDistance: {x: 1, y: -1}
   m_UseGraphicAlpha: 1
---- !u!114 &7221498386743629466
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2938398021888079860}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aeb88c9427d8ab6458c7b1b60f1d6978, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ability: {fileID: 11400000, guid: 2c1a241b03281f94299e63b2191df64b, type: 2}
-  cdCoefficient: 1
-  state: 0
 --- !u!114 &7035759347821437800
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -458,6 +447,21 @@ MonoBehaviour:
   holderArray:
   - {fileID: 7221498386743629466}
   - {fileID: 1500252231445866608}
+--- !u!114 &7221498386743629466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2938398021888079860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aeb88c9427d8ab6458c7b1b60f1d6978, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ability: {fileID: 11400000, guid: 2c1a241b03281f94299e63b2191df64b, type: 2}
+  cdCoefficient: 1
+  state: 0
 --- !u!114 &1500252231445866608
 MonoBehaviour:
   m_ObjectHideFlags: 0

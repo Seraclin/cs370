@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 296f72d283131604a884ad8f00be2300, type: 3}
   m_Name: PoisonThrower
   m_EditorClassIdentifier: 
-  abilityIcon: {fileID: 0}
-  abilityName: 
-  abilityDescription: 
+  abilityIcon: {fileID: 21300000, guid: 39ea463bebdd1504cb7a2b2aed3e1957, type: 3}
+  abilityName: Poison Spew
+  abilityDescription: Briefly spew a cloud of poison in a direction.
   cooldownTime: 5
   activeTime: 0
   damage: 5
