@@ -6,10 +6,10 @@ AnimatorOverrideController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: zombie_anim
+  m_Name: chort_anim
   m_Controller: {fileID: 9100000, guid: 686066e3b9c25d048a15c6ecd4feae82, type: 2}
   m_Clips:
-  - m_OriginalClip: {fileID: 7400000, guid: 1c61ba2edfba14942923f879505d5bfe, type: 2}
-    m_OverrideClip: {fileID: 7400000, guid: 1c61ba2edfba14942923f879505d5bfe, type: 2}
   - m_OriginalClip: {fileID: 7400000, guid: 2db75ae409271474892bbf5962886aab, type: 2}
-    m_OverrideClip: {fileID: 7400000, guid: 2db75ae409271474892bbf5962886aab, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: fb4996e47b1da0a4791b92dae8dc7ec9, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 1c61ba2edfba14942923f879505d5bfe, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 25fb1ad55964c7849ae6a21e72231f9b, type: 2}
