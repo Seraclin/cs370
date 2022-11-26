@@ -205,6 +205,7 @@ GameObject:
   - component: {fileID: 7035759347821437800}
   - component: {fileID: 7221498386743629466}
   - component: {fileID: 1500252231445866608}
+  - component: {fileID: 564729500155701465}
   m_Layer: 0
   m_Name: Zombie
   m_TagString: Enemy
@@ -469,11 +470,25 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2938398021888079860}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aeb88c9427d8ab6458c7b1b60f1d6978, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ability: {fileID: 11400000, guid: ddac31bd2a082f94bad72e6296724e23, type: 2}
+  ability: {fileID: 11400000, guid: b34a67e04177b7749bb24cbae478a92e, type: 2}
   cdCoefficient: 0
   state: 0
+--- !u!114 &564729500155701465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2938398021888079860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68a22df5902adbf449a0d251f9bc08d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPoisoned: 0
+  isSlowed: 0

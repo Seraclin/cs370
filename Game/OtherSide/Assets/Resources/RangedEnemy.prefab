@@ -208,6 +208,7 @@ GameObject:
   - component: {fileID: 8481517201512298371}
   - component: {fileID: -6863469743574177061}
   - component: {fileID: 308846887345788331}
+  - component: {fileID: 1932050833284931518}
   m_Layer: 0
   m_Name: RangedEnemy
   m_TagString: Enemy
@@ -441,6 +442,7 @@ MonoBehaviour:
     m_Bits: 8
   input: {x: 0, y: 0}
   ren: {fileID: 0}
+  anim: {fileID: 0}
   player: {fileID: 0}
   maxhealth: 15
   deathTime: 20
@@ -537,3 +539,17 @@ MonoBehaviour:
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
   m_UseLocal: 1
+--- !u!114 &1932050833284931518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7233263586582013284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68a22df5902adbf449a0d251f9bc08d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPoisoned: 0
+  isSlowed: 0

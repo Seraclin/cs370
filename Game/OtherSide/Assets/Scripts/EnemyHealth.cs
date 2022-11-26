@@ -43,9 +43,13 @@ public class EnemyHealth : MonoBehaviour
             col.enabled = false;
             Invoke("RemoveInvincibility", invincibilityTime);
         }
-        else // enemy is healed
+        else if (h > 0)// enemy is healed
         {
             health += h;
+            if (health > maxHealth)
+            {
+                health = maxHealth;
+            }
         }
         return tookdamage;
     }
