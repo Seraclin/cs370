@@ -17,7 +17,9 @@ public class Interactables : MonoBehaviour
     private bool chestOpened;
     public Transform spawnPoint;
     private Interactables itemInChestScript;
-    
+    [SerializeField] Sprite chestOpenSprite; // chest open sprite
+
+
     public void DoInteraction()
     {
         //pick up use/store.
@@ -41,6 +43,9 @@ public class Interactables : MonoBehaviour
             */
             itemInChest.SetActive(true);
             itemInChest.transform.position = spawnPoint.position;
+
+            // change chest sprite to open chest sprite
+            gameObject.GetComponent<SpriteRenderer>().sprite = chestOpenSprite;
         }
     }
     
