@@ -6,8 +6,8 @@ using UnityEngine.UI;
 public class PlayerHealth : MonoBehaviour
     
 {
-    [SerializeField] int maxHealth = 100;
-    [SerializeField] int health = 100;
+    [SerializeField] public int maxHealth = 100; // these should be public - Sam
+    [SerializeField] public int health = 100;
     [SerializeField] Slider slider;
     [SerializeField] bool invincibility;
     bool isDeathAnim; //checks if player is dead (so u cant die twice)

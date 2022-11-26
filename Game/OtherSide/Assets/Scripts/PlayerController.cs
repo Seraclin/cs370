@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviourPunCallbacks
     [SerializeField] bool isMoving = false;
 
     public SpriteRenderer ren;
+    [SerializeField] public Animator anim;  // for animations to transition
     public Text playerName; //will probably move this to another script (displays player nickname)
     public GameObject playerCam;
    
@@ -45,6 +46,7 @@ public class PlayerController : MonoBehaviourPunCallbacks
         {
             playerCam.SetActive(true);
         }
+        anim = GetComponent<Animator>();
         
     }
     public void CollisionForce(int xForce, int yForce)
@@ -96,6 +98,7 @@ public class PlayerController : MonoBehaviourPunCallbacks
         //If input!=Zero then that means a button is being pressed -JC
         if (input != Vector2.zero && !isMoving)
         {
+            anim.SetBool("isMoving", true); // start moving animations for player
             var targetPos = transform.position;
             targetPos.x += input.x/4; 
             targetPos.y += input.y/4;
@@ -106,6 +109,9 @@ public class PlayerController : MonoBehaviourPunCallbacks
                  */
                 StartCoroutine(Move(targetPos, input.x, input.y));
                  }
+        } else if(input == Vector2.zero)
+        {
+            anim.SetBool("isMoving", false); // stop animations for player movement
         }
     }
     //This just is a way to make each player move 1 pixel at a time -JC
