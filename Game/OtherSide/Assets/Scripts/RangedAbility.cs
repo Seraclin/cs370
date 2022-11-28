@@ -58,6 +58,7 @@ public class RangedAbility : Ability
         cloneSkillPrefab.GetComponent<Rigidbody2D>().AddForce(direction * projectileSpeed, ForceMode2D.Force);
 
         cloneSkillPrefab.GetComponent<Bullet>().damage = damage;
+        cloneSkillPrefab.GetComponent<Bullet>().maker = parent;
 
     }
 

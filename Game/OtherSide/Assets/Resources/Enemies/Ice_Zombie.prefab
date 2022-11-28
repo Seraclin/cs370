@@ -382,7 +382,7 @@ MonoBehaviour:
   isMoving: 0
   isPossessable: 0
   isDead: 0
-  isRanged: 0
+  isRanged: 1
   Collidables:
     serializedVersion: 2
     m_Bits: 8
@@ -460,7 +460,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeb88c9427d8ab6458c7b1b60f1d6978, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ability: {fileID: 11400000, guid: 2c1a241b03281f94299e63b2191df64b, type: 2}
+  ability: {fileID: 11400000, guid: cab783c8d5e6395478035f9fa36d1852, type: 2}
   cdCoefficient: 1
   state: 0
 --- !u!114 &1500252231445866608
@@ -475,7 +475,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeb88c9427d8ab6458c7b1b60f1d6978, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ability: {fileID: 11400000, guid: b34a67e04177b7749bb24cbae478a92e, type: 2}
+  ability: {fileID: 11400000, guid: 56fdbe132f2ed444698c201145d80852, type: 2}
   cdCoefficient: 0
   state: 0
 --- !u!114 &564729500155701465

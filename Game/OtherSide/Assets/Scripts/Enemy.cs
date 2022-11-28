@@ -10,7 +10,7 @@ public class Enemy : MonoBehaviourPunCallbacks
 {
 
     /*The enemy uses the same walking system as the player -JC*/
-    [SerializeField] float speed;
+    [SerializeField] public float speed;
     [SerializeField] bool isMoving = false;
     [SerializeField] public bool isPossessable = false;
     [SerializeField] public bool isDead = false;

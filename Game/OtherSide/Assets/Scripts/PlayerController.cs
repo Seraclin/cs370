@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviourPunCallbacks
      *Yall might need to download the input manager plugin (forgot the exact name) -JC
      */
     Vector2 input; //Input by players (Example: The "Up" button) -JC
-    [SerializeField] float speed = 25f;
+    [SerializeField] public float speed = 25f;
     [SerializeField] bool isMoving = false;
 
     public SpriteRenderer ren;
