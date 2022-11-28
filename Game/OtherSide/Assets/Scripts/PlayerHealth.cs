@@ -19,15 +19,18 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] Animator anim;  // for animations to transition
     [SerializeField] GameObject particleHit; // particle prefab
     private GameObject phit; // particle when you get hit
+    [SerializeField] Vector3 respawnPoint;
 
     private void Start()
     {
         anim = GetComponent<Animator>();
+        respawnPoint = this.transform.position;
         
     }
 
     public void ChangeHealth(int h)
     {
+       
         if (invincibility && h < 0) // negate incoming damage, when invincible
         {
             h = 0;
@@ -41,6 +44,7 @@ public class PlayerHealth : MonoBehaviour
 
             if(health < 0 && !isDeathAnim)  // player is dead
             {
+                slider.value = 0;
                 isDeathAnim = true;
                 // Death animation - Sam
               //  anim.SetBool("isDead", true);
@@ -48,10 +52,11 @@ public class PlayerHealth : MonoBehaviour
 
                 //RESTART GAME -JC
                 pc.enabled = false;
-                Invoke("Death", 1.2f);
+                Invoke("Respawn", 1.2f);
+               // anim.SetBool("isDead", true);
                 //newScreen.SetActive(true);
-              
-                
+
+
             }
             
             // col.enabled = false ; // don't disable the box collider as it leads to undefined behavior for other triggers - Sam
@@ -75,14 +80,11 @@ public class PlayerHealth : MonoBehaviour
             Destroy(phit, phit.GetComponent<ParticleSystem>().main.duration);
         }
     }
-    void Death()
-    {
-        gameOverScreen.SetActive(true);
-        // Invoke("Respawn", 0.95f);
-    }
+   
     void Respawn()
     {
-        gameOverScreen.SetActive(false);
+        //gameOverScreen.SetActive(false);
+        this.transform.position = respawnPoint;
         health = 100;
         slider.value = health;
         pc.enabled = true;
