@@ -20228,6 +20228,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 242589833}
     m_Modifications:
+    - target: {fileID: -6863469743574177061, guid: 257489386ebe92e43bed82772cfaf518, type: 3}
+      propertyPath: sceneViewId
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 7233263586582013284, guid: 257489386ebe92e43bed82772cfaf518, type: 3}
       propertyPath: m_Name
       value: RangedEnemy
@@ -27512,7 +27516,7 @@ Tilemap:
       - {fileID: 21300000, guid: ac11ad65e555b4eadb63c1021aa4918a, type: 3}
       - {fileID: 21300000, guid: cbec3247c3d22420ea9362d270f01850, type: 3}
       - {fileID: 21300000, guid: bb251e85463eb416896cd963d7eae60a, type: 3}
-      m_AnimationSpeed: 10
+      m_AnimationSpeed: 10.000001
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 48, y: -4, z: 0}
