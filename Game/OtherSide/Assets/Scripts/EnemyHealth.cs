@@ -10,20 +10,24 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField] bool invincibility;
     [SerializeField] float invincibilityTime;
     [SerializeField] Collider2D col;
+
+    private bool tookdamage = false; // returns true if health was decreased, otherwise false
     /*
      * This the script for enemy taking damage.
      * Ideally, the changehealth() is invoked by an Ability object
      * and passed in a damage (h<0) or healing (h>0) value from the Ability object's damage variable.
      * If the enemy health <=0, it will die
      */
-    public void ChangeHealth(int h)
+    public bool ChangeHealth(int h)
     { // 'h' is the ability damage
+        tookdamage = false;
 
-        if (h < 0 && invincibility == false)
+        if (h < 0 && invincibility == false) // enemy isn't invincible so it takes damage
         {
             health += h;
+            tookdamage = true; // health was changed
             invincibility = true;
-            if (health <= 0) // might have to change equality later
+            if (health <= 0) // enemy dies, might have to change equality later
             {
                 
                 Enemy enemyScript = this.GetComponent<Enemy>();
@@ -39,10 +43,15 @@ public class EnemyHealth : MonoBehaviour
             col.enabled = false;
             Invoke("RemoveInvincibility", invincibilityTime);
         }
-        else
+        else if (h > 0)// enemy is healed
         {
             health += h;
+            if (health > maxHealth)
+            {
+                health = maxHealth;
+            }
         }
+        return tookdamage;
     }
     void RemoveInvincibility()
     {

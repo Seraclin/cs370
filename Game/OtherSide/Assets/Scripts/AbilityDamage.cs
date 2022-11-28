@@ -31,7 +31,7 @@ public class AbilityDamage : MonoBehaviour
             if (collision.gameObject.tag == "Enemy")
             {
                 Enemy eScript = collision.gameObject.GetComponent<Enemy>();
-                if (!eScript.isDead)
+                if (!eScript.isDead && gameObject.transform.parent.gameObject.GetComponent<AbilityArray>().holderArray[1].ability.isPassive)
                 {
                     gameObject.transform.parent.gameObject.GetComponent<AbilityArray>().holderArray[1].ability.Activate(gameObject.transform.parent.gameObject);
                 }
@@ -48,7 +48,11 @@ public class AbilityDamage : MonoBehaviour
                 // Debug.Log("Player hit, health reduce by " + damage);
                 PlayerHealth eScript = collision.gameObject.GetComponent<PlayerHealth>();
                 eScript.ChangeHealth(0 - damage);
-                gameObject.transform.parent.gameObject.GetComponent<AbilityArray>().holderArray[1].ability.Activate(gameObject.transform.parent.gameObject);
+                if (gameObject.transform.parent.gameObject.GetComponent<AbilityArray>().holderArray[1].ability.isPassive)
+                {
+                    gameObject.transform.parent.gameObject.GetComponent<AbilityArray>().holderArray[1].ability.Activate(gameObject.transform.parent.gameObject);
+                }
+   
                 Destroy(gameObject, 0.2f);
             }
 

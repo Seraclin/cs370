@@ -166,6 +166,7 @@ MonoBehaviour:
   isChest: 1
   itemInChest: {fileID: 0}
   spawnPoint: {fileID: 8024846703232902498}
+  openSprite: {fileID: 21300000, guid: ff12a710a6decca49840192304b03dd9, type: 3}
 --- !u!50 &3676559404684298405
 Rigidbody2D:
   serializedVersion: 4

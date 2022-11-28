@@ -44,7 +44,7 @@ public class PossessionAbility : MonoBehaviourPunCallbacks
     // Old: Player original information to store for when you unpossess, denoted with zero 0
     private Sprite sprite0; // player sprite
     private RuntimeAnimatorController anim0; // player animator controller
-    [SerializeField] Ability[] abil0 = new Ability[3]; //ability size of 3, drag original abilities via Inspector
+    [SerializeField] Ability[] abil0 = new Ability[2]; //ability size of 2, drag original abilities via Inspector
     // private List<AbilityHolder> abilOther; // list any other abilities
     private int hpMax0; // get old max HP, prob uneeded
 
@@ -68,7 +68,8 @@ public class PossessionAbility : MonoBehaviourPunCallbacks
     {
         duration = 0;
         // initialize player defaults
-        player = GameObject.FindWithTag("Player");
+        // player = GameObject.FindWithTag("Player"); // don't use tags bc multiplayer
+        player = gameObject.transform.parent.gameObject; // get player that possession collider is attached to
         anim = gameObject.transform.parent.gameObject.GetComponentInParent<Animator>(); // gets the parent gameobject's "Animator" component
         anim0 = gameObject.transform.parent.gameObject.GetComponentInParent<Animator>().runtimeAnimatorController; // the animator controller used for "Animator" component
         // anim0 = this.GetComponentInParent<Animator>(); // original animator
@@ -116,9 +117,9 @@ public class PossessionAbility : MonoBehaviourPunCallbacks
 
                 }
 
-                if (stamina < 0) // possession HP / stamina is used up, go on cooldown
+                if (player.GetComponent<PlayerHealth>().health <= 0) // possession HP / stamina is used up, go on cooldown
                 {
-                    // TODO: modify playerHealth to take account stamina, currently uses same HP as default form
+                    // when hp is zero player is dead, and it knocked out of possession
                     Deactivate(player);
                     state = AbilityState.cooldown;
                     cooldownTime = cooldown;
@@ -180,7 +181,7 @@ public class PossessionAbility : MonoBehaviourPunCallbacks
         }
 
         // GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        Debug.Log("All possessable objects:" + possessable.ToString());
+        // Debug.Log("All possessable objects:" + possessable.ToString());
         GameObject closestObj = GetClosestPossessable(parent.transform);
         if (closestObj == null) // another redundant check for null exception
         {
@@ -188,15 +189,34 @@ public class PossessionAbility : MonoBehaviourPunCallbacks
         }
         closest = closestObj;
 
-        // TODO: get enemy abilities and assign to player; NOTE: order from GetComponents is not guaranteed so edit accordingly or label AbilityHolder scripts
+        // get enemy abilities and assign to player; NOTE: order from GetComponents is not guaranteed so edit accordingly or label AbilityHolder scripts
         // closest = a2 = enemy and enemies use EnemyHolder script with ability attach, parent is the player = p2 and uses AbilityHolder script with ability attach 
-        EnemyHolder[] abilEnem = closest.GetComponentsInChildren<EnemyHolder>();
-        AbilityHolder[] abilPlayer = parent.GetComponents<AbilityHolder>();
+        // EnemyHolder[] abilEnem = closest.GetComponentsInChildren<EnemyHolder>();
+        // AbilityHolder[] abilPlayer = parent.GetComponents<AbilityHolder>();
+        
+        // get abilities via AbilityArray instead
+        Holder[] abilEnem = closest.GetComponent<AbilityArray>().holderArray;
+        Holder[] abilPlayer = parent.GetComponent<AbilityArray>().holderArray;
+
         if (abilEnem.Length <= 0)
         {
             Debug.LogWarning("Enemy can't be possessed! No abilities on it!: "+closest.name);
             return false;
         }
+
+        // enemy and player should always have equal length ability slots
+        if(abilPlayer.Length != abilEnem.Length)
+        {
+            Debug.LogWarning("Enemy and player have different number of ability slots!");
+        }
+        else
+        { // give abilities from enemy to player
+            for (int i = 0; i < abilPlayer.Length; i++)
+            {
+                abilPlayer[i].ability = abilEnem[i].ability;
+            }
+        }
+        /*
         if (abilPlayer.Length > abilEnem.Length) // enemy has less ability slots than player; by default any leftover slots are filled in with whatever player had originally
         {
             Debug.Log("Ability on enemy is: " + abilEnem[0].ability);
@@ -213,13 +233,13 @@ public class PossessionAbility : MonoBehaviourPunCallbacks
                 // abilNew[i] = abilEnem[i].ability;
                 abilPlayer[i].ability = abilEnem[i].ability; // TODO: probably should scale cooldowns accordingly for player enjoyability
             }
-        }
-
-        // Change player sprite/anims to the target game object sprite/animation, might mess up animations
-        anim.SetBool("isPossessing", true); // plays possession animation, TODO: add a better possession animation, it currently just uses the death animation
+        }*/
 
         // Move the player's position to in front of that possessed object's position? Potential clipping issues
         gameObject.transform.parent.position = (closest.transform.position);
+
+        // Change player sprite/anims to the target game object sprite/animation, might mess up animations
+        anim.SetBool("isPossessing", true); // plays possession animation, TODO: add a better possession animation, it currently just uses the death animation
 
         StartCoroutine("changeAnims"); // delay to see possession animtion with coroutine
                                        // 
@@ -272,9 +292,11 @@ public class PossessionAbility : MonoBehaviourPunCallbacks
         parent.GetComponent<SpriteRenderer>().sprite = sprite0; // changes player's sprite back to what it was orignally
         parent.GetComponent<SpriteRenderer>().color = Color.white; // get default color
         parent.GetComponent<Animator>().runtimeAnimatorController = anim0; // reenable player animations
-        // TODO: remove enemy abilities from player, and re-add old player abilites. Again GetComponents doesn't guarantee order so should specify order by putting index on abilityHolder class
-        AbilityHolder [] abilsTemp = parent.GetComponents<AbilityHolder>();
-        for(int i = 0; i < abilsTemp.Length; i++)
+        // remove enemy abilities from player, and re-add old player abilites. Again GetComponents doesn't guarantee order so should specify order by putting index on abilityHolder class
+        // AbilityHolder [] abilsTemp = parent.GetComponents<AbilityHolder>();
+        Holder[] abilsTemp = parent.GetComponent<AbilityArray>().holderArray;
+
+        for (int i = 0; i < abilsTemp.Length; i++)
         {
             abilsTemp[i].ability = abil0[i];
         }

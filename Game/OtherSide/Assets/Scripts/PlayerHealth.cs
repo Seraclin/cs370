@@ -6,8 +6,8 @@ using UnityEngine.UI;
 public class PlayerHealth : MonoBehaviour
     
 {
-    [SerializeField] int maxHealth = 100;
-    [SerializeField] int health = 100;
+    [SerializeField] public int maxHealth = 100; // these should be public - Sam
+    [SerializeField] public int health = 100;
     [SerializeField] Slider slider;
     [SerializeField] bool invincibility;
     bool isDeathAnim; //checks if player is dead (so u cant die twice)
@@ -19,7 +19,12 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] Animator anim;  // for animations to transition
     [SerializeField] GameObject particleHit; // particle prefab
     private GameObject phit; // particle when you get hit
+tookdamage = false; // returns true if health was decreased, otherwise false<< HEAD
     [SerializeField] Vector3 respawnPoint;
+
+    private bool tookdamage = false; // returns true if health was decreased, otherwise false
+
+
 
     private void Start()
     {
@@ -28,17 +33,21 @@ public class PlayerHealth : MonoBehaviour
         
     }
 
-    public void ChangeHealth(int h)
+    public bool ChangeHealth(int h)
     {
-       
+
+        tookdamage = false; // returns true if health was decreased, otherwise false
+
         if (invincibility && h < 0) // negate incoming damage, when invincible
         {
             h = 0;
+            tookdamage = false;
         }
 
         if (h < 0 && invincibility == false) // take incoming dmg
         {
             health += h;
+            tookdamage = true; // we take damage
             slider.value = health;
             invincibility = true;
 
@@ -47,7 +56,7 @@ public class PlayerHealth : MonoBehaviour
                 slider.value = 0;
                 isDeathAnim = true;
                 // Death animation - Sam
-              //  anim.SetBool("isDead", true);
+                anim.SetBool("isDead", true);
                 // TODO: Delay death screen
 
                 //RESTART GAME -JC
@@ -66,6 +75,8 @@ public class PlayerHealth : MonoBehaviour
         else // invincible or healing
         {
             health += h;
+            tookdamage = false; // we take no damage
+
             if (health > maxHealth)
             {
                 health = maxHealth;
@@ -79,6 +90,7 @@ public class PlayerHealth : MonoBehaviour
             phit.GetComponent<ParticleSystem>().Play();
             Destroy(phit, phit.GetComponent<ParticleSystem>().main.duration);
         }
+        return tookdamage;
     }
    
     void Respawn()

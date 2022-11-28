@@ -10,7 +10,7 @@ public class Enemy : MonoBehaviourPunCallbacks
 {
 
     /*The enemy uses the same walking system as the player -JC*/
-    [SerializeField] float speed;
+    [SerializeField] public float speed;
     [SerializeField] bool isMoving = false;
     [SerializeField] public bool isPossessable = false;
     [SerializeField] public bool isDead = false;
@@ -18,6 +18,8 @@ public class Enemy : MonoBehaviourPunCallbacks
     [SerializeField] LayerMask Collidables;
     [SerializeField] Vector2 input;
     [SerializeField] SpriteRenderer ren;
+    [SerializeField] Animator anim;  // for animations to transition
+
 
     [SerializeField] public GameObject player;
     [SerializeField] int maxhealth = 15;
@@ -38,22 +40,34 @@ public class Enemy : MonoBehaviourPunCallbacks
         health = maxhealth;
         FindObjectOfType<AudioManager>().Play("ghostApproach");
         pv = GetComponent<PhotonView>();
+        anim = GetComponent<Animator>();
     }
 
-    public void ChangeHealth(int h)
+    public bool ChangeHealth(int h)
     {
+        bool tookdamage = false; // if we take damage we then true, else false
         health = health + h;
         if (health > maxhealth)
         {
             health = maxhealth;
         }
-        if (health <= 0)
+
+        if(h < 0) // incoming damage
+        {
+            tookdamage = true;
+        } else if(h > 0)
+        {
+            tookdamage = false;
+        }
+
+        if (health <= 0) // enemy dead
         {
             GameObject hitbox = this.gameObject.GetComponent<Transform>().GetChild(0).gameObject;
             GameObject df = this.gameObject.GetComponent<Transform>().GetChild(1).gameObject;
             isPossessable = true;
             isDead = true;
             isMoving = false;
+            anim.SetBool("isMoving", false); // stop animations for enemy
             player = null;
             gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePosition;
             hitbox.GetComponent<BoxCollider2D>().enabled = false;
@@ -74,6 +88,7 @@ public class Enemy : MonoBehaviourPunCallbacks
             Invoke("DestroyEnemy", deathTime);
             
         }
+        return tookdamage;
     }
 
     [PunRPC] void DestroyOnline()
@@ -185,7 +200,8 @@ public class Enemy : MonoBehaviourPunCallbacks
     {
 
         isMoving = true;
-        
+        anim.SetBool("isMoving", true);  // play animations for enemy_run
+
         while ((targetPos - transform.position).sqrMagnitude > Mathf.Epsilon)
         {
             transform.position = Vector3.MoveTowards(transform.position, targetPos, speed*Time.deltaTime);
@@ -193,6 +209,8 @@ public class Enemy : MonoBehaviourPunCallbacks
         }
         transform.position = targetPos;
         isMoving = false;
+        anim.SetBool("isMoving", false);  // stop animations for enemy_run
+
     }
 
     IEnumerator RangedMove(Vector3 targetPos, float inputx, float inputy)
@@ -200,7 +218,8 @@ public class Enemy : MonoBehaviourPunCallbacks
 
         
         isMoving = true;
-        
+        anim.SetBool("isMoving", true);  // play animations for enemy_run
+
         while ((targetPos - transform.position).sqrMagnitude > Mathf.Epsilon)
         {
             transform.position = Vector3.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
@@ -208,6 +227,8 @@ public class Enemy : MonoBehaviourPunCallbacks
         }
         transform.position = targetPos;
         isMoving = false;
+        anim.SetBool("isMoving", false);  // stop animations for enemy_run
+
     }
 
 

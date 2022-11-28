@@ -11,6 +11,12 @@ public class DamageOverTime : MonoBehaviour
     [SerializeField] GameObject particleTrail; // particle trail
     [SerializeField] GameObject particleImpact; // particle hit
 
+    private Enemy eScript1;
+    private PlayerHealth eScript2;
+    private bool tookdamage;
+    private string tag;
+    private Collider2D obj;
+
     void Start()
     {
         if (particleTrail != null) // display projectile trail
@@ -38,47 +44,87 @@ public class DamageOverTime : MonoBehaviour
     }
 
 
-    private void OnTriggerStay2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (gameObject.tag != collision.gameObject.tag + "Ability")
         {
-            if (particleImpact != null && (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "Player")) // play projectile impact particles, which self-destroy after playing
-            {
-                // public static Object Instantiate(Object original, Vector3 position, Quaternion rotation);
-                Transform pos = gameObject.transform;
-                GameObject phit = Instantiate(particleImpact, collision.transform.position, Quaternion.identity);
-                // phit.GetComponent<ParticleSystem>().Play();
-                // Destroy(phit, phit.GetComponent<ParticleSystem>().main.duration);
-            }
-            else if (particleImpact != null && (collision.gameObject.tag == "Wall")) // wall needs it's own case
+            /* Doesn't make sense to have this for a poison ability
+             * else if (particleImpact != null && (collision.gameObject.tag == "Wall")) // wall needs it's own case
             {
                 Transform pos = gameObject.transform;
                 GameObject phit = Instantiate(particleImpact, gameObject.transform.position, Quaternion.identity);
-            }
+            }*/
 
+            obj = collision;
             if (collision.gameObject.tag == "Enemy")
             {
-
-                Enemy eScript = collision.gameObject.GetComponent<Enemy>();
+                eScript1 = collision.gameObject.GetComponent<Enemy>();
+                tag = collision.gameObject.tag;
                 // Debug.Log(damage);
-                eScript.ChangeHealth(0 - damage);
-                // Destroy(gameObject);
+                InvokeRepeating("Damage", 0.1f, 0.5f);
 
             }
+            /* Shouldn't destroy upon wall - Sam
             else if (collision.gameObject.tag == "Wall")
             {
                 Destroy(gameObject);
-            }
+            }*/
             else if (collision.gameObject.tag == "Player")
             {
-
-                PlayerHealth eScript = collision.gameObject.GetComponent<PlayerHealth>();
-                eScript.ChangeHealth(0 - damage);
-                // Destroy(gameObject);
+                eScript2 = collision.gameObject.GetComponent<PlayerHealth>();
+                tag = collision.gameObject.tag;
+                InvokeRepeating("Damage", 0.1f, 0.5f);
             }
 
         }
 
 
     }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == tag)
+        {
+            CancelInvoke("Damage");
+        }
+    }
+
+    private void Damage()
+    {
+        if (tag == "Enemy")
+        {
+            tookdamage = eScript1.ChangeHealth(0 - damage);
+            if (!eScript1.isDead && gameObject.transform.parent.gameObject.GetComponent<AbilityArray>().holderArray[1].ability.isPassive)
+            {
+                gameObject.transform.parent.gameObject.GetComponent<AbilityArray>().holderArray[1].ability.Activate(obj.gameObject);
+            }
+            // Destroy(gameObject);
+            if (particleImpact != null && tookdamage && (tag == "Enemy" || tag == "Player")) // play projectile impact particles, which self-destroy after playing
+            {
+                // public static Object Instantiate(Object original, Vector3 position, Quaternion rotation, Transform parent);
+                Transform pos = gameObject.transform;
+                GameObject phit = Instantiate(particleImpact, obj.transform.position, Quaternion.identity, obj.transform);
+                // phit.GetComponent<ParticleSystem>().Play();
+                // Destroy(phit, phit.GetComponent<ParticleSystem>().main.duration);
+            }
+        } else if (tag == "Player")
+        {
+            tookdamage = eScript2.ChangeHealth(0 - damage);
+            if (gameObject.transform.parent.gameObject.GetComponent<AbilityArray>().holderArray[1].ability.isPassive)
+            {
+                gameObject.transform.parent.gameObject.GetComponent<AbilityArray>().holderArray[1].ability.Activate(obj.gameObject);
+            }
+            // Destroy(gameObject);
+            if (particleImpact != null && tookdamage && (tag == "Enemy" || tag == "Player")) // play projectile impact particles, which self-destroy after playing
+            {
+                // public static Object Instantiate(Object original, Vector3 position, Quaternion rotation, Transform parent);
+                Transform pos = gameObject.transform;
+                GameObject phit = Instantiate(particleImpact, obj.transform.position, Quaternion.identity, obj.transform);
+                // phit.GetComponent<ParticleSystem>().Play();
+                // Destroy(phit, phit.GetComponent<ParticleSystem>().main.duration);
+            }
+        }
+    }
+
+    
 }

@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d6867e8d4d61f446b277345ab014cd5, type: 3}
+  m_Name: IceBall
+  m_EditorClassIdentifier: 
+  abilityIcon: {fileID: 0}
+  abilityName: Ice Ball
+  abilityDescription: A blue fireball
+  cooldownTime: 3
+  activeTime: 0
+  damage: 20
+  cost: 0
+  knockback: 0
+  range: 5
+  isPassive: 0
+  RangeInstance: {fileID: 1750885095948236177, guid: 7212b115ee6d0dd4c9282fffa3f74787, type: 3}
+  projectileSpeed: 300

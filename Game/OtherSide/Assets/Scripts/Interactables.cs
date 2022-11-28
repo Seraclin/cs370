@@ -17,7 +17,11 @@ public class Interactables : MonoBehaviour
     private bool chestOpened;
     public Transform spawnPoint;
     private Interactables itemInChestScript;
-    
+
+    [SerializeField] Sprite openSprite; // chest or door open sprite
+    [SerializeField] GameObject particleInteract; // particle when open sprite happens
+
+
     public void DoInteraction()
     {
         //pick up use/store.
@@ -41,7 +45,22 @@ public class Interactables : MonoBehaviour
             */
             itemInChest.SetActive(true);
             itemInChest.transform.position = spawnPoint.position;
+
+            // change chest sprite to open chest sprite
+            changeSprite();
         }
     }
-    
+    public void changeSprite()
+    {
+        // changes sprite to 'openSprite'
+        // change door to unlocked door (door_unlocked)
+        // change chest to open chest (chest_open)
+        if(particleInteract != null) // particle effects
+        {
+            GameObject particle = Instantiate(particleInteract, gameObject.transform);
+            particle.GetComponent<ParticleSystem>().Play();
+            Destroy(particle, particle.GetComponent<ParticleSystem>().main.duration);
+        }
+        gameObject.GetComponent<SpriteRenderer>().sprite = openSprite;
+    }
 }

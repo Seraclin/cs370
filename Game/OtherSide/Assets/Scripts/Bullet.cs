@@ -11,6 +11,8 @@ public class Bullet : MonoBehaviour
     [SerializeField] GameObject particleTrail; // particle trail
     [SerializeField] GameObject particleImpact; // particle hit
 
+    internal GameObject maker;
+
     void Start()
     {
         if (particleTrail != null) // display projectile trail
@@ -61,6 +63,11 @@ public class Bullet : MonoBehaviour
 
                 Enemy eScript = collision.gameObject.GetComponent<Enemy>();
                 eScript.ChangeHealth(0 - damage);
+                if (maker.GetComponent<AbilityArray>().holderArray[1].ability.isPassive)
+                {
+                    Debug.Log("Activate passive");
+                    maker.GetComponent<AbilityArray>().holderArray[1].ability.Activate(collision.gameObject);
+                }
                 Destroy(gameObject);
 
             }
@@ -73,6 +80,11 @@ public class Bullet : MonoBehaviour
 
                 PlayerHealth eScript = collision.gameObject.GetComponent<PlayerHealth>();
                 eScript.ChangeHealth(0 - damage);
+                if (maker.GetComponent<AbilityArray>().holderArray[1].ability.isPassive)
+                {
+                    Debug.Log("Activate passive");
+                    maker.GetComponent<AbilityArray>().holderArray[1].ability.Activate(collision.gameObject);
+                }
                 Destroy(gameObject);
             }
 
