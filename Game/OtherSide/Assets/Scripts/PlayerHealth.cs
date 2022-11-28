@@ -19,7 +19,6 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] Animator anim;  // for animations to transition
     [SerializeField] GameObject particleHit; // particle prefab
     private GameObject phit; // particle when you get hit
-tookdamage = false; // returns true if health was decreased, otherwise false<< HEAD
     [SerializeField] Vector3 respawnPoint;
 
     private bool tookdamage = false; // returns true if health was decreased, otherwise false
