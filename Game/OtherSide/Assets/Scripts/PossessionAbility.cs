@@ -32,6 +32,10 @@ public class PossessionAbility : MonoBehaviourPunCallbacks
     [SerializeField] public GameObject indicator; // something to indicate you are possessing something? TODO
     [SerializeField] public float cooldown; // cd for how when you can possess again after unpossessing, 0.2 or higher is recommended as framerate will screw up lower times
 
+    [SerializeField] public int souls = 0; // counter for how many times you've successfully possessed something
+    [SerializeField] public int HPscaling = 10; // how much hp to restore upon possession
+
+
 
     // local variable fields for posession status
     public float radius; // possession circular radius, currently using this for testing
@@ -208,8 +212,9 @@ public class PossessionAbility : MonoBehaviourPunCallbacks
         if(abilPlayer.Length != abilEnem.Length)
         {
             Debug.LogWarning("Enemy and player have different number of ability slots!");
+            return false;
         }
-        else
+        else // at this point possession is sucessful!
         { // give abilities from enemy to player
             for (int i = 0; i < abilPlayer.Length; i++)
             {
@@ -234,6 +239,12 @@ public class PossessionAbility : MonoBehaviourPunCallbacks
                 abilPlayer[i].ability = abilEnem[i].ability; // TODO: probably should scale cooldowns accordingly for player enjoyability
             }
         }*/
+        // Possession is successful, some bonus for certain counter values?
+        souls += 1;
+        // increase max hp
+        // player.GetComponent<PlayerHealth>().maxHealth += 50;
+        player.GetComponent<PlayerHealth>().ChangeHealth(HPscaling);
+
 
         // Move the player's position to in front of that possessed object's position? Potential clipping issues
         gameObject.transform.parent.position = (closest.transform.position);

@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 947813102258716410}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 4.9753, y: -2.1403, z: -80.48045}
-  m_LocalScale: {x: 11.299827, y: 10.458778, z: 1}
+  m_LocalScale: {x: 10.341391, y: 10.497781, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -125,7 +125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 926f94a30a337004fad306e3fade8a30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textui: helloworld
+  textui: Use the arrow keys or WASD to move.
   uiObject: {fileID: 0}
   delayBeforeStart: 0
   timeBtwChars: 0.04
