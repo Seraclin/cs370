@@ -60,7 +60,7 @@ public class MenuController : MonoBehaviourPunCallbacks
     {
         usernameMenu.SetActive(false);
         PhotonNetwork.NickName = usernameInput.text.ToLower();
-        Debug.Log(PhotonNetwork.NickName);
+      
     }
 
     public void AddPrivateGame()
