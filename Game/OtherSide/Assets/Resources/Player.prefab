@@ -2954,6 +2954,7 @@ MonoBehaviour:
   gameOverScreen: {fileID: 1536712423}
   anim: {fileID: 0}
   particleHit: {fileID: 4448921864022606379, guid: 0e509cd9e36e57b4e82bd29813597bd9, type: 3}
+  particleHeal: {fileID: 4448921864022606379, guid: 6d89c75154128ce408c9f1d6935e1f0f, type: 3}
   respawnPoint: {x: 0, y: 0, z: 0}
 --- !u!114 &1772144060888275833
 MonoBehaviour:

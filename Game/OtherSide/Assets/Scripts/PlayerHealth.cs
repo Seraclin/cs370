@@ -17,7 +17,8 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] GameObject gameOverScreen;
 
     [SerializeField] Animator anim;  // for animations to transition
-    [SerializeField] GameObject particleHit; // particle prefab
+    [SerializeField] GameObject particleHit; // particle prefab for taking damage
+    [SerializeField] GameObject particleHeal; // particle for healing
     private GameObject phit; // particle when you get hit
     [SerializeField] Vector3 respawnPoint;
 
@@ -82,10 +83,17 @@ public class PlayerHealth : MonoBehaviour
             }
             slider.value = health;
         }
-        if(isDeathAnim == false && particleHit != null && h != 0)
+        if(isDeathAnim == false && particleHit != null && h < 0)
         {
-            // hit particle effect, only when damage is not zero
+            // hit particle effect, only when damage, i.e. h is less than zero/negative
             phit = Instantiate(particleHit, gameObject.transform);
+            phit.GetComponent<ParticleSystem>().Play();
+            Destroy(phit, phit.GetComponent<ParticleSystem>().main.duration);
+        }
+        else if (isDeathAnim == false && particleHeal != null && h > 0)
+        {
+            // heal particle effect, only when healing, i.e. h is greater than zero/positive
+            phit = Instantiate(particleHeal, gameObject.transform);
             phit.GetComponent<ParticleSystem>().Play();
             Destroy(phit, phit.GetComponent<ParticleSystem>().main.duration);
         }

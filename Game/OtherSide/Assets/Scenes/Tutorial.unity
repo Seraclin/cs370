@@ -24726,7 +24726,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 947813102258716412, guid: dfd0afa6f867d0345b7daca1aa27fa31, type: 3}
       propertyPath: textui
-      value: Use the E key to interact with and pickup objects.
+      value: Use the E key to interact with and pickup nearby objects.
       objectReference: {fileID: 0}
     - target: {fileID: 947813102258716412, guid: dfd0afa6f867d0345b7daca1aa27fa31, type: 3}
       propertyPath: uiObject
