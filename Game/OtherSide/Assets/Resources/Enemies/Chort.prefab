@@ -435,6 +435,7 @@ MonoBehaviour:
   pv: {fileID: -6863469743574177061}
   enemySpawner: {fileID: 0}
   ogPos: {x: 0, y: 0, z: 0}
+  particleHeal: {fileID: 4448921864022606379, guid: 6d89c75154128ce408c9f1d6935e1f0f, type: 3}
 --- !u!114 &796955449216713336
 MonoBehaviour:
   m_ObjectHideFlags: 0

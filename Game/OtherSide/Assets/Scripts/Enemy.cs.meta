@@ -3,7 +3,13 @@ guid: 91872f55b9a854c69a3be569791afaf0
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - ren: {instanceID: 0}
+  - anim: {instanceID: 0}
+  - player: {instanceID: 0}
+  - pv: {instanceID: 0}
+  - enemySpawner: {instanceID: 0}
+  - particleHeal: {fileID: 4448921864022606379, guid: 6d89c75154128ce408c9f1d6935e1f0f, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

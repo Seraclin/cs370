@@ -48,7 +48,8 @@ public class Bullet : MonoBehaviour
             {
                 // public static Object Instantiate(Object original, Vector3 position, Quaternion rotation);
                 Transform pos = gameObject.transform;
-                GameObject phit = Instantiate(particleImpact, collision.transform.position, Quaternion.identity);
+                // GameObject phit = Instantiate(particleImpact, collision.transform.position, Quaternion.identity); // impact at enemy center
+                GameObject phit = Instantiate(particleImpact, gameObject.transform.position, Quaternion.identity); // impact at enemy collider
                 // phit.GetComponent<ParticleSystem>().Play();
                 // Destroy(phit, phit.GetComponent<ParticleSystem>().main.duration);
             }

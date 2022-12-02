@@ -20901,7 +20901,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
+  m_Intensity: 0.7
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
   m_ApplyToSortingLayers: 00000000
@@ -29088,7 +29088,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1772144060732249271, guid: 5aa8d1c6e81f043609b2142c3012d7ca, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3
+      value: -4.35
       objectReference: {fileID: 0}
     - target: {fileID: 1772144060732249271, guid: 5aa8d1c6e81f043609b2142c3012d7ca, type: 3}
       propertyPath: m_LocalPosition.z
@@ -29387,6 +29387,7 @@ MonoBehaviour:
   pv: {fileID: 0}
   enemySpawner: {fileID: 0}
   ogPos: {x: 0, y: 0, z: 0}
+  particleHeal: {fileID: 0}
 --- !u!50 &2194311900626379652
 Rigidbody2D:
   serializedVersion: 4

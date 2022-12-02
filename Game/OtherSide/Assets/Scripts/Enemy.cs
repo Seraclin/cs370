@@ -22,15 +22,17 @@ public class Enemy : MonoBehaviourPunCallbacks
 
 
     [SerializeField] public GameObject player;
-    [SerializeField] int maxhealth = 15;
+    [SerializeField] public int maxhealth = 15;
 
     [SerializeField] float deathTime;
 
     [SerializeField] float distancing; // for ranged enemy only
-    [SerializeField] int health;
+    [SerializeField] public int health;
     public PhotonView pv;
     [SerializeField] GameObject enemySpawner;
     [SerializeField] Vector3 ogPos;
+
+    [SerializeField] GameObject particleHeal; // particle for healing
 
     void Start()
     {
@@ -55,8 +57,16 @@ public class Enemy : MonoBehaviourPunCallbacks
         if(h < 0) // incoming damage
         {
             tookdamage = true;
-        } else if(h > 0)
+        } else if(h > 0) // healing
         {
+            if (particleHeal != null && h > 0)
+            {
+                // heal particle effect, only when healing, i.e. h is greater than zero/positive
+                GameObject phit = Instantiate(particleHeal, gameObject.transform);
+                phit.GetComponent<ParticleSystem>().Play();
+                Destroy(phit, phit.GetComponent<ParticleSystem>().main.duration);
+            }
+
             tookdamage = false;
         }
 
@@ -70,6 +80,8 @@ public class Enemy : MonoBehaviourPunCallbacks
             anim.SetBool("isMoving", false); // stop animations for enemy
             player = null;
             gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePosition;
+            gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
+
             hitbox.GetComponent<BoxCollider2D>().enabled = false;
             hitbox.GetComponent<EnemyHitbox>().enabled = false;
             df.GetComponent<EnemyDetectionField>().enabled = false;
