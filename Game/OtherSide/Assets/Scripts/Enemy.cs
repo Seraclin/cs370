@@ -33,6 +33,11 @@ public class Enemy : MonoBehaviourPunCallbacks
     [SerializeField] Vector3 ogPos;
 
     [SerializeField] GameObject particleHeal; // particle for healing
+    [SerializeField] GameObject particlePossession; // particle for possession
+
+    [SerializeField] bool isBoss = false; // if true, don't allow possession, otherwise false allows possesion
+
+
 
     void Start()
     {
@@ -74,19 +79,38 @@ public class Enemy : MonoBehaviourPunCallbacks
         {
             GameObject hitbox = this.gameObject.GetComponent<Transform>().GetChild(0).gameObject;
             GameObject df = this.gameObject.GetComponent<Transform>().GetChild(1).gameObject;
-            isPossessable = true;
             isDead = true;
             isMoving = false;
             anim.SetBool("isMoving", false); // stop animations for enemy
             player = null;
             gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePosition;
             gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
-
             hitbox.GetComponent<BoxCollider2D>().enabled = false;
             hitbox.GetComponent<EnemyHitbox>().enabled = false;
             df.GetComponent<EnemyDetectionField>().enabled = false;
             df.GetComponent<CircleCollider2D>().enabled = false;
-            ren.color = new Color(ren.color.r, ren.color.g, ren.color.b, .5f);
+
+            // don't allow possession of bosses
+            if (isBoss)
+            {
+                isPossessable = false;
+                gameObject.GetComponent<BoxCollider2D>().enabled = false; // turn off collider so player doesn't get stuck
+                
+            }
+            else // valid enemy possession
+            {
+                // enemy is made into a possessable entity
+                if (particlePossession != null)
+                {
+                    // possession particle effect
+                    // public static Object Instantiate(Object original, Transform parent);, makes a child of parent, should be destroyed with parent
+                    GameObject phit = Instantiate(particlePossession, gameObject.transform);
+                    phit.GetComponent<ParticleSystem>().Play();
+                }
+                isPossessable = true;
+                ren.color = new Color(ren.color.r, ren.color.g, ren.color.b, .5f);
+            }
+           
             
             pv.RPC("DestroyOnline", RpcTarget.OthersBuffered);
             if (PhotonNetwork.IsMasterClient)

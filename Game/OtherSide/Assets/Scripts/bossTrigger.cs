@@ -14,6 +14,9 @@ public class bossTrigger : MonoBehaviour
     public GameObject barricade; // barricade after player enters boss arena
     public GameObject chest; // treasure after defeating the boss
     public GameObject particlesInstantiate; // particles for when things get instantiated
+
+    public GameObject textUI; // text ui gameobject
+
     // public AudioClip bossmusic; // boss music
 
     private float playerOriginalZoom = 4.0f;
@@ -53,8 +56,10 @@ public class bossTrigger : MonoBehaviour
     }
     void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.tag == "Enemy" && alreadyTriggered && !alreadyTriggered2 && boss.GetComponent<Enemy>().health <= 0)
+        // Debug.Log("BOSS HP: " + boss.GetComponent<Enemy>().health+"dead tri: "+ alreadyTriggered+alreadyTriggered2+boss.GetComponent<Enemy>().isDead);
+        if (alreadyTriggered && !alreadyTriggered2 && boss.GetComponent<Enemy>().isDead)
         {
+            // Debug.LogWarning("Boss should have died");
             // boss dies when it's reaches 0 hp
             // change boss to death animation
             boss.GetComponent<Animator>().SetBool("isDead", true);
@@ -75,7 +80,7 @@ public class bossTrigger : MonoBehaviour
                 phit.GetComponent<ParticleSystem>().Play();
                 Destroy(phit, phit.GetComponent<ParticleSystem>().main.duration);
             }
-
+            textUI.GetComponent<UITutorial_typewriter_death_trigger>().nextPrompt = true;
             // reset camera to normal
             // ZoomTo(cameraScene.GetComponent<Camera>(), playerOriginalZoom, 4.0f); // smooth zoomout (camera, targetZoom, duration)
 

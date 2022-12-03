@@ -32,7 +32,7 @@ public class UITutorial_typewriter_death_trigger : MonoBehaviour
     TMP_Text _tmpProText;
     string writer;
 
-    private bool nextPrompt = false;
+    public bool nextPrompt = false;
     private int count = 0;
 
     void Start()

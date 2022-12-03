@@ -391,13 +391,15 @@ MonoBehaviour:
   anim: {fileID: 2938398021888079859}
   player: {fileID: 0}
   maxhealth: 200
-  deathTime: 0.001
+  deathTime: 10
   distancing: 0
   health: 200
   pv: {fileID: 0}
   enemySpawner: {fileID: 0}
   ogPos: {x: 0, y: 0, z: 0}
   particleHeal: {fileID: 4448921864022606379, guid: 6d89c75154128ce408c9f1d6935e1f0f, type: 3}
+  particlePossession: {fileID: 964986808903860898, guid: b98e5ef8b88297847bdbd9b68ad9e4bd, type: 3}
+  isBoss: 1
 --- !u!50 &2938398021888079867
 Rigidbody2D:
   serializedVersion: 4
