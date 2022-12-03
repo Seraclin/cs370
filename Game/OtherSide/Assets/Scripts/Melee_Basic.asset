@@ -19,4 +19,7 @@ MonoBehaviour:
   activeTime: 0.5
   damage: 10
   cost: 0
+  knockback: 0
+  range: 2
+  isPassive: 0
   meleeInstance: {fileID: 9088384887100896540, guid: f32dab9a53f4d444bae9b06530751bf6, type: 3}
