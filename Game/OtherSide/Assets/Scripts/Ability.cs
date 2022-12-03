@@ -20,6 +20,13 @@ public class Ability : ScriptableObject
     [SerializeField] public int damage; // ability damage to enemies
     [SerializeField] public int cost; // how much ability costs resource-wise, ints for now
 
+    [SerializeField] public float knockback; // how much ability will knockback objects, 0 for no knockback
+
+    [SerializeField] public float range; // for enemy only: the ability is only triggered when player is whthin range
+
+    [SerializeField] public bool isPassive;
+
+
     // ability range depends on the ability
     // audio should be handled by SoundManager (?)
     // You can also add methods here

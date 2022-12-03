@@ -9,6 +9,8 @@ TagManager:
   - PlayerAbility
   - EnemyAbility
   - Wall
+  - Ability
+  - Audio
   layers:
   - Default
   - TransparentFX
@@ -45,4 +47,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: UI
+    uniqueID: 1790547485
     locked: 0

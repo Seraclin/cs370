@@ -32,7 +32,7 @@ public class trap : MonoBehaviour
     {
         if (trigger)
         {
-            Debug.Log("Trigger");
+            //Debug.Log("Trigger");
             pHealth.ChangeHealth(damage);
         }
     }

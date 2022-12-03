@@ -1,7 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
+using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
+using Photon.Pun;
+using Photon.Realtime;
 
 /*
  * TLDR: Viego passive but with Yuumi duration
@@ -15,7 +18,7 @@ using UnityEngine;
  */
 // [CreateAssetMenu(fileName = "New_PossessionAbility", menuName = "Scripts/PossessionAbility", order = 3)]
 
-public class PossessionAbility : MonoBehaviour
+public class PossessionAbility : MonoBehaviourPunCallbacks
 {
     [SerializeField] public KeyCode key; // assign button in editor for possession, press again to end early
     [SerializeField] public GameObject player; // player Game object
@@ -26,8 +29,12 @@ public class PossessionAbility : MonoBehaviour
     [SerializeField] public string abilityDescription; // description of ability
     // [SerializeField] public Collider2D possessCollider; // possession collider, TODO: add
     [SerializeField] public int stamina; // a resource linked to possesion? possession HP?
-    [SerializeField] public Sprite indicator; // something to indicate you are possessing something? TODO
+    [SerializeField] public GameObject indicator; // something to indicate you are possessing something? TODO
     [SerializeField] public float cooldown; // cd for how when you can possess again after unpossessing, 0.2 or higher is recommended as framerate will screw up lower times
+
+    [SerializeField] public int souls = 0; // counter for how many times you've successfully possessed something
+    [SerializeField] public int HPscaling = 10; // how much hp to restore upon possession
+
 
 
     // local variable fields for posession status
@@ -36,11 +43,12 @@ public class PossessionAbility : MonoBehaviour
     private float cooldownTime; // tracking current cooldown time
     [SerializeField] public Animator anim; // anim component to use
     private bool isPossessing = false; // true, if you are currently "possessing" something, use AbilityState active instead
+    private GameObject indicatorObj; // delete this when not possessing anything
 
     // Old: Player original information to store for when you unpossess, denoted with zero 0
     private Sprite sprite0; // player sprite
     private RuntimeAnimatorController anim0; // player animator controller
-    [SerializeField] Ability[] abil0 = new Ability[3]; //ability size of 3, drag original abilities via Inspector
+    [SerializeField] Ability[] abil0 = new Ability[2]; //ability size of 2, drag original abilities via Inspector
     // private List<AbilityHolder> abilOther; // list any other abilities
     private int hpMax0; // get old max HP, prob uneeded
 
@@ -64,7 +72,8 @@ public class PossessionAbility : MonoBehaviour
     {
         duration = 0;
         // initialize player defaults
-        player = GameObject.FindWithTag("Player");
+        // player = GameObject.FindWithTag("Player"); // don't use tags bc multiplayer
+        player = gameObject.transform.parent.gameObject; // get player that possession collider is attached to
         anim = gameObject.transform.parent.gameObject.GetComponentInParent<Animator>(); // gets the parent gameobject's "Animator" component
         anim0 = gameObject.transform.parent.gameObject.GetComponentInParent<Animator>().runtimeAnimatorController; // the animator controller used for "Animator" component
         // anim0 = this.GetComponentInParent<Animator>(); // original animator
@@ -112,9 +121,9 @@ public class PossessionAbility : MonoBehaviour
 
                 }
 
-                if (stamina < 0) // possession HP / stamina is used up, go on cooldown
+                if (player.GetComponent<PlayerHealth>().health <= 0) // possession HP / stamina is used up, go on cooldown
                 {
-                    // TODO: modify playerHealth to take account stamina, currently uses same HP as default form
+                    // when hp is zero player is dead, and it knocked out of possession
                     Deactivate(player);
                     state = AbilityState.cooldown;
                     cooldownTime = cooldown;
@@ -140,16 +149,23 @@ public class PossessionAbility : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision) // in possessable range
     {
-        if(collision.tag == "Enemy")
+        if(collision.tag == "Enemy" && collision.gameObject.GetComponent<Enemy>().isPossessable)
         {
-            Debug.Log("Possessable object in range");
+           // Debug.Log("Possessable object in range");
             possessable.Add(collision.gameObject);
         }
         
     }
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.tag == "Enemy" && collision.gameObject.GetComponent<Enemy>().isPossessable && !possessable.Contains(collision.gameObject))
+        {
+            possessable.Add(collision.gameObject);
+        }
+    }
     private void OnTriggerExit2D(Collider2D collision) // leaves possessable range
     {
-        if (collision.tag == "Enemy" && possessable.Contains(collision.gameObject))  // TODO: remove reliance on "Enemy" tag and add 'posessable' variable/tag for things that you can possess?
+        if (possessable.Contains(collision.gameObject))  // TODO: remove reliance on "Enemy" tag and add 'posessable' variable/tag for things that you can possess?
         {
             possessable.Remove(collision.gameObject);
         }
@@ -169,23 +185,43 @@ public class PossessionAbility : MonoBehaviour
         }
 
         // GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        Debug.Log("All possessable objects:" + possessable.ToString());
-        GameObject closestObj = GetClosestPossessable(possessable, parent.transform);
+        // Debug.Log("All possessable objects:" + possessable.ToString());
+        GameObject closestObj = GetClosestPossessable(parent.transform);
         if (closestObj == null) // another redundant check for null exception
         {
             return false;
         }
         closest = closestObj;
 
-        // TODO: get enemy abilities and assign to player; NOTE: order from GetComponents is not guaranteed so edit accordingly or label AbilityHolder scripts
+        // get enemy abilities and assign to player; NOTE: order from GetComponents is not guaranteed so edit accordingly or label AbilityHolder scripts
         // closest = a2 = enemy and enemies use EnemyHolder script with ability attach, parent is the player = p2 and uses AbilityHolder script with ability attach 
-        EnemyHolder[] abilEnem = closest.GetComponentsInChildren<EnemyHolder>();
-        AbilityHolder[] abilPlayer = parent.GetComponents<AbilityHolder>();
+        // EnemyHolder[] abilEnem = closest.GetComponentsInChildren<EnemyHolder>();
+        // AbilityHolder[] abilPlayer = parent.GetComponents<AbilityHolder>();
+        
+        // get abilities via AbilityArray instead
+        Holder[] abilEnem = closest.GetComponent<AbilityArray>().holderArray;
+        Holder[] abilPlayer = parent.GetComponent<AbilityArray>().holderArray;
+
         if (abilEnem.Length <= 0)
         {
             Debug.LogWarning("Enemy can't be possessed! No abilities on it!: "+closest.name);
             return false;
         }
+
+        // enemy and player should always have equal length ability slots
+        if(abilPlayer.Length != abilEnem.Length)
+        {
+            Debug.LogWarning("Enemy and player have different number of ability slots!");
+            return false;
+        }
+        else // at this point possession is sucessful!
+        { // give abilities from enemy to player
+            for (int i = 0; i < abilPlayer.Length; i++)
+            {
+                abilPlayer[i].ability = abilEnem[i].ability;
+            }
+        }
+        /*
         if (abilPlayer.Length > abilEnem.Length) // enemy has less ability slots than player; by default any leftover slots are filled in with whatever player had originally
         {
             Debug.Log("Ability on enemy is: " + abilEnem[0].ability);
@@ -202,31 +238,45 @@ public class PossessionAbility : MonoBehaviour
                 // abilNew[i] = abilEnem[i].ability;
                 abilPlayer[i].ability = abilEnem[i].ability; // TODO: probably should scale cooldowns accordingly for player enjoyability
             }
-        }
+        }*/
+        // Possession is successful, some bonus for certain counter values?
+        souls += 1;
+        // increase max hp
+        // player.GetComponent<PlayerHealth>().maxHealth += 50;
+        player.GetComponent<PlayerHealth>().ChangeHealth(HPscaling);
 
-       
+
+        // Move the player's position to in front of that possessed object's position? Potential clipping issues
+        gameObject.transform.parent.position = (closest.transform.position);
 
         // Change player sprite/anims to the target game object sprite/animation, might mess up animations
         anim.SetBool("isPossessing", true); // plays possession animation, TODO: add a better possession animation, it currently just uses the death animation
-        // TODO: Move the player's position to in front of that possessed object's position? Potential clipping issues
-        // parent.transform.position = (closest.transform.position + new Vector3(0, -1.0f, 0));
-        Invoke(nameof(changeAnims), 0.9f); // delay so you can see possession animtion TODO: kinda clunky and inconsistent
-        
-        
-        // TODO: destroy the enemy corpse object when successfully possessed, or after set time frame
-        // TODO: add indicator of what you're currently possessing
+
+        StartCoroutine("changeAnims"); // delay to see possession animtion with coroutine
+                                       // 
+        // add indicator of what you're currently possessing
+        // public static Object Instantiate(Object original, Vector3 position, Quaternion rotation, Transform parent);
+        // indicatorObj = Instantiate(indicator, (gameObject.transform.position + new Vector3(0, 1.0f, 0)), Quaternion.identity, gameObject.transform.parent);
+        gameObject.transform.GetChild(0).gameObject.SetActive(true); // should show the indicator
+
         return true;
 
     }
-    
+
     /*
      * Helper method to switch visual elements such sprite/animations from player -> closest gameObject
      */
 
-    private void changeAnims()
+    IEnumerator changeAnims()
     {
+        player.GetComponent<PlayerController>().enabled = false; // don't let player move during this time
+        yield return new WaitUntil(() => anim.GetCurrentAnimatorStateInfo(0).normalizedTime <= 1.0f); // wait for transition
+        yield return new WaitForSeconds(anim.GetCurrentAnimatorStateInfo(0).length); // wait for possess animation
         player.GetComponent<SpriteRenderer>().sprite = closest.GetComponent<SpriteRenderer>().sprite; // changes player's sprite to the possessed object's sprite
-        player.GetComponent<SpriteRenderer>().color = closest.GetComponent<SpriteRenderer>().color; // get enemy color
+        Color playerColor = player.GetComponent<SpriteRenderer>().color; // player color ref
+        playerColor = closest.GetComponent<SpriteRenderer>().color; // get enemy color
+        playerColor.a = 1.0f; // makes the player completely opaque
+        player.GetComponent<SpriteRenderer>().color = playerColor; // set player color
 
         if (closest.GetComponent<Animator>() != null) // check if enemy has an animation to use
         {
@@ -234,9 +284,14 @@ public class PossessionAbility : MonoBehaviour
         }
         else
         {
-            Debug.Log("Enemy doesn't have an animation!");
+            Debug.LogWarning("'"+closest.name+"' Enemy doesn't have an animation!");
             player.GetComponent<Animator>().enabled = !player.GetComponent<Animator>().enabled;
         }
+        // destroy the enemy corpse object when successfully possessed
+        possessable.Remove(closest);
+        Destroy(closest);
+        PhotonNetwork.Destroy(closest);
+        player.GetComponent<PlayerController>().enabled = true; // let player move now
     }
 
     /* Deactivate is called when the skill is cooldown
@@ -248,16 +303,19 @@ public class PossessionAbility : MonoBehaviour
         parent.GetComponent<SpriteRenderer>().sprite = sprite0; // changes player's sprite back to what it was orignally
         parent.GetComponent<SpriteRenderer>().color = Color.white; // get default color
         parent.GetComponent<Animator>().runtimeAnimatorController = anim0; // reenable player animations
-        // TODO: remove enemy abilities from player, and re-add old player abilites. Again GetComponents doesn't guarantee order so should specify order by putting index on abilityHolder class
-        AbilityHolder [] abilsTemp = parent.GetComponents<AbilityHolder>();
-        for(int i = 0; i < abilsTemp.Length; i++)
+        // remove enemy abilities from player, and re-add old player abilites. Again GetComponents doesn't guarantee order so should specify order by putting index on abilityHolder class
+        // AbilityHolder [] abilsTemp = parent.GetComponents<AbilityHolder>();
+        Holder[] abilsTemp = parent.GetComponent<AbilityArray>().holderArray;
+
+        for (int i = 0; i < abilsTemp.Length; i++)
         {
             abilsTemp[i].ability = abil0[i];
         }
+        gameObject.transform.GetChild(0).gameObject.SetActive(false); // should hide the indicator
 
     }
 
-    private void checkPossessable() // adds valid possessable objects to possessable list
+    private void checkPossessable() // adds valid possessable objects to possessable list, unused
     {
         // TODO: determine what's possessable, unused currently
         // For now, this is unused
@@ -271,26 +329,38 @@ public class PossessionAbility : MonoBehaviour
             }
         }*/
     }
-    private GameObject GetClosestPossessable(List<GameObject> posList, Transform fromThis)
+    private GameObject GetClosestPossessable(Transform fromThis)
     { // returns the closest enemy to the player by Euclidean distance
         GameObject bestTarget = null;
-        if(posList.Count == 0)
+        // Delete any null elements in possessable, e.g. corpse times out for possession
+        for (int i = 0; i < possessable.Count; i++)
+        {
+            if (possessable[i] == null)
+            {
+                possessable.RemoveAt(i);
+                i--;
+            }
+        }
+
+        if (possessable.Count == 0) // check if any possessables
         {
             return null;
         }
         float closestDistanceSqr = Mathf.Infinity;
         Vector3 currentPosition = fromThis.position;
-        foreach (GameObject potentialTarget in posList)
+        int count = 0;
+        foreach (GameObject potentialTarget in possessable)
         {
             Transform potentialTargetTransform = potentialTarget.transform;
             Vector3 directionToTarget = potentialTargetTransform.position - currentPosition;
             float dSqrToTarget = directionToTarget.sqrMagnitude;
-            if (dSqrToTarget < closestDistanceSqr)
+            if (dSqrToTarget < closestDistanceSqr && potentialTarget != null)
             {
                 closestDistanceSqr = dSqrToTarget;
                 bestTarget = potentialTarget;
             }
         }
+        
         return bestTarget;
     }
 } // end of file

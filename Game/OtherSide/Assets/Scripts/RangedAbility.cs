@@ -28,6 +28,7 @@ public class RangedAbility : Ability
     public override void Activate(GameObject parent)
     {
         Debug.Log("Range Ability activated");
+        FindObjectOfType<AudioManager>().Play("fireballAttack"); 
 
         spawnPosition = parent.transform;
         Vector3 displacement = new Vector3(0, 0, 0);
@@ -37,13 +38,14 @@ public class RangedAbility : Ability
             Vector3 mousePosition = Input.mousePosition;
             mousePosition.z = Camera.main.transform.position.z * -1;
             displacement = Camera.main.ScreenToWorldPoint(mousePosition) - spawnPosition.position;
-        } else if (parent.tag == "Enemy")
+        }
+        else if (parent.tag == "Enemy")
         {
             Vector3 playerPosition = parent.GetComponent<Enemy>().player.GetComponent<Transform>().position;
             displacement = playerPosition - spawnPosition.position;
         }
-        
-        
+
+
         direction = displacement.normalized;
 
         cloneSkillPrefab = Instantiate(RangeInstance, spawnPosition.position + direction, spawnPosition.rotation);
@@ -54,6 +56,9 @@ public class RangedAbility : Ability
         cloneSkillPrefab.transform.rotation = Quaternion.Euler(0f, 0f, -rotZ - 90);
 
         cloneSkillPrefab.GetComponent<Rigidbody2D>().AddForce(direction * projectileSpeed, ForceMode2D.Force);
+
+        cloneSkillPrefab.GetComponent<Bullet>().damage = damage;
+        cloneSkillPrefab.GetComponent<Bullet>().maker = parent;
 
     }
 

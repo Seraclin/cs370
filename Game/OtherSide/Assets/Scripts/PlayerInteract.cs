@@ -40,6 +40,7 @@ public class PlayerInteract : MonoBehaviour
                     {
                         //door is unlocked
                         currentInterObjScript.locked = false;
+                        currentInterObjScript.changeSprite(); // change to unlocked door sprite
                         Debug.Log("unlocked");
                     }
                     else

@@ -297,7 +297,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.1}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -308,7 +308,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.16, y: 0.16}
+  m_Size: {x: 0.5, y: 0.8}
   m_EdgeRadius: 0
 --- !u!1839735485 &7233263586582013282
 Tilemap:
@@ -435,6 +435,9 @@ MonoBehaviour:
   pv: {fileID: -6863469743574177061}
   enemySpawner: {fileID: 0}
   ogPos: {x: 0, y: 0, z: 0}
+  particleHeal: {fileID: 4448921864022606379, guid: 6d89c75154128ce408c9f1d6935e1f0f, type: 3}
+  particlePossession: {fileID: 964986808903860898, guid: b98e5ef8b88297847bdbd9b68ad9e4bd, type: 3}
+  isBoss: 0
 --- !u!114 &796955449216713336
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -462,7 +465,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeb88c9427d8ab6458c7b1b60f1d6978, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ability: {fileID: 11400000, guid: 76c7cc203abec1d45b9257bc89786da0, type: 2}
+  ability: {fileID: 11400000, guid: 9fb1fa00993e4644993c43735e55106c, type: 2}
   cdCoefficient: 1
   state: 0
 --- !u!114 &2532581260021697496

@@ -1,14 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
+using Photon.Realtime;
 
-public class Enemy : MonoBehaviour
+public class Enemy : MonoBehaviourPunCallbacks
 
 
 {
 
     /*The enemy uses the same walking system as the player -JC*/
-    [SerializeField] float speed;
+    [SerializeField] public float speed;
     [SerializeField] bool isMoving = false;
     [SerializeField] public bool isPossessable = false;
     [SerializeField] public bool isDead = false;
@@ -16,33 +18,124 @@ public class Enemy : MonoBehaviour
     [SerializeField] LayerMask Collidables;
     [SerializeField] Vector2 input;
     [SerializeField] SpriteRenderer ren;
+    [SerializeField] Animator anim;  // for animations to transition
+
 
     [SerializeField] public GameObject player;
-    [SerializeField] int health = 15;
+    [SerializeField] public int maxhealth = 15;
+
+    [SerializeField] float deathTime;
+
+    [SerializeField] float distancing; // for ranged enemy only
+    [SerializeField] public int health;
+    public PhotonView pv;
+    [SerializeField] GameObject enemySpawner;
+    [SerializeField] Vector3 ogPos;
+
+    [SerializeField] GameObject particleHeal; // particle for healing
+    [SerializeField] GameObject particlePossession; // particle for possession
+
+    [SerializeField] bool isBoss = false; // if true, don't allow possession, otherwise false allows possesion
+
+
 
     void Start()
     {
+        enemySpawner = this.transform.parent.gameObject;
+        ogPos = this.transform.position;
         ren = gameObject.GetComponent<SpriteRenderer>();
+        health = maxhealth;
+        FindObjectOfType<AudioManager>().Play("ghostApproach");
+        pv = GetComponent<PhotonView>();
+        anim = GetComponent<Animator>();
     }
 
-    public void ChangeHealth(int h)
+    public bool ChangeHealth(int h)
     {
-        health = health - h;
-        if (health <= 0)
+        bool tookdamage = false; // if we take damage we then true, else false
+        health = health + h;
+        if (health > maxhealth)
+        {
+            health = maxhealth;
+        }
+
+        if(h < 0) // incoming damage
+        {
+            tookdamage = true;
+        } else if(h > 0) // healing
+        {
+            if (particleHeal != null && h > 0)
+            {
+                // heal particle effect, only when healing, i.e. h is greater than zero/positive
+                GameObject phit = Instantiate(particleHeal, gameObject.transform);
+                phit.GetComponent<ParticleSystem>().Play();
+                Destroy(phit, phit.GetComponent<ParticleSystem>().main.duration);
+            }
+
+            tookdamage = false;
+        }
+
+        if (health <= 0) // enemy dead
         {
             GameObject hitbox = this.gameObject.GetComponent<Transform>().GetChild(0).gameObject;
             GameObject df = this.gameObject.GetComponent<Transform>().GetChild(1).gameObject;
-            isPossessable = true;
             isDead = true;
             isMoving = false;
+            anim.SetBool("isMoving", false); // stop animations for enemy
             player = null;
+            gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePosition;
+            gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
             hitbox.GetComponent<BoxCollider2D>().enabled = false;
             hitbox.GetComponent<EnemyHitbox>().enabled = false;
             df.GetComponent<EnemyDetectionField>().enabled = false;
             df.GetComponent<CircleCollider2D>().enabled = false;
-            ren.color = new Color(ren.color.r, ren.color.g, ren.color.b, .5f);
-            Destroy(this.gameObject, 5f);
+
+            // don't allow possession of bosses
+            if (isBoss)
+            {
+                isPossessable = false;
+                gameObject.GetComponent<BoxCollider2D>().enabled = false; // turn off collider so player doesn't get stuck
+                
+            }
+            else // valid enemy possession
+            {
+                // enemy is made into a possessable entity
+                if (particlePossession != null)
+                {
+                    // possession particle effect
+                    // public static Object Instantiate(Object original, Transform parent);, makes a child of parent, should be destroyed with parent
+                    GameObject phit = Instantiate(particlePossession, gameObject.transform);
+                    phit.GetComponent<ParticleSystem>().Play();
+                }
+                isPossessable = true;
+                ren.color = new Color(ren.color.r, ren.color.g, ren.color.b, .5f);
+            }
+           
+            
+            pv.RPC("DestroyOnline", RpcTarget.OthersBuffered);
+            if (PhotonNetwork.IsMasterClient)
+            {
+   
+                EnemySpawner es = enemySpawner.GetComponent<EnemySpawner>();
+                
+                
+            }
+           
+            Invoke("DestroyEnemy", deathTime);
+            
         }
+        return tookdamage;
+    }
+
+    [PunRPC] void DestroyOnline()
+    {
+        Destroy(this.gameObject);
+    }
+    void DestroyEnemy()
+    {
+        PhotonNetwork.Destroy(this.gameObject);
+        Destroy(this.gameObject);
+
     }
     void FixedUpdate()
     { 
@@ -92,7 +185,10 @@ public class Enemy : MonoBehaviour
         {
             if (player != null)
             {
-                if (player.GetComponent<SpriteRenderer>().color.a > 0.8f)
+                float dis;
+                dis = Vector3.Distance(gameObject.transform.position, gameObject.GetComponent<Enemy>().player.transform.position);
+
+                if (player.GetComponent<SpriteRenderer>().color.a > 0.8f && dis < distancing)
                 {
                     if (player.transform.position.x < this.transform.position.x)
                     {
@@ -138,8 +234,10 @@ public class Enemy : MonoBehaviour
  
     IEnumerator Move(Vector3 targetPos, float inputx, float inputy)
     {
+
         isMoving = true;
-        Debug.Log((targetPos - transform.position).sqrMagnitude);
+        anim.SetBool("isMoving", true);  // play animations for enemy_run
+
         while ((targetPos - transform.position).sqrMagnitude > Mathf.Epsilon)
         {
             transform.position = Vector3.MoveTowards(transform.position, targetPos, speed*Time.deltaTime);
@@ -147,12 +245,17 @@ public class Enemy : MonoBehaviour
         }
         transform.position = targetPos;
         isMoving = false;
+        anim.SetBool("isMoving", false);  // stop animations for enemy_run
+
     }
 
     IEnumerator RangedMove(Vector3 targetPos, float inputx, float inputy)
     {
+
+        
         isMoving = true;
-        Debug.Log((targetPos - transform.position).sqrMagnitude);
+        anim.SetBool("isMoving", true);  // play animations for enemy_run
+
         while ((targetPos - transform.position).sqrMagnitude > Mathf.Epsilon)
         {
             transform.position = Vector3.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
@@ -160,6 +263,8 @@ public class Enemy : MonoBehaviour
         }
         transform.position = targetPos;
         isMoving = false;
+        anim.SetBool("isMoving", false);  // stop animations for enemy_run
+
     }
 
 
