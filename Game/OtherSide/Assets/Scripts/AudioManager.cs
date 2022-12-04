@@ -18,7 +18,6 @@ public class AudioManager : MonoBehaviour
             return; 
         }
     
-        DontDestroyOnLoad(gameObject); 
         foreach (Sound s in sounds) {
             s.source =  gameObject.AddComponent<AudioSource>();
             s.source.clip = s.clip; 
@@ -26,8 +25,6 @@ public class AudioManager : MonoBehaviour
             s.source.volume = s.volume; 
             s.source.pitch = s.pitch;
             s.source.loop = s.loop;
-            // s.source.maxDistance = s.maxDistance; 
-            // s.source.minDistance = s.minDistance; 
         }
     }
 
@@ -43,10 +40,10 @@ public class AudioManager : MonoBehaviour
      * then call FindObjectOfType<AudioManager>().Play("name") to play the sound.
      */ 
     public void Play(string name) {
-       // Debug.Log("Play sound:" + name); 
+        Debug.Log("Play sound:" + name); 
         Sound s = Array.Find(sounds, sound => sound.name == name); 
         if (s == null) {
-           // Debug.LogWarning("Sound:" + name + "not found!"); 
+            Debug.LogWarning("Sound:" + name + "not found!"); 
             return;
         }
         s.source.Play(); 
