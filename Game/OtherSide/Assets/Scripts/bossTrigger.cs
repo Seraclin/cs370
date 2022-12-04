@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
@@ -43,13 +44,40 @@ public class bossTrigger : MonoBehaviour
     {
         if(collision.tag == "Player" && !alreadyTriggered)
         {
+            // Boss enter room trigger
+
+            // Grab all players
+            GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+
             // Debug.LogWarning("Testing boss trigger");
+            // set the lighting and barricade
             boss.SetActive(true);
             lightingScene.GetComponent<Light2D>().intensity = lightIntensity;
             barricade.SetActive(true);
-            // cameraScene.GetComponent<Camera>().orthographicSize = zoomout; // instant zoom out
-            ZoomTo(cameraScene.GetComponent<Camera>(), zoomout, 3.0f); // smooth zoomout (camera, targetZoom, duration)
+
             // TODO: add boss music and hp bar
+
+
+            // cameraScene.GetComponent<Camera>().orthographicSize = zoomout; // instant zoom out
+            // for each player(s) zoom out camera and then teleport them into the room
+
+            // Debug.LogWarning("# Players: " + players.Length + " pl: " + players[0]);
+
+            for (int i = 0; i < players.Length; i++)
+            {
+                Camera cam = players[i].GetComponentInChildren<Camera>();
+                ZoomTo(cameraScene.GetComponent<Camera>(), zoomout, 3.0f); // smooth zoomout (camera, targetZoom, duration)
+
+                // For multiplayer teleport all other players into the room (doesn't include the player who triggered it)
+                if (players[i] != collision.gameObject)
+                {
+                    players[i].GetComponent<PlayerController>().enabled = false;
+                    // pl.transform.position = GameObject.FindGameObjectWithTag("Teleport").transform.position;
+                    StartCoroutine(teleport(players[i]));
+                }
+
+
+            }
             alreadyTriggered = true; // don't trigger this action more than once
             // Destroy(gameObject); // destroy this trigger
         }
@@ -83,6 +111,18 @@ public class bossTrigger : MonoBehaviour
             textUI.GetComponent<UITutorial_typewriter_death_trigger>().nextPrompt = true;
             // reset camera to normal
             // ZoomTo(cameraScene.GetComponent<Camera>(), playerOriginalZoom, 4.0f); // smooth zoomout (camera, targetZoom, duration)
+
+            // kill all non-boss enemies when boss dies
+            GameObject[] spawned = GameObject.FindGameObjectsWithTag("Enemy");
+            foreach(GameObject enemy in spawned)
+            {
+                if (!enemy.GetComponent<Enemy>().isDead)
+                {
+                    enemy.GetComponent<Enemy>().ChangeHealth(0-enemy.GetComponent<Enemy>().health);
+                }
+            }
+
+            // TODO: change music to victory music, remove boss hp bar from screen
 
             alreadyTriggered2 = true; // don't do more than once
         }
@@ -125,5 +165,21 @@ public class bossTrigger : MonoBehaviour
 
         // Kick off a new zoom transition that can keep going on future frames.
         zoomTween = StartCoroutine(ZoomCoroutine(camera, targetSize, duration));
+    }
+
+    IEnumerator teleport(GameObject player)
+    {
+        // player.GetComponent<PlayerController>().enabled = false; // don't let player move during this time
+        yield return new WaitForSeconds(0.15f); // wait for animation
+        player.transform.position = GameObject.FindGameObjectWithTag("Teleport").transform.position; // move the player to Teleport position
+
+        if (particlesInstantiate != null)
+        {
+            // smoke particle effect
+            GameObject phit = Instantiate(particlesInstantiate, player.transform);
+            phit.GetComponent<ParticleSystem>().Play();
+            Destroy(phit, phit.GetComponent<ParticleSystem>().main.duration);
+        }
+        player.GetComponent<PlayerController>().enabled = true; // let player move now
     }
 }

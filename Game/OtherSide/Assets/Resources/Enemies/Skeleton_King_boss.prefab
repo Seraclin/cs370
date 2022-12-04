@@ -196,10 +196,10 @@ GameObject:
   m_Component:
   - component: {fileID: 2938398021888079870}
   - component: {fileID: 2938398021888079871}
-  - component: {fileID: 2938398021888079857}
   - component: {fileID: 2938398021888079858}
   - component: {fileID: 2938398021888079859}
   - component: {fileID: 2938398021888079869}
+  - component: {fileID: 6666937972264370870}
   - component: {fileID: 2938398021888079867}
   - component: {fileID: 7221498386743629481}
   - component: {fileID: 7035759347821437800}
@@ -283,32 +283,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &2938398021888079857
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2938398021888079860}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.5342083, y: 0.04266548}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 20, y: 20}
-    newSize: {x: 1, y: 2}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 9.394146, y: 8.563656}
-  m_EdgeRadius: 0
 --- !u!1839735485 &2938398021888079858
 Tilemap:
   m_ObjectHideFlags: 0
@@ -402,6 +376,32 @@ MonoBehaviour:
   particleHeal: {fileID: 4448921864022606379, guid: 6d89c75154128ce408c9f1d6935e1f0f, type: 3}
   particlePossession: {fileID: 964986808903860898, guid: b98e5ef8b88297847bdbd9b68ad9e4bd, type: 3}
   isBoss: 1
+--- !u!61 &6666937972264370870
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2938398021888079860}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.4, y: -0.1}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 20, y: 20}
+    newSize: {x: 1, y: 2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 8, y: 7}
+  m_EdgeRadius: 0
 --- !u!50 &2938398021888079867
 Rigidbody2D:
   serializedVersion: 4

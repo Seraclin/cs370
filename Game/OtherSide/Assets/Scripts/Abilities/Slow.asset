@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilityIcon: {fileID: 0}
   abilityName: Slow
-  abilityDescription: Slow the character down by SpeedCoef
+  abilityDescription: Slow the character down
   cooldownTime: 0
   activeTime: 3
   damage: 0

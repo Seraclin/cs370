@@ -83,6 +83,8 @@ public class Enemy : MonoBehaviourPunCallbacks
             isDead = true;
             isMoving = false;
             anim.SetBool("isMoving", false); // stop animations for enemy
+
+
             player = null;
             gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePosition;
             gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
@@ -96,7 +98,7 @@ public class Enemy : MonoBehaviourPunCallbacks
             {
                 isPossessable = false;
                 gameObject.GetComponent<BoxCollider2D>().enabled = false; // turn off collider so player doesn't get stuck
-                
+
             }
             else // valid enemy possession
             {
@@ -110,9 +112,11 @@ public class Enemy : MonoBehaviourPunCallbacks
                 }
                 isPossessable = true;
                 ren.color = new Color(ren.color.r, ren.color.g, ren.color.b, .5f);
+                anim.enabled = false; // stop animations playing after dead, and indicate possession
+
             }
-           
-            
+
+
             pv.RPC("DestroyOnline", RpcTarget.OthersBuffered);
             if (PhotonNetwork.IsMasterClient)
             {
