@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Photon.Pun;
+using Photon.Realtime;
 
 public class PlayerHealth : MonoBehaviour
     
 {
-    [SerializeField] public int maxHealth = 100; // these should be public - Sam
-    [SerializeField] public int health = 100;
+     public int maxHealth = 100; // these should be public - Sam
+     public int health = 100;
     [SerializeField] public float damageCoef = 1f;
     [SerializeField] Slider slider;
     [SerializeField] bool invincibility;
@@ -22,6 +24,7 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] GameObject particleHeal; // particle for healing
     private GameObject phit; // particle when you get hit
     [SerializeField] Vector3 respawnPoint;
+    PhotonView pv;
 
     private bool tookdamage = false; // returns true if health was decreased, otherwise false
 
@@ -31,6 +34,7 @@ public class PlayerHealth : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         respawnPoint = this.transform.position;
+        pv = GetComponent<PhotonView>();
         
     }
 
@@ -51,8 +55,8 @@ public class PlayerHealth : MonoBehaviour
             tookdamage = true; // we take damage
             slider.value = health;
             invincibility = true;
-
-            if(health < 0 && !isDeathAnim)  // player is dead
+            pv.RPC("SyncHealth", RpcTarget.OthersBuffered, health);
+            if (health < 0 && !isDeathAnim)  // player is dead
             {
                 slider.value = 0;
                 isDeathAnim = true;
@@ -63,10 +67,10 @@ public class PlayerHealth : MonoBehaviour
                 //RESTART GAME -JC
                 pc.enabled = false;
                 Invoke("Respawn", 1.2f);
-               // anim.SetBool("isDead", true);
+                // anim.SetBool("isDead", true);
                 //newScreen.SetActive(true);
 
-
+                
             }
             
             // col.enabled = false ; // don't disable the box collider as it leads to undefined behavior for other triggers - Sam
@@ -100,13 +104,17 @@ public class PlayerHealth : MonoBehaviour
         }
         return tookdamage;
     }
-   
+   [PunRPC] void SyncHealth(int h)
+    {
+        slider.value = h;
+    }
     void Respawn()
     {
         //gameOverScreen.SetActive(false);
         this.transform.position = respawnPoint;
         health = 100;
         slider.value = health;
+        pv.RPC("SyncHealth", RpcTarget.OthersBuffered, health);
         pc.enabled = true;
         isDeathAnim = false;
         anim.SetBool("isDead", false);
