@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5544111371020350149}
   - component: {fileID: 5544111371020350148}
-  - component: {fileID: 5544111371020350154}
   - component: {fileID: 5544111371020350153}
   - component: {fileID: 5544111371020350152}
   - component: {fileID: 5544111371020350150}
@@ -23,6 +22,7 @@ GameObject:
   - component: {fileID: -9168544423122029372}
   - component: {fileID: 8512345479893123940}
   - component: {fileID: 468771388511523913}
+  - component: {fileID: 7870414770950378123}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -99,32 +99,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &5544111371020350154
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5544111371020350159}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 2}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.6, y: 0.6}
-  m_EdgeRadius: 0
 --- !u!1839735485 &5544111371020350153
 Tilemap:
   m_ObjectHideFlags: 0
@@ -208,9 +182,9 @@ MonoBehaviour:
   anim: {fileID: 0}
   player: {fileID: 0}
   maxhealth: 15
-  cdCoef: 1
+  damageCoef: 1
   deathTime: 20
-  distancing: 0
+  distancing: 3
   health: 15
   pv: {fileID: 0}
   enemySpawner: {fileID: 0}
@@ -374,6 +348,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPoisoned: 0
   isSlowed: 0
+  isAnalyzed: 0
+--- !u!70 &7870414770950378123
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5544111371020350159}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.01797831, y: 0.022472978}
+  m_Size: {x: 0.8022382, y: 0.8831408}
+  m_Direction: 0
 --- !u!1 &5544111371390996900
 GameObject:
   m_ObjectHideFlags: 0

@@ -196,7 +196,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7233263586582013294}
   - component: {fileID: 7233263586582013295}
-  - component: {fileID: 7233263586582013281}
   - component: {fileID: 7233263586582013282}
   - component: {fileID: 7233263586582013283}
   - component: {fileID: 7233263586582013291}
@@ -209,6 +208,7 @@ GameObject:
   - component: {fileID: -6863469743574177061}
   - component: {fileID: 308846887345788331}
   - component: {fileID: 1932050833284931518}
+  - component: {fileID: 7595711428135160773}
   m_Layer: 0
   m_Name: RangedEnemy
   m_TagString: Enemy
@@ -285,32 +285,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &7233263586582013281
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7233263586582013284}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.6, y: 0.7}
-  m_EdgeRadius: 0
 --- !u!1839735485 &7233263586582013282
 Tilemap:
   m_ObjectHideFlags: 0
@@ -445,6 +419,7 @@ MonoBehaviour:
   anim: {fileID: 0}
   player: {fileID: 0}
   maxhealth: 15
+  damageCoef: 1
   deathTime: 20
   distancing: 0
   health: 15
@@ -498,7 +473,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShowLayerWeightsInspector: 1
   ShowParameterInspector: 1
-  m_SynchronizeParameters: []
+  m_SynchronizeParameters:
+  - Type: 4
+    SynchronizeType: 0
+    Name: isMoving
   m_SynchronizeLayers:
   - SynchronizeType: 0
     LayerIndex: 0
@@ -556,3 +534,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPoisoned: 0
   isSlowed: 0
+  isAnalyzed: 0
+--- !u!70 &7595711428135160773
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7233263586582013284}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.008181751, y: 0.024545193}
+  m_Size: {x: 0.8036382, y: 0.8200016}
+  m_Direction: 0
