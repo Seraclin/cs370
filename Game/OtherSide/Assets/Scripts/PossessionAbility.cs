@@ -280,7 +280,8 @@ public class PossessionAbility : MonoBehaviourPunCallbacks
 
         if (closest.GetComponent<Animator>() != null) // check if enemy has an animation to use
         {
-            player.GetComponent<Animator>().runtimeAnimatorController = closest.GetComponent<Animator>().runtimeAnimatorController; // change animator controller           
+            player.GetComponent<Animator>().runtimeAnimatorController = closest.GetComponent<Animator>().runtimeAnimatorController; // change animator controller to enemy
+            player.GetComponent<Animator>().enabled = true; // start enemy animation playback
         }
         else
         {

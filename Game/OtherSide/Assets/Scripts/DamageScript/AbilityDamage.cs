@@ -10,12 +10,18 @@ public class AbilityDamage : MonoBehaviour
 {
     internal int damage; // TODO: replace with Ability object's damage
     private float dCoef;
+    [SerializeField] GameObject particleTrail; // particle trail
+    [SerializeField] GameObject particleImpact; // particle hit
     // [SerializeField] float duration = 5; // duration of ability TODO: replace with Ability object's duration 
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (particleTrail != null) // display projectile trail
+        {
+            GameObject ptrail = Instantiate(particleTrail, gameObject.transform);
+            ptrail.GetComponent<ParticleSystem>().Play();
+        }
     }
 
     // Update is called once per frame
@@ -27,7 +33,20 @@ public class AbilityDamage : MonoBehaviour
     {
         if (gameObject.tag != collision.gameObject.tag + "Ability")
         {
-
+            if (particleImpact != null && (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "Player")) // play projectile impact particles, which self-destroy after playing
+            {
+                // public static Object Instantiate(Object original, Vector3 position, Quaternion rotation);
+                Transform pos = gameObject.transform;
+                // GameObject phit = Instantiate(particleImpact, collision.transform.position, Quaternion.identity); // impact at enemy center
+                GameObject phit = Instantiate(particleImpact, gameObject.transform.position, Quaternion.identity); // impact at enemy collider
+                // phit.GetComponent<ParticleSystem>().Play();
+                // Destroy(phit, phit.GetComponent<ParticleSystem>().main.duration);
+            }
+            else if (particleImpact != null && (collision.gameObject.tag == "Wall")) // wall needs it's own case
+            {
+                Transform pos = gameObject.transform;
+                GameObject phit = Instantiate(particleImpact, gameObject.transform.position, Quaternion.identity);
+            }
 
             if (collision.gameObject.tag == "Enemy")
             {

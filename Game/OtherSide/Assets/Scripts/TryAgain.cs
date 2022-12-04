@@ -17,7 +17,10 @@ public class TryAgain : MonoBehaviour
     }
     public void returntoStart()
     {
-        AudioManager theme = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+        if(GameObject.FindGameObjectWithTag("Audio") != null)
+        {
+            AudioManager theme = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+        }
         // TODO: need to fix bgm music to not play when at main menu
         SceneManager.LoadScene("StartingScene");
     }

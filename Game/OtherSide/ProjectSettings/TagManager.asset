@@ -11,6 +11,7 @@ TagManager:
   - Wall
   - Ability
   - Audio
+  - Teleport
   layers:
   - Default
   - TransparentFX
