@@ -24,7 +24,9 @@ public class Enemy : MonoBehaviourPunCallbacks
     [SerializeField] public GameObject player;
     [SerializeField] public int maxhealth = 15;
     [SerializeField] public float damageCoef = 1f;
-
+    [SerializeField] bool invincibility;
+    [SerializeField] float invincibilityTime;
+    [SerializeField] Collider2D col;
     [SerializeField] float deathTime;
 
     [SerializeField] float distancing; // for ranged enemy only
@@ -51,20 +53,32 @@ public class Enemy : MonoBehaviourPunCallbacks
         anim = GetComponent<Animator>();
     }
 
+    void RemoveInvincibility()
+    {
+        col.enabled = true;
+        invincibility = false;
+    }
+
     public bool ChangeHealth(int h)
     {
         bool tookdamage = false; // if we take damage we then true, else false
-        health = health + h;
-        if (health > maxhealth)
+        if (h < 0 && invincibility == false) // enemy isn't invincible so it takes damage
         {
-            health = maxhealth;
-        }
+            health += h;
+            tookdamage = true; // health was changed
+            invincibility = true;
 
-        if(h < 0) // incoming damage
+            col.enabled = false;
+            Invoke("RemoveInvincibility", invincibilityTime);
+        }
+        else if (h > 0)// enemy is healed
         {
-            tookdamage = true;
-        } else if(h > 0) // healing
-        {
+            health += h;
+            if (health > maxhealth)
+            {
+                health = maxhealth;
+            }
+
             if (particleHeal != null && h > 0)
             {
                 // heal particle effect, only when healing, i.e. h is greater than zero/positive
@@ -72,9 +86,9 @@ public class Enemy : MonoBehaviourPunCallbacks
                 phit.GetComponent<ParticleSystem>().Play();
                 Destroy(phit, phit.GetComponent<ParticleSystem>().main.duration);
             }
-
             tookdamage = false;
         }
+
 
         if (health <= 0) // enemy dead
         {
