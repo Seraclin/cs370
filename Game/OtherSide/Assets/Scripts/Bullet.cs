@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
+using Photon.Pun;
+using Photon.Realtime;
 
 public class Bullet : MonoBehaviour
 {
@@ -10,8 +12,10 @@ public class Bullet : MonoBehaviour
 
     [SerializeField] GameObject particleTrail; // particle trail
     [SerializeField] GameObject particleImpact; // particle hit
+    [SerializeField] PhotonView pv;
 
     internal GameObject maker;
+
 
     void Start()
     {

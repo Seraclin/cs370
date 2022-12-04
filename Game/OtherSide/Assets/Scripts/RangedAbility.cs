@@ -2,6 +2,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
+using Photon.Realtime;
+
 /*
  * RangedAbility ScriptableObject inherits attributes from the Ability class.
  * Default name is "New_RangedAbility", and you can fill out its attributes in the editor.
@@ -19,14 +22,15 @@ public class RangedAbility : Ability
     //public int projectileRange; // how far the projectile can travel in pixels
     private GameObject cloneSkillPrefab; // store generated ability object
 
-    private Vector3 direction;
+    private Vector3 direction; 
     public float projectileSpeed; // how fast the projectile travels across the range, it's actually the force
     //public float projectileSize; // how big the projectile is
     // public float projectileDuration; // how long the projectile exists, don't need this if we have an 'activeTime' in the base Ability class
     // Two options: calculate predetermined distance by having projectile travel from start to projectileRange at 'speed', or we can have it only last for a 'duration' and it travels at 'speed'
-
+    
     public override void Activate(GameObject parent)
     {
+        
         Debug.Log("Range Ability activated");
         FindObjectOfType<AudioManager>().Play("fireballAttack"); 
 
