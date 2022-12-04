@@ -16,10 +16,7 @@ public class Bullet : MonoBehaviour
 
     internal GameObject maker;
 
-<<<<<<< Updated upstream:Game/OtherSide/Assets/Scripts/Bullet.cs
-=======
     private float dCoef;
->>>>>>> Stashed changes:Game/OtherSide/Assets/Scripts/DamageScript/Bullet.cs
 
     void Start()
     {
