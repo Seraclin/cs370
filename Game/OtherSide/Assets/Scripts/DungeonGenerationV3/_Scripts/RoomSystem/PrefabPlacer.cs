@@ -10,6 +10,7 @@ public class PrefabPlacer : MonoBehaviour
     [SerializeField]
     private GameObject itemPrefab;
     private Vector2 newplacementPosition;
+    private Light2D tempObj;
 
     public List<GameObject> PlaceEnemies(List<EnemyPlacementData> enemyPlacementData, ItemPlacementHelper itemPlacementHelper)
     {
@@ -69,7 +70,8 @@ public class PrefabPlacer : MonoBehaviour
         if (item.isLight)
         {
             newplacementPosition = new Vector2(placementPosition.x + 0.5f, placementPosition.y + 0.5f);
-            Instantiate(item.light2ditem, (newplacementPosition), Quaternion.identity);
+            tempObj = Instantiate(item.light2ditem, (newplacementPosition), Quaternion.identity);
+            tempObj.transform.SetParent(newItem.transform);
         }
 
         return newItem;
