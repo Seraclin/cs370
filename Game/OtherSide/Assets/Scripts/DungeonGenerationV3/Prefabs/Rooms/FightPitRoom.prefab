@@ -1,0 +1,88 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3303421395954220802
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8264800944264846316}
+  - component: {fileID: 7777476307801422254}
+  m_Layer: 0
+  m_Name: FightPitRoom
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8264800944264846316
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3303421395954220802}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7777476307801422254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3303421395954220802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 927bb5e235c4af44faebb764ab6aab28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabPlacer: {fileID: 4341242197028722173, guid: 49d1de73f44f58940a43bf538b290285, type: 3}
+  enemyPlacementData:
+  - minQuantity: 0
+    maxQuantity: 2
+    enemyPrefab: {fileID: 7233263586582013284, guid: 257489386ebe92e43bed82772cfaf518, type: 3}
+    enemySize: {x: 0, y: 0}
+  - minQuantity: 0
+    maxQuantity: 1
+    enemyPrefab: {fileID: 5544111371020350159, guid: 6f92e0745deec4d7dbc6dbd9804899d2, type: 3}
+    enemySize: {x: 0, y: 0}
+  - minQuantity: 0
+    maxQuantity: 1
+    enemyPrefab: {fileID: 2938398021888079860, guid: 669c07eb145dd8c48bcad687dc88fcfa, type: 3}
+    enemySize: {x: 0, y: 0}
+  - minQuantity: 0
+    maxQuantity: 1
+    enemyPrefab: {fileID: 2938398021888079860, guid: 8b7c049b339af2945adc53058416fa08, type: 3}
+    enemySize: {x: 0, y: 0}
+  - minQuantity: 0
+    maxQuantity: 1
+    enemyPrefab: {fileID: 7233263586582013284, guid: 1c9b36782cb7a9c42a35f7f454df9d9b, type: 3}
+    enemySize: {x: 0, y: 0}
+  - minQuantity: 0
+    maxQuantity: 1
+    enemyPrefab: {fileID: 7233263586582013284, guid: 8518093549918f94bb1ba5b1c144cf33, type: 3}
+    enemySize: {x: 0, y: 0}
+  - minQuantity: 0
+    maxQuantity: 1
+    enemyPrefab: {fileID: 2938398021888079860, guid: 4b9220a5820dd29408fca8316ffa38d5, type: 3}
+    enemySize: {x: 0, y: 0}
+  - minQuantity: 0
+    maxQuantity: 1
+    enemyPrefab: {fileID: 7233263586582013284, guid: 2dcfa452151598b4786fb55715e527cf, type: 3}
+    enemySize: {x: 0, y: 0}
+  - minQuantity: 0
+    maxQuantity: 1
+    enemyPrefab: {fileID: 2938398021888079860, guid: 48f27611c41de6745b399c6b8d7ce0c5, type: 3}
+    enemySize: {x: 0, y: 0}
+  itemData:
+  - minQuantity: 3
+    maxQuantity: 6
+    itemData: {fileID: 11400000, guid: d33f6fea7db47904a997959b7bdf3e4c, type: 2}
