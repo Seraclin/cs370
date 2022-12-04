@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3392986639721889309}
   - component: {fileID: 1757126067988905027}
   - component: {fileID: 7304832657245118626}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: DetectionField
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73,7 +73,7 @@ GameObject:
   - component: {fileID: 2938398021520495772}
   - component: {fileID: 2938398021520495773}
   - component: {fileID: 2938398021520495771}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hitbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -207,7 +207,7 @@ GameObject:
   - component: {fileID: 1500252231445866608}
   - component: {fileID: 564729500155701465}
   - component: {fileID: 5042821647417802505}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Swampy
   m_TagString: Enemy
   m_Icon: {fileID: 0}

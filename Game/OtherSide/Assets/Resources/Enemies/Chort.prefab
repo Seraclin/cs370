@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7183435852110933133}
   - component: {fileID: 6108129449770413779}
   - component: {fileID: 3024454257427411506}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: DetectionField
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73,7 +73,7 @@ GameObject:
   - component: {fileID: 7233263586277377548}
   - component: {fileID: 7233263586277377549}
   - component: {fileID: 7233263586277377547}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hitbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -209,7 +209,7 @@ GameObject:
   - component: {fileID: 308846887345788331}
   - component: {fileID: 7404517997101150337}
   - component: {fileID: 8881383345077890196}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Chort
   m_TagString: Enemy
   m_Icon: {fileID: 0}

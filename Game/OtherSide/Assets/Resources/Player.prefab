@@ -2379,6 +2379,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   health: 100
+  damageCoef: 1
   slider: {fileID: 1772144059446901412}
   invincibility: 0
   invincibilityTime: 0.5
@@ -2645,6 +2646,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPoisoned: 0
   isSlowed: 0
+  isAnalyzed: 0
 --- !u!1 &1772144060870621504
 GameObject:
   m_ObjectHideFlags: 0

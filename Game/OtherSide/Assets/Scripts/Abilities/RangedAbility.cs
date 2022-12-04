@@ -23,14 +23,18 @@ public class RangedAbility : Ability
     private GameObject cloneSkillPrefab; // store generated ability object
 
     private Vector3 direction; 
-    public float projectileSpeed; // how fast the projectile travels across the range, it's actually the force
+    public float projectileSpeed;
+    [SerializeField] PhotonView pv;
+    [SerializeField] PhotonTransformView ptv;
+    // how fast the projectile travels across the range, it's actually the force
     //public float projectileSize; // how big the projectile is
     // public float projectileDuration; // how long the projectile exists, don't need this if we have an 'activeTime' in the base Ability class
     // Two options: calculate predetermined distance by having projectile travel from start to projectileRange at 'speed', or we can have it only last for a 'duration' and it travels at 'speed'
     
     public override void Activate(GameObject parent)
     {
-        
+        pv = parent.GetComponent<PhotonView>();
+        ptv = parent.GetComponent<PhotonTransformView>();
         Debug.Log("Range Ability activated");
         FindObjectOfType<AudioManager>().Play("fireballAttack"); 
 
@@ -51,8 +55,11 @@ public class RangedAbility : Ability
 
 
         direction = displacement.normalized;
-
-        cloneSkillPrefab = Instantiate(RangeInstance, spawnPosition.position + direction, spawnPosition.rotation);
+        if(pv.IsMine)
+        {
+            cloneSkillPrefab = PhotonNetwork.Instantiate(RangeInstance.name, spawnPosition.position + direction, spawnPosition.rotation);
+        }
+        //cloneSkillPrefab = Instantiate(RangeInstance, spawnPosition.position + direction, spawnPosition.rotation);
 
         cloneSkillPrefab.tag = parent.tag + "Ability";
 

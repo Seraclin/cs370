@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7183435852110933133}
   - component: {fileID: 6108129449770413779}
   - component: {fileID: 3024454257427411506}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: DetectionField
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73,7 +73,7 @@ GameObject:
   - component: {fileID: 7233263586277377548}
   - component: {fileID: 7233263586277377549}
   - component: {fileID: 7233263586277377547}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hitbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -210,7 +210,7 @@ GameObject:
   - component: {fileID: 1932050833284931518}
   - component: {fileID: 7595711428135160773}
   - component: {fileID: 2773064526878413647}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RangedEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
