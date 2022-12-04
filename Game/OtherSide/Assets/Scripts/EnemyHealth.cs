@@ -34,7 +34,7 @@ public class EnemyHealth : MonoBehaviour
                 enemyScript.isDead = true;
                 this.gameObject.SetActive(false);
 
-                Destroy(this); // deletes this game object and all children & components
+                // Destroy(this); // deletes this game object and all children & components
                 // TODO: create a corpse which takes enemy ability and enemy name/sprite bore deletion.
                 // TODO: Probably should change logic to instead make another gameObject (e.g. gravestone)
                 // that inherits enemy abilities before deletion. And player then can possess that instead.

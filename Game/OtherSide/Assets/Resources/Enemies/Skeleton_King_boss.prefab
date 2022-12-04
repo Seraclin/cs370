@@ -393,6 +393,9 @@ MonoBehaviour:
   player: {fileID: 0}
   maxhealth: 200
   damageCoef: 1
+  invincibility: 0
+  invincibilityTime: 0.5
+  col: {fileID: 2938398021888079857}
   deathTime: 10
   distancing: 0
   health: 200
