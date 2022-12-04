@@ -17,6 +17,8 @@ public class DamageOverTime : MonoBehaviour
     private string tag;
     private Collider2D obj;
 
+    private float dCoef;
+
     void Start()
     {
         if (particleTrail != null) // display projectile trail
@@ -59,6 +61,7 @@ public class DamageOverTime : MonoBehaviour
             if (collision.gameObject.tag == "Enemy")
             {
                 eScript1 = collision.gameObject.GetComponent<Enemy>();
+                dCoef = eScript1.damageCoef;
                 tag = collision.gameObject.tag;
                 // Debug.Log(damage);
                 InvokeRepeating("Damage", 0.1f, 0.5f);
@@ -72,6 +75,7 @@ public class DamageOverTime : MonoBehaviour
             else if (collision.gameObject.tag == "Player")
             {
                 eScript2 = collision.gameObject.GetComponent<PlayerHealth>();
+                dCoef = eScript2.damageCoef;
                 tag = collision.gameObject.tag;
                 InvokeRepeating("Damage", 0.1f, 0.5f);
             }
@@ -93,7 +97,7 @@ public class DamageOverTime : MonoBehaviour
     {
         if (tag == "Enemy")
         {
-            tookdamage = eScript1.ChangeHealth(0 - damage);
+            tookdamage = eScript1.ChangeHealth(0 - Mathf.RoundToInt(damage * dCoef));
             if (!eScript1.isDead && gameObject.transform.parent.gameObject.GetComponent<AbilityArray>().holderArray[1].ability.isPassive)
             {
                 gameObject.transform.parent.gameObject.GetComponent<AbilityArray>().holderArray[1].ability.Activate(obj.gameObject);
@@ -109,7 +113,7 @@ public class DamageOverTime : MonoBehaviour
             }
         } else if (tag == "Player")
         {
-            tookdamage = eScript2.ChangeHealth(0 - damage);
+            tookdamage = eScript2.ChangeHealth(0 - Mathf.RoundToInt(damage * dCoef));
             if (gameObject.transform.parent.gameObject.GetComponent<AbilityArray>().holderArray[1].ability.isPassive)
             {
                 gameObject.transform.parent.gameObject.GetComponent<AbilityArray>().holderArray[1].ability.Activate(obj.gameObject);

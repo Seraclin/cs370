@@ -391,8 +391,9 @@ MonoBehaviour:
   anim: {fileID: 2938398021888079859}
   player: {fileID: 0}
   maxhealth: 15
+  damageCoef: 1
   deathTime: 20
-  distancing: 0
+  distancing: 3
   health: 15
   pv: {fileID: 0}
   enemySpawner: {fileID: 0}
@@ -495,3 +496,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPoisoned: 0
   isSlowed: 0
+  isAnalyzed: 0

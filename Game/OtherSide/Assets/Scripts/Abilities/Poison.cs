@@ -21,6 +21,11 @@ public class Poison : Ability
             target.GetComponent<Status>().poiDamage = damage;
             target.GetComponent<Status>().poiCount = Mathf.RoundToInt(activeTime);
         }
+        if (target.GetComponent<Status>().poiDuration < activeTime)
+        {
+            target.GetComponent<Status>().poiDuration = activeTime;
+            target.GetComponent<Status>().poiCount = Mathf.RoundToInt(activeTime);
+        }
 
     }
 

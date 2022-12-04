@@ -199,7 +199,7 @@ MonoBehaviour:
   isMoving: 0
   isPossessable: 0
   isDead: 0
-  isRanged: 0
+  isRanged: 1
   Collidables:
     serializedVersion: 2
     m_Bits: 8
@@ -208,6 +208,7 @@ MonoBehaviour:
   anim: {fileID: 0}
   player: {fileID: 0}
   maxhealth: 15
+  cdCoef: 1
   deathTime: 20
   distancing: 0
   health: 15
@@ -280,7 +281,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeb88c9427d8ab6458c7b1b60f1d6978, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ability: {fileID: 11400000, guid: 11242807e9058db408f714bd55f18d5a, type: 2}
+  ability: {fileID: 11400000, guid: 9fb1fa00993e4644993c43735e55106c, type: 2}
   cdCoefficient: 1
   state: 0
 --- !u!114 &8135222698073075019
@@ -295,8 +296,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeb88c9427d8ab6458c7b1b60f1d6978, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ability: {fileID: 11400000, guid: ddac31bd2a082f94bad72e6296724e23, type: 2}
-  cdCoefficient: 0
+  ability: {fileID: 11400000, guid: 53c280bb95e830041b5df49f8537be77, type: 2}
+  cdCoefficient: 1
   state: 0
 --- !u!114 &6737484841764921069
 MonoBehaviour:
@@ -312,7 +313,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShowLayerWeightsInspector: 1
   ShowParameterInspector: 1
-  m_SynchronizeParameters: []
+  m_SynchronizeParameters:
+  - Type: 4
+    SynchronizeType: 0
+    Name: isMoving
   m_SynchronizeLayers:
   - SynchronizeType: 0
     LayerIndex: 0

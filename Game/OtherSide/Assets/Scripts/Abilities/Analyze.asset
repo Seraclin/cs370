@@ -9,17 +9,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b584504c680cc3459f5414ec6c22eb0, type: 3}
-  m_Name: Slow
+  m_Script: {fileID: 11500000, guid: 56dbadb5dc695d04493724b4296fa669, type: 3}
+  m_Name: Analyze
   m_EditorClassIdentifier: 
   abilityIcon: {fileID: 0}
-  abilityName: Slow
-  abilityDescription: Slow the character down by SpeedCoef
+  abilityName: 
+  abilityDescription: 
   cooldownTime: 0
-  activeTime: 3
+  activeTime: 5
   damage: 0
   cost: 0
   knockback: 0
   range: 0
   isPassive: 1
-  speedCoef: 0.5
+  dCoef: 1.5

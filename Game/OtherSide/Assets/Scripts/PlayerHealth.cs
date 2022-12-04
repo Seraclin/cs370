@@ -8,6 +8,7 @@ public class PlayerHealth : MonoBehaviour
 {
     [SerializeField] public int maxHealth = 100; // these should be public - Sam
     [SerializeField] public int health = 100;
+    [SerializeField] public float damageCoef = 1f;
     [SerializeField] Slider slider;
     [SerializeField] bool invincibility;
     bool isDeathAnim; //checks if player is dead (so u cant die twice)

@@ -12,7 +12,7 @@ using UnityEngine;
 public class Slow : Ability
 {
     [SerializeField] float speedCoef;
-    // Start is called before the first frame update
+
     public override void Activate(GameObject target)
     {
         // Debug.Log("Slow activated");
@@ -23,6 +23,10 @@ public class Slow : Ability
             target.GetComponent<Status>().speedCoef = speedCoef;
             // target.GetComponent<Status>().poiDamage = damage;
             // target.GetComponent<Status>().poiCount = Mathf.RoundToInt(activeTime);
+        }
+        if (target.GetComponent<Status>().slowDuration < activeTime)
+        {
+            target.GetComponent<Status>().slowDuration = activeTime;
         }
 
     }

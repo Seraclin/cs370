@@ -23,6 +23,7 @@ public class Enemy : MonoBehaviourPunCallbacks
 
     [SerializeField] public GameObject player;
     [SerializeField] public int maxhealth = 15;
+    [SerializeField] public float damageCoef = 1f;
 
     [SerializeField] float deathTime;
 
@@ -210,6 +211,30 @@ public class Enemy : MonoBehaviourPunCallbacks
                     else
                     {
                         input.y = -1;
+
+                    }
+                } else if (player.GetComponent<SpriteRenderer>().color.a > 0.8f && dis > distancing)
+                {
+                    if (player.transform.position.x < this.transform.position.x)
+                    {
+                        input.x = -1;
+                        ren.flipX = true;
+
+                    }
+                    else
+                    {
+                        input.x = 1;
+                        ren.flipX = false;
+
+                    }
+
+                    if (player.transform.position.y < this.transform.position.y)
+                    {
+                        input.y = -1;
+                    }
+                    else
+                    {
+                        input.y = 1;
 
                     }
                 } else

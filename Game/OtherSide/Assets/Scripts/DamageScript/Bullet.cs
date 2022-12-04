@@ -16,6 +16,10 @@ public class Bullet : MonoBehaviour
 
     internal GameObject maker;
 
+<<<<<<< Updated upstream:Game/OtherSide/Assets/Scripts/Bullet.cs
+=======
+    private float dCoef;
+>>>>>>> Stashed changes:Game/OtherSide/Assets/Scripts/DamageScript/Bullet.cs
 
     void Start()
     {
@@ -67,7 +71,8 @@ public class Bullet : MonoBehaviour
             {
 
                 Enemy eScript = collision.gameObject.GetComponent<Enemy>();
-                eScript.ChangeHealth(0 - damage);
+                dCoef = eScript.damageCoef;
+                eScript.ChangeHealth(0 - Mathf.RoundToInt(damage * dCoef));
                 if (maker.GetComponent<AbilityArray>().holderArray[1].ability.isPassive)
                 {
                     Debug.Log("Activate passive");
@@ -84,7 +89,8 @@ public class Bullet : MonoBehaviour
             {
 
                 PlayerHealth eScript = collision.gameObject.GetComponent<PlayerHealth>();
-                eScript.ChangeHealth(0 - damage);
+                dCoef = eScript.damageCoef;
+                eScript.ChangeHealth(0 - Mathf.RoundToInt(damage * dCoef));
                 if (maker.GetComponent<AbilityArray>().holderArray[1].ability.isPassive)
                 {
                     Debug.Log("Activate passive");

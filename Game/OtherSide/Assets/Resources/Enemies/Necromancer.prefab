@@ -429,8 +429,9 @@ MonoBehaviour:
   anim: {fileID: 7233263586582013283}
   player: {fileID: 0}
   maxhealth: 15
+  damageCoef: 1
   deathTime: 20
-  distancing: 2
+  distancing: 3
   health: 10
   pv: {fileID: -6863469743574177061}
   enemySpawner: {fileID: 0}
@@ -465,7 +466,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeb88c9427d8ab6458c7b1b60f1d6978, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ability: {fileID: 11400000, guid: 9fb1fa00993e4644993c43735e55106c, type: 2}
+  ability: {fileID: 11400000, guid: d04162bc303d672499edeeaee183f5a5, type: 2}
   cdCoefficient: 1
   state: 0
 --- !u!114 &2532581260021697496
@@ -480,8 +481,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeb88c9427d8ab6458c7b1b60f1d6978, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ability: {fileID: 11400000, guid: 53c280bb95e830041b5df49f8537be77, type: 2}
-  cdCoefficient: 1
+  ability: {fileID: 11400000, guid: 501316a580a5da6429e07d54c3901fa6, type: 2}
+  cdCoefficient: 0
   state: 0
 --- !u!114 &8481517201512298371
 MonoBehaviour:

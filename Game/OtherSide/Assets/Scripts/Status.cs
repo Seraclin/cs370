@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class Status : MonoBehaviour
 {
-    public bool isPoisoned, isSlowed;
-    internal float poiDuration, slowDuration;
+    public bool isPoisoned, isSlowed, isAnalyzed;
+    internal float poiDuration, slowDuration, analyzeDuration;
     internal int poiDamage;
     internal int poiCount;
     internal float speedCoef;
-    private float oriSpeed;
+    internal float dCoef;
+    private float oriSpeed, oriDCoef;
     // private eScript obj;
 
     // Start is called before the first frame update
@@ -24,10 +25,12 @@ public class Status : MonoBehaviour
         {
             // obj = gameObject.GetComponent<Enemy>();
             oriSpeed = gameObject.GetComponent<Enemy>().speed;
+            oriDCoef = gameObject.GetComponent<Enemy>().damageCoef;
         } else if (gameObject.tag == "Player")
         {
             // obj = gameObject.GetComponent<PlayerController>();
             oriSpeed = gameObject.GetComponent<PlayerController>().speed;
+            oriDCoef = gameObject.GetComponent<PlayerHealth>().damageCoef;
         }
     }
 
@@ -69,16 +72,16 @@ public class Status : MonoBehaviour
                 if (gameObject.tag == "Enemy")
                 {
                     // obj = gameObject.GetComponent<Enemy>();
-                    if (gameObject.GetComponent<Enemy>().speed != oriSpeed)
+                    if (gameObject.GetComponent<Enemy>().speed == oriSpeed)
                     {
-                        gameObject.GetComponent<Enemy>().speed *= speedCoef;
+                        gameObject.GetComponent<Enemy>().speed /= speedCoef;
                     }
                     
                 }    
                 else if (gameObject.tag == "Player")
                 {
                     // obj = gameObject.GetComponent<PlayerController>();
-                    if (gameObject.GetComponent<PlayerController>().speed != oriSpeed)
+                    if (gameObject.GetComponent<PlayerController>().speed == oriSpeed)
                     {
                         gameObject.GetComponent<PlayerController>().speed *= speedCoef;
                     }
@@ -96,6 +99,44 @@ public class Status : MonoBehaviour
                 {
                     // obj = gameObject.GetComponent<PlayerController>();
                     gameObject.GetComponent<PlayerController>().speed = oriSpeed;
+                }
+            }
+        }
+
+        if (isAnalyzed)
+        {
+            if (analyzeDuration > 0)
+            {
+                if (gameObject.tag == "Enemy")
+                {
+                    // obj = gameObject.GetComponent<Enemy>();
+                    if (gameObject.GetComponent<Enemy>().damageCoef == oriDCoef)
+                    {
+                        gameObject.GetComponent<Enemy>().damageCoef = dCoef;
+                    }
+
+                }
+                else if (gameObject.tag == "Player")
+                {
+                    // obj = gameObject.GetComponent<PlayerController>();
+                    if (gameObject.GetComponent<PlayerHealth>().damageCoef == oriDCoef)
+                    {
+                        gameObject.GetComponent<PlayerHealth>().damageCoef = dCoef;
+                    }
+                }
+                analyzeDuration -= Time.deltaTime;
+            } else
+            {
+                isAnalyzed = false;
+                if (gameObject.tag == "Enemy")
+                {
+                    // obj = gameObject.GetComponent<Enemy>();
+                    gameObject.GetComponent<Enemy>().damageCoef = oriDCoef;
+                }
+                else if (gameObject.tag == "Player")
+                {
+                    // obj = gameObject.GetComponent<PlayerController>();
+                    gameObject.GetComponent<PlayerHealth>().damageCoef = oriDCoef;
                 }
             }
         }
