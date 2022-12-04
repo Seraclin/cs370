@@ -75,12 +75,12 @@ public class Bullet : MonoBehaviour
                     Debug.Log("Activate passive");
                     maker.GetComponent<AbilityArray>().holderArray[1].ability.Activate(collision.gameObject);
                 }
-                Destroy(gameObject);
+                PhotonNetwork.Destroy(gameObject);
 
             }
             else if (collision.gameObject.tag == "Wall")
             {
-                Destroy(gameObject);
+                PhotonNetwork.Destroy(gameObject);
             }
             else if (collision.gameObject.tag == "Player")
             {
@@ -93,7 +93,7 @@ public class Bullet : MonoBehaviour
                     Debug.Log("Activate passive");
                     maker.GetComponent<AbilityArray>().holderArray[1].ability.Activate(collision.gameObject);
                 }
-                Destroy(gameObject);
+                PhotonNetwork.Destroy(gameObject);
             }
 
         }
