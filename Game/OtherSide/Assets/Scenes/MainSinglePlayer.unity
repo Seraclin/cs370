@@ -27624,6 +27624,18 @@ MonoBehaviour:
     pitch: 1
     loop: 1
     source: {fileID: 0}
+  - name: meleeAttack
+    clip: {fileID: 8300000, guid: 31fb521dd06ef441fbf444bf750888ae, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: fireballAttack
+    clip: {fileID: 8300000, guid: f3d7dcb2329784bc4ac1c235cf8c7023, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
 --- !u!4 &2129617317
 Transform:
   m_ObjectHideFlags: 0
