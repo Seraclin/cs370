@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca9ff7ad53b070f429d3475cd0cbca82, type: 3}
+  m_Name: Spawn
+  m_EditorClassIdentifier: 
+  abilityIcon: {fileID: 0}
+  abilityName: 
+  abilityDescription: 
+  cooldownTime: 10
+  activeTime: 0
+  damage: 0
+  cost: 0
+  knockback: 0
+  range: 20
+  isPassive: 0
+  enemyInstance: {fileID: 2938398021888079860, guid: 48f27611c41de6745b399c6b8d7ce0c5, type: 3}
+  spawnParticle: {fileID: 4448921864022606379, guid: 187944cafba85694fba29642bcf01c55, type: 3}
