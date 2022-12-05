@@ -372,7 +372,7 @@ MonoBehaviour:
   col: {fileID: 0}
   deathTime: 10
   distancing: 0
-  health: 200
+  health: 100
   pv: {fileID: 0}
   ogPos: {x: 0, y: 0, z: 0}
   particleHeal: {fileID: 4448921864022606379, guid: 6d89c75154128ce408c9f1d6935e1f0f, type: 3}

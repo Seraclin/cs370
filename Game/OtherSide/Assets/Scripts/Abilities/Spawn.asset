@@ -22,5 +22,5 @@ MonoBehaviour:
   knockback: 0
   range: 20
   isPassive: 0
-  enemyInstance: {fileID: 2938398021888079860, guid: 48f27611c41de6745b399c6b8d7ce0c5, type: 3}
+  enemyInstance: {fileID: 5544111371020350159, guid: 6f92e0745deec4d7dbc6dbd9804899d2, type: 3}
   spawnParticle: {fileID: 4448921864022606379, guid: 187944cafba85694fba29642bcf01c55, type: 3}
