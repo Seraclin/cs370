@@ -36,7 +36,6 @@ public class RangedAbility : Ability
         pv = parent.GetComponent<PhotonView>();
         ptv = parent.GetComponent<PhotonTransformView>();
         Debug.Log("Range Ability activated");
-        FindObjectOfType<AudioManager>().Play("fireballAttack"); 
 
         spawnPosition = parent.transform;
         Vector3 displacement = new Vector3(0, 0, 0);
@@ -73,6 +72,8 @@ public class RangedAbility : Ability
             cloneSkillPrefab.GetComponent<Bullet>().maker = parent;
         }
 
+        // play sound
+        FindObjectOfType<AudioManager>().Play("fireballAttack", cloneSkillPrefab); 
     }
 
     /* Deactivate is called when the skill is cooldown

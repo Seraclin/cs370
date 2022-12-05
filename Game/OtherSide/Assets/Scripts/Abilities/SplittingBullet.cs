@@ -24,7 +24,6 @@ public class SplittingBullet : Ability
     {
 
         // Debug.Log("Range Ability activated");
-        FindObjectOfType<AudioManager>().Play("fireballAttack");
 
         spawnPosition = parent.transform;
         Vector3 displacement = new Vector3(0, 0, 0);
@@ -72,6 +71,9 @@ public class SplittingBullet : Ability
         cloneSkillPrefab3.GetComponent<Bullet>().damage = damage;
         cloneSkillPrefab3.GetComponent<Bullet>().maker = parent;
 
+        FindObjectOfType<AudioManager>().Play("fireballAttack", cloneSkillPrefab);
+        FindObjectOfType<AudioManager>().Play("fireballAttack", cloneSkillPrefab2);
+        FindObjectOfType<AudioManager>().Play("fireballAttack", cloneSkillPrefab3);
     }
 
     /* Deactivate is called when the skill is cooldown

@@ -45,20 +45,38 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
-  - name: Theme
-    clip: {fileID: 8300000, guid: 0201cca26dd1c490ba39080ec997fcc9, type: 3}
+  - name: fireballAttack
+    clip: {fileID: 8300000, guid: f3d7dcb2329784bc4ac1c235cf8c7023, type: 3}
     volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: meleeAttack
-    clip: {fileID: 8300000, guid: 31fb521dd06ef441fbf444bf750888ae, type: 3}
+    clip: {fileID: 8300000, guid: f3d7dcb2329784bc4ac1c235cf8c7023, type: 3}
     volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
-  - name: fireballAttack
-    clip: {fileID: 8300000, guid: f3d7dcb2329784bc4ac1c235cf8c7023, type: 3}
+  - name: Theme
+    clip: {fileID: 8300000, guid: 0201cca26dd1c490ba39080ec997fcc9, type: 3}
+    volume: 0.203
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: openChest
+    clip: {fileID: 8300000, guid: 9be2fe174beff446e8d7fad0a6252dd8, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: openDoor
+    clip: {fileID: 8300000, guid: 9e4d911f6004343bcae143ffb9473b26, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: pickupItem
+    clip: {fileID: 8300000, guid: 4e212a20e757c4a5c940eca6cceb41ef, type: 3}
     volume: 1
     pitch: 1
     loop: 0
