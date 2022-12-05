@@ -15,7 +15,7 @@ MonoBehaviour:
   abilityIcon: {fileID: 21300000, guid: dce980105f68c1948be082b722950d6c, type: 3}
   abilityName: Ice Ball
   abilityDescription: A frosty bullet that slows
-  cooldownTime: 4
+  cooldownTime: 2
   activeTime: 0
   damage: 10
   cost: 0

@@ -15,7 +15,7 @@ MonoBehaviour:
   abilityIcon: {fileID: -1108690041, guid: 1dcf0bdb89af0b54da7f37d7cf4a1297, type: 3}
   abilityName: Will-o-Wisp
   abilityDescription: Shoots a weak flame in a straight line.
-  cooldownTime: 6
+  cooldownTime: 3
   activeTime: 0
   damage: 5
   cost: 0

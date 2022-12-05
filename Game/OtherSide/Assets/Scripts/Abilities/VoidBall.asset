@@ -15,7 +15,7 @@ MonoBehaviour:
   abilityIcon: {fileID: 1981940213, guid: 631e747e26f295b47b10217c2c7ceb20, type: 3}
   abilityName: Void Bolt
   abilityDescription: A bolt of void energy that breakes down defenses
-  cooldownTime: 4
+  cooldownTime: 2
   activeTime: 0
   damage: 8
   cost: 0

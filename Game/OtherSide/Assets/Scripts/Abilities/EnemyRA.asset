@@ -15,7 +15,7 @@ MonoBehaviour:
   abilityIcon: {fileID: 0}
   abilityName: 
   abilityDescription: 
-  cooldownTime: 4
+  cooldownTime: 2
   activeTime: 0
   damage: 10
   cost: 0
