@@ -27615,7 +27615,7 @@ Tilemap:
       - {fileID: 21300000, guid: 0038c56ee886c4d7aa0a8795d79e2832, type: 3}
       - {fileID: 21300000, guid: 73d3eeb16ddb548228abb4c0fc7ba3e8, type: 3}
       - {fileID: 21300000, guid: 632d4532bd67a416895fd80f550a977b, type: 3}
-      m_AnimationSpeed: 10.000001
+      m_AnimationSpeed: 10
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 38, y: -4, z: 0}
@@ -28147,13 +28147,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sounds:
   - name: GhostSound
-    clip: {fileID: 8300000, guid: e59c269b3cbce4e5aae09074e9ac6acf, type: 3}
+    clip: {fileID: 8300000, guid: ba42a0e2a6ade4138964e92b9774a680, type: 3}
     volume: 0.5
     pitch: 0
     loop: 0
     source: {fileID: 0}
   - name: Theme
-    clip: {fileID: 8300000, guid: 0201cca26dd1c490ba39080ec997fcc9, type: 3}
+    clip: {fileID: 8300000, guid: 0fad9e4366ed7406f8fab144bf837b6a, type: 3}
     volume: 0.666
     pitch: 1
     loop: 1

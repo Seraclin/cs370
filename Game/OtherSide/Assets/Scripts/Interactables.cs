@@ -27,12 +27,13 @@ public class Interactables : MonoBehaviour
     public void DoInteraction()
     {
         //pick up use/store.
-        gameObject.SetActive(false);
-
         if (healing != 0)
         {
             pHealth.ChangeHealth(healing);
         }
+        PhotonNetwork.Destroy(this.gameObject);
+
+      
     }
 
     public void openChest()
@@ -55,13 +56,15 @@ public class Interactables : MonoBehaviour
     }
     [PunRPC] public void changeSprite()
     {
+        itemInChest.SetActive(true);
         // changes sprite to 'openSprite'
         // change door to unlocked door (door_unlocked)
         // change chest to open chest (chest_open)
-        if(particleInteract != null) // particle effects
+        if (particleInteract != null) // particle effects
         {
             GameObject particle = Instantiate(particleInteract, gameObject.transform);
             particle.GetComponent<ParticleSystem>().Play();
+
             Destroy(particle, particle.GetComponent<ParticleSystem>().main.duration);
         }
         gameObject.GetComponent<SpriteRenderer>().sprite = openSprite;
