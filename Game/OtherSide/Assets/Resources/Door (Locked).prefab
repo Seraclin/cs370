@@ -125,6 +125,7 @@ GameObject:
   - component: {fileID: 653245379444602897}
   - component: {fileID: 653245379444602898}
   - component: {fileID: 653245379444602909}
+  - component: {fileID: 7340272365027532549}
   m_Layer: 0
   m_Name: Door (Locked)
   m_TagString: Inter
@@ -275,6 +276,7 @@ MonoBehaviour:
   spawnPoint: {fileID: 0}
   openSprite: {fileID: 21300000, guid: 64367d47e3cd23346aefc938b9d66ae2, type: 3}
   particleInteract: {fileID: 964986808903860898, guid: 52ad6f482337af844873752976694133, type: 3}
+  pv: {fileID: 7340272365027532549}
 --- !u!50 &653245379444602909
 Rigidbody2D:
   serializedVersion: 4
@@ -296,3 +298,25 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &7340272365027532549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 653245379444602899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0

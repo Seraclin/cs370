@@ -20912,6 +20912,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Door (Unlocked)
       objectReference: {fileID: 0}
+    - target: {fileID: 5665876478522130562, guid: 002bc1e9bed104138942f7df58a735a0, type: 3}
+      propertyPath: sceneViewId
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 002bc1e9bed104138942f7df58a735a0, type: 3}
 --- !u!1 &580061868
@@ -21158,8 +21162,39 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: -5
       objectReference: {fileID: 0}
+    - target: {fileID: 7340272365027532549, guid: 3f4c57cb408524da197d7fee66e92a03, type: 3}
+      propertyPath: sceneViewId
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3f4c57cb408524da197d7fee66e92a03, type: 3}
+--- !u!1 &674702682 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 653245379444602899, guid: 3f4c57cb408524da197d7fee66e92a03, type: 3}
+  m_PrefabInstance: {fileID: 674702681}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &674702683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 674702682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 8
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &680121336
 GameObject:
   m_ObjectHideFlags: 0
@@ -21504,6 +21539,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1036035696247307417, guid: 0ae35fe0ff1a54adf84413712e94fea3, type: 3}
+      propertyPath: sceneViewId
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 8024846703232902498, guid: 0ae35fe0ff1a54adf84413712e94fea3, type: 3}
       propertyPath: m_LocalPosition.y
       value: 1
@@ -22459,6 +22498,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1036035696247307417, guid: 0ae35fe0ff1a54adf84413712e94fea3, type: 3}
+      propertyPath: sceneViewId
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 8024846703232902498, guid: 0ae35fe0ff1a54adf84413712e94fea3, type: 3}
       propertyPath: m_LocalPosition.y
       value: 1
@@ -23176,6 +23219,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -3153477774692307822, guid: 0db40888fcf8048b4ba1ccb7f8123542, type: 3}
+      propertyPath: sceneViewId
+      value: 14
+      objectReference: {fileID: 0}
     - target: {fileID: 7182387741111805836, guid: 0db40888fcf8048b4ba1ccb7f8123542, type: 3}
       propertyPath: pHealth
       value: 
@@ -27568,7 +27615,7 @@ Tilemap:
       - {fileID: 21300000, guid: 0038c56ee886c4d7aa0a8795d79e2832, type: 3}
       - {fileID: 21300000, guid: 73d3eeb16ddb548228abb4c0fc7ba3e8, type: 3}
       - {fileID: 21300000, guid: 632d4532bd67a416895fd80f550a977b, type: 3}
-      m_AnimationSpeed: 10
+      m_AnimationSpeed: 10.000001
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 38, y: -4, z: 0}
@@ -27940,6 +27987,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -3153477774692307822, guid: 0db40888fcf8048b4ba1ccb7f8123542, type: 3}
+      propertyPath: sceneViewId
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 7182387741111805836, guid: 0db40888fcf8048b4ba1ccb7f8123542, type: 3}
       propertyPath: pHealth
       value: 
