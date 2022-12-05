@@ -24,27 +24,15 @@ public class MapRuntimeGenerator : MonoBehaviour
     void Start()
     {
 
+       
+        
+    }
+    private void Awake()
+    {
         if (PhotonNetwork.IsMasterClient)
         {
             OnStart?.Invoke();
         }
-        else
-        {
-            Generator1.SetActive(false); //maybe if i type it twice it actually might work
-
-            Generator3.SetActive(false);
-            Generator4.SetActive(false);
-            Generator5.SetActive(false);
-            Generator6.SetActive(false);
-            Generator7.SetActive(false);
-            Generator8.SetActive(false);
-            Generator9.SetActive(false);
-
-
-        }
-    }
-    private void Awake()
-    {
         if (!PhotonNetwork.IsMasterClient)
         {
             Generator1.SetActive(false);
