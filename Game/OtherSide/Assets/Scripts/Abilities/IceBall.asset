@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d6867e8d4d61f446b277345ab014cd5, type: 3}
   m_Name: IceBall
   m_EditorClassIdentifier: 
-  abilityIcon: {fileID: 0}
+  abilityIcon: {fileID: 21300000, guid: dce980105f68c1948be082b722950d6c, type: 3}
   abilityName: Ice Ball
-  abilityDescription: A blue fireball
+  abilityDescription: A frosty bullet that slows
   cooldownTime: 3
   activeTime: 0
   damage: 10
@@ -24,3 +24,5 @@ MonoBehaviour:
   isPassive: 0
   RangeInstance: {fileID: 1750885095948236177, guid: 7212b115ee6d0dd4c9282fffa3f74787, type: 3}
   projectileSpeed: 300
+  pv: {fileID: 0}
+  ptv: {fileID: 0}

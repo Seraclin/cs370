@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56dbadb5dc695d04493724b4296fa669, type: 3}
   m_Name: Analyze
   m_EditorClassIdentifier: 
-  abilityIcon: {fileID: 0}
-  abilityName: 
-  abilityDescription: 
+  abilityIcon: {fileID: 1369372634922183146, guid: a0d3fbbc155eb404a87f827b40a48dfe, type: 3}
+  abilityName: Deconstruction
+  abilityDescription: Deal increased damage to target
   cooldownTime: 0
   activeTime: 5
   damage: 0
