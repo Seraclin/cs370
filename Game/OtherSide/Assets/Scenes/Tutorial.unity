@@ -37512,6 +37512,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Zombie_turtorialonly
       objectReference: {fileID: 0}
+    - target: {fileID: 2938398021888079869, guid: ea6ffdf0cba4b484cbe4df97b5ca17ab, type: 3}
+      propertyPath: health
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2938398021888079869, guid: ea6ffdf0cba4b484cbe4df97b5ca17ab, type: 3}
+      propertyPath: deathTime
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 2938398021888079869, guid: ea6ffdf0cba4b484cbe4df97b5ca17ab, type: 3}
+      propertyPath: isPossessable
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2938398021888079870, guid: ea6ffdf0cba4b484cbe4df97b5ca17ab, type: 3}
       propertyPath: m_RootOrder
       value: 1
