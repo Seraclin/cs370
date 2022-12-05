@@ -4,8 +4,6 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using Random = UnityEngine.Random;
-using Photon.Pun;
-using Photon.Realtime;
 
 public class SimpleRandomWalkDungeonGenerator : AbstractDungeonGenerator
 {

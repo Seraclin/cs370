@@ -2,22 +2,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Photon.Pun;
-using Photon.Realtime;
 
-
-public class WallGenerator : MonoBehaviourPunCallbacks
+public static class WallGenerator 
 {
-
-    [SerializeField] PhotonView pv;
-    [PunRPC] public void CreateWalls(HashSet<Vector2Int> floorPositions, TilemapVisualizer tilemapVisualizer)
-    {
-        pv = GetComponent<PhotonView>();
-        pv.RPC("SyncWalls", RpcTarget.OthersBuffered, floorPositions, tilemapVisualizer);
-    }
-
-    [PunRPC]
-    public static void SyncWalls(HashSet<Vector2Int> floorPositions, TilemapVisualizer tilemapVisualizer)
+    public static void CreateWalls(HashSet<Vector2Int> floorPositions, TilemapVisualizer tilemapVisualizer)
     {
         var basicWallPositions = FindWallsInDirections(floorPositions, Direction2D.cardinalDirectionsList);
         var cornerWallPositions = FindWallsInDirections(floorPositions, Direction2D.diagonalDirectionsList);
@@ -25,7 +13,7 @@ public class WallGenerator : MonoBehaviourPunCallbacks
         CreateCornerWalls(tilemapVisualizer, cornerWallPositions, floorPositions);
     }
 
-    [PunRPC] public static void CreateCornerWalls(TilemapVisualizer tilemapVisualizer, HashSet<Vector2Int> cornerWallPositions, HashSet<Vector2Int> floorPositions)
+    private static void CreateCornerWalls(TilemapVisualizer tilemapVisualizer, HashSet<Vector2Int> cornerWallPositions, HashSet<Vector2Int> floorPositions)
     {
         foreach (var position in cornerWallPositions)
         {
