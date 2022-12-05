@@ -20,4 +20,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Tutorial.unity
     guid: 6b79fdcd47be51e4698391701ac641c5
+  - enabled: 1
+    path: Assets/Scenes/RandomGenerationV3.unity
+    guid: d4c110ea10cf3d942ba9f9b3abb75546
+  - enabled: 1
+    path: Assets/Scenes/BossRoom.unity
+    guid: 49f5a126da0cf5644b2e31bfd41d23a4
   m_configObjects: {}

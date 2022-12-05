@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class SceneSwitch : MonoBehaviour
 {
-    [SerializeField] public string scene;
+    [SerializeField] public int scene;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
