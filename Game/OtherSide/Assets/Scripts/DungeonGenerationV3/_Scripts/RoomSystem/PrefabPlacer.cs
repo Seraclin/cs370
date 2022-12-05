@@ -5,12 +5,14 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
+
 public class PrefabPlacer : MonoBehaviour
 {
     [SerializeField]
     private GameObject itemPrefab;
     private Vector2 newplacementPosition;
     private Light2D tempObj;
+    
 
     public List<GameObject> PlaceEnemies(List<EnemyPlacementData> enemyPlacementData, ItemPlacementHelper itemPlacementHelper)
     {
@@ -84,7 +86,8 @@ public class PrefabPlacer : MonoBehaviour
         GameObject newItem;
         if (Application.isPlaying)
         {
-            newItem = Instantiate(prefab, placementPosition, Quaternion.identity);
+    
+            newItem =Instantiate(prefab, placementPosition, Quaternion.identity);
         }
         else
         {
