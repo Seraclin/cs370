@@ -44,7 +44,7 @@ public class Enemy : MonoBehaviourPunCallbacks
 
     void Start()
     {
-        enemySpawner = this.transform.parent.gameObject;
+   
         ogPos = this.transform.position;
         ren = gameObject.GetComponent<SpriteRenderer>();
         health = maxhealth;

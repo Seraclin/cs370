@@ -7,9 +7,21 @@ using Photon.Realtime;
 public class EnemySpawner : MonoBehaviourPunCallbacks
 {
     // Start is called before the first frame update
+    [SerializeField] GameObject[] Enemies = new GameObject[10];
+   
+
+
     public void Start()
     {
-       
+        for (int i = 0; i < Enemies.Length; i++)
+        {
+            if (PhotonNetwork.IsMasterClient)
+            {
+                GameObject newEnemy = PhotonNetwork.Instantiate(Enemies[i].name, Enemies[i].transform.position, Quaternion.identity, 0);
+                newEnemy.SetActive(true);
+            }
+        }
+
        /* for (int i = 0; i<transform.childCount; i++)
         {
             
