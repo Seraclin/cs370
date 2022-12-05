@@ -22794,6 +22794,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1425113333}
   - component: {fileID: 1425113332}
+  - component: {fileID: 1425113334}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -22817,6 +22818,7 @@ MonoBehaviour:
   GameCanvas: {fileID: 905867668}
   SceneCamera: {fileID: 85871800}
   LobbyText: {fileID: 1368777175}
+  pv: {fileID: 1425113334}
 --- !u!4 &1425113333
 Transform:
   m_ObjectHideFlags: 0
@@ -22832,6 +22834,28 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1425113334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1425113331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 7
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1001 &1466333040
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27516,7 +27540,7 @@ Tilemap:
       - {fileID: 21300000, guid: ac11ad65e555b4eadb63c1021aa4918a, type: 3}
       - {fileID: 21300000, guid: cbec3247c3d22420ea9362d270f01850, type: 3}
       - {fileID: 21300000, guid: bb251e85463eb416896cd963d7eae60a, type: 3}
-      m_AnimationSpeed: 10.000001
+      m_AnimationSpeed: 10
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 48, y: -4, z: 0}
