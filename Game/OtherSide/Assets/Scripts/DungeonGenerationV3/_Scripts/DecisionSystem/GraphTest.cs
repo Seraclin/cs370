@@ -11,6 +11,9 @@ public class GraphTest : MonoBehaviour
 
     Dictionary<Vector2Int, int> dijkstraResult;
     int highestValue;
+    Vector2Int keyDij;
+
+    [SerializeField] GameObject endLevel;
 
     public void RunDijkstraAlgorithm(Vector2Int playerPosition,IEnumerable<Vector2Int> floorPositions)
     {
@@ -18,7 +21,11 @@ public class GraphTest : MonoBehaviour
         graph = new Graph(floorPositions);
         dijkstraResult = DijkstraAlgorithm.Dijkstra(graph, playerPosition);
         highestValue = dijkstraResult.Values.Max();
+        keyDij = dijkstraResult.FirstOrDefault(x => EqualityComparer<int>.Default.Equals(x.Value, highestValue)).Key;
+        Debug.Log(keyDij);
         graphReady = true;
+
+        endLevel.transform.position = (keyDij + new Vector2(0.5f, 0.5f));
     }
 
 
