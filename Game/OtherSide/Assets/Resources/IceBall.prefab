@@ -101,10 +101,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00aff3e0cbaf4724e8da87ead591064e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  duration: 5
+  duration: 6
   particleTrail: {fileID: 8060286846786946212, guid: b5031b449cabd8b4a88990a56eb268a7, type: 3}
   particleImpact: {fileID: 4448921864022606379, guid: e18bc912b91cc7f43858067f60a5906b, type: 3}
-  pv: {fileID: 0}
+  pv: {fileID: 382852675466829137}
 --- !u!50 &7596844800399171590
 Rigidbody2D:
   serializedVersion: 4
@@ -170,7 +170,8 @@ MonoBehaviour:
   Synchronization: 3
   OwnershipTransfer: 0
   observableSearch: 2
-  ObservedComponents: []
+  ObservedComponents:
+  - {fileID: -5687054712437785615}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
