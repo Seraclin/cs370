@@ -46,6 +46,10 @@ public class PlayerController : MonoBehaviourPunCallbacks
         {
             playerCam.SetActive(true);
         }
+        else
+        {
+            playerCam.SetActive(false);
+        }
         anim = GetComponent<Animator>();
         
     }

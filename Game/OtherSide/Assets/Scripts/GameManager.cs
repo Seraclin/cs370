@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviourPunCallbacks
     public GameObject GameCanvas;
     public GameObject SceneCamera;
     public Text LobbyText;
+    [SerializeField] PhotonView pv;
     // Start is called before the first frame update
     void Awake()
     {
@@ -32,10 +33,15 @@ public class GameManager : MonoBehaviourPunCallbacks
     {
         
     }
-    public void SpawnPlayer()
+    public void SpawnPlayers()
+    {
+        pv.RPC("SpawnPlayer", RpcTarget.All);
+    }
+    [PunRPC] public void SpawnPlayer()
     {
         PhotonNetwork.Instantiate(playerPrefab.name, new Vector3(0,0,0),Quaternion.identity,0);
         GameCanvas.SetActive(false);
         SceneCamera.SetActive(false);
     }
+    
 }

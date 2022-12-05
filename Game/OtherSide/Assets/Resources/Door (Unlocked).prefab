@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1581008643133770874}
   - component: {fileID: 1581008643133770875}
   - component: {fileID: 1581008643133770876}
+  - component: {fileID: 5665876478522130562}
   m_Layer: 0
   m_Name: Door (Unlocked)
   m_TagString: Inter
@@ -162,7 +163,9 @@ MonoBehaviour:
   isChest: 0
   itemInChest: {fileID: 0}
   spawnPoint: {fileID: 0}
-  chestOpenSprite: {fileID: 0}
+  openSprite: {fileID: 0}
+  particleInteract: {fileID: 0}
+  pv: {fileID: 5665876478522130562}
 --- !u!50 &1581008643133770876
 Rigidbody2D:
   serializedVersion: 4
@@ -184,6 +187,28 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &5665876478522130562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1581008643133770877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &1581008644756997211
 GameObject:
   m_ObjectHideFlags: 0

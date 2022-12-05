@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
+using Photon.Realtime;
 
 public class Interactables : MonoBehaviour
 {
@@ -20,7 +22,7 @@ public class Interactables : MonoBehaviour
 
     [SerializeField] Sprite openSprite; // chest or door open sprite
     [SerializeField] GameObject particleInteract; // particle when open sprite happens
-
+    [SerializeField] PhotonView pv;
 
     public void DoInteraction()
     {
@@ -47,10 +49,11 @@ public class Interactables : MonoBehaviour
             itemInChest.transform.position = spawnPoint.position;
 
             // change chest sprite to open chest sprite
-            changeSprite();
+            pv.RPC("changeSprite", RpcTarget.OthersBuffered);
+          
         }
     }
-    public void changeSprite()
+    [PunRPC] public void changeSprite()
     {
         // changes sprite to 'openSprite'
         // change door to unlocked door (door_unlocked)

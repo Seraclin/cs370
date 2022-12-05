@@ -20,6 +20,7 @@ public class Bullet : MonoBehaviour
 
     void Start()
     {
+    
         if (particleTrail != null) // display projectile trail
         {
             GameObject ptrail = Instantiate(particleTrail, gameObject.transform);

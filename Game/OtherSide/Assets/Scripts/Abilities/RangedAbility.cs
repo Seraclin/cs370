@@ -55,21 +55,23 @@ public class RangedAbility : Ability
 
 
         direction = displacement.normalized;
-        if(pv.IsMine)
+        if (pv.IsMine)
         {
             cloneSkillPrefab = PhotonNetwork.Instantiate(RangeInstance.name, spawnPosition.position + direction, spawnPosition.rotation);
+
+
+            //cloneSkillPrefab = Instantiate(RangeInstance, spawnPosition.position + direction, spawnPosition.rotation);
+
+            cloneSkillPrefab.tag = parent.tag + "Ability";
+
+            float rotZ = Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg;
+            cloneSkillPrefab.transform.rotation = Quaternion.Euler(0f, 0f, -rotZ - 90);
+
+            cloneSkillPrefab.GetComponent<Rigidbody2D>().AddForce(direction * projectileSpeed, ForceMode2D.Force);
+
+            cloneSkillPrefab.GetComponent<Bullet>().damage = damage;
+            cloneSkillPrefab.GetComponent<Bullet>().maker = parent;
         }
-        //cloneSkillPrefab = Instantiate(RangeInstance, spawnPosition.position + direction, spawnPosition.rotation);
-
-        cloneSkillPrefab.tag = parent.tag + "Ability";
-
-        float rotZ = Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg;
-        cloneSkillPrefab.transform.rotation = Quaternion.Euler(0f, 0f, -rotZ - 90);
-
-        cloneSkillPrefab.GetComponent<Rigidbody2D>().AddForce(direction * projectileSpeed, ForceMode2D.Force);
-
-        cloneSkillPrefab.GetComponent<Bullet>().damage = damage;
-        cloneSkillPrefab.GetComponent<Bullet>().maker = parent;
 
     }
 

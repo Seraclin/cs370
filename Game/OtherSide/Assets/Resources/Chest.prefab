@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 8024846704086168214}
   - component: {fileID: 8024846704086168215}
   - component: {fileID: 3676559404684298405}
+  - component: {fileID: 1036035696247307417}
   m_Layer: 0
   m_Name: Chest
   m_TagString: Inter
@@ -167,6 +168,8 @@ MonoBehaviour:
   itemInChest: {fileID: 0}
   spawnPoint: {fileID: 8024846703232902498}
   openSprite: {fileID: 21300000, guid: ff12a710a6decca49840192304b03dd9, type: 3}
+  particleInteract: {fileID: 0}
+  pv: {fileID: 1036035696247307417}
 --- !u!50 &3676559404684298405
 Rigidbody2D:
   serializedVersion: 4
@@ -188,3 +191,25 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1036035696247307417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8024846704086168208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
