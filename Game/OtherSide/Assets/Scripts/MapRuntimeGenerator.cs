@@ -12,7 +12,7 @@ public class MapRuntimeGenerator : MonoBehaviour
     public PhotonView pv;
 
     [SerializeField] GameObject Generator1;
-    [SerializeField] GameObject Generator2;
+    
     [SerializeField] GameObject Generator3;
     [SerializeField] GameObject Generator4;
     [SerializeField] GameObject Generator5;
@@ -30,6 +30,16 @@ public class MapRuntimeGenerator : MonoBehaviour
         }
         else
         {
+            Generator1.SetActive(false); //maybe if i type it twice it actually might work
+
+            Generator3.SetActive(false);
+            Generator4.SetActive(false);
+            Generator5.SetActive(false);
+            Generator6.SetActive(false);
+            Generator7.SetActive(false);
+            Generator8.SetActive(false);
+            Generator9.SetActive(false);
+
 
         }
     }
@@ -38,7 +48,7 @@ public class MapRuntimeGenerator : MonoBehaviour
         if (!PhotonNetwork.IsMasterClient)
         {
             Generator1.SetActive(false);
-            Generator2.SetActive(false);
+           
             Generator3.SetActive(false);
             Generator4.SetActive(false);
             Generator5.SetActive(false);
