@@ -24,14 +24,14 @@ public class MapRuntimeGenerator : MonoBehaviour
     void Start()
     {
 
-       
-        
+        OnStart?.Invoke();
+
     }
     private void Awake()
     {
         if (PhotonNetwork.IsMasterClient)
         {
-            OnStart?.Invoke();
+            
         }
         
 
