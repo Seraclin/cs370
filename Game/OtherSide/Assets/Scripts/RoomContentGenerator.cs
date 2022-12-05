@@ -3,9 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
+using Photon.Pun;
+using Photon.Realtime;
+
 
 public class RoomContentGenerator : MonoBehaviour
 {
+    [SerializeField] PhotonView pv;
     [SerializeField]
     public GameObject transformplayer;
 
@@ -37,6 +41,10 @@ public class RoomContentGenerator : MonoBehaviour
     */
     public void GenerateRoomContent(DungeonData dungeonData)
     {
+        pv.RPC("GenerateContent2", RpcTarget.AllBuffered, dungeonData);
+    }
+    [PunRPC] void GenerateContent2( DungeonData dungeonData)
+    {
         foreach (GameObject item in spawnedObjects)
         {
             DestroyImmediate(item);
@@ -48,10 +56,12 @@ public class RoomContentGenerator : MonoBehaviour
 
         foreach (GameObject item in spawnedObjects)
         {
-            if(item != null)
+            if (item != null)
                 item.transform.SetParent(itemParent, false);
         }
     }
+
+   
 
     private void SelectPlayerSpawnPoint(DungeonData dungeonData)
     {
