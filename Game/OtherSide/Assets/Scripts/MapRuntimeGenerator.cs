@@ -29,7 +29,7 @@ public class MapRuntimeGenerator : MonoBehaviour
     }
     private void Awake()
     {
-        pv.RPC("RunEverything", RpcTarget.OthersBuffered);
+        pv.RPC("RunEverything", RpcTarget.AllBuffered);
 
         
         
