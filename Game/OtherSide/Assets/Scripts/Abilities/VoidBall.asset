@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d6867e8d4d61f446b277345ab014cd5, type: 3}
   m_Name: VoidBall
   m_EditorClassIdentifier: 
-  abilityIcon: {fileID: 0}
-  abilityName: 
-  abilityDescription: 
+  abilityIcon: {fileID: 1981940213, guid: 631e747e26f295b47b10217c2c7ceb20, type: 3}
+  abilityName: Void Bolt
+  abilityDescription: A bolt of void energy that breakes down defenses
   cooldownTime: 3
-  activeTime: 0
+  activeTime: 1
   damage: 15
   cost: 0
   knockback: 0
@@ -24,3 +24,5 @@ MonoBehaviour:
   isPassive: 0
   RangeInstance: {fileID: 8210739079414165366, guid: 3d4ebd557c74bf14687082ae12038933, type: 3}
   projectileSpeed: 350
+  pv: {fileID: 0}
+  ptv: {fileID: 0}
