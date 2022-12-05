@@ -4,6 +4,8 @@ using System.Linq;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
+using Photon.Pun;
+using Photon.Realtime;
 
 
 public class PrefabPlacer : MonoBehaviour
@@ -87,7 +89,7 @@ public class PrefabPlacer : MonoBehaviour
         if (Application.isPlaying)
         {
     
-            newItem =Instantiate(prefab, placementPosition, Quaternion.identity);
+            newItem = PhotonNetwork.Instantiate(prefab.name, placementPosition, Quaternion.identity);
         }
         else
         {
