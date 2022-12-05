@@ -270,7 +270,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pv: {fileID: 355307593}
-  transformplayer: {fileID: 1758149525}
+  transformplayer: {fileID: 742398423}
   playerRoom: {fileID: 378666303130500032, guid: afdc382d653128043b97c6bfaffe7852, type: 3}
   defaultRoom: {fileID: 7777476307801422254, guid: 377fa56baa708c045ab0ed6a3b4e6926, type: 3}
   graphTest: {fileID: 826419577}
@@ -781,12 +781,17 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4110711060118763497, guid: aa48366ef2f9d4fdbbcd77542de3797c, type: 3}
   m_PrefabInstance: {fileID: 742398421}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 742398423}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 49e272817b5f94c1fb666ac93a5b69b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &742398423 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4110711060118763502, guid: aa48366ef2f9d4fdbbcd77542de3797c, type: 3}
+  m_PrefabInstance: {fileID: 742398421}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &826419576
 GameObject:
   m_ObjectHideFlags: 0
@@ -24288,11 +24293,6 @@ Transform:
   m_Father: {fileID: 1118239119}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1758149525 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1772144060732249289, guid: 5aa8d1c6e81f043609b2142c3012d7ca, type: 3}
-  m_PrefabInstance: {fileID: 829863396}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1844396722
 GameObject:
   m_ObjectHideFlags: 0
