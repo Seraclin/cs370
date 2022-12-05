@@ -33,20 +33,7 @@ public class MapRuntimeGenerator : MonoBehaviour
         {
             OnStart?.Invoke();
         }
-        if (!PhotonNetwork.IsMasterClient)
-        {
-            Generator1.SetActive(false);
-           
-            Generator3.SetActive(false);
-            Generator4.SetActive(false);
-            Generator5.SetActive(false);
-            Generator6.SetActive(false);
-            Generator7.SetActive(false);
-            Generator8.SetActive(false);
-            Generator9.SetActive(false);
-
-
-        }
+        
 
     }
 }
