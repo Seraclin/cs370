@@ -213,7 +213,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2938398021888079870
 Transform:
   m_ObjectHideFlags: 0
@@ -271,7 +271,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -4
+  m_SortingOrder: -3
   m_Sprite: {fileID: 21300000, guid: 8e150d6acf812624eb8c765fdd92f5a6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -369,12 +369,11 @@ MonoBehaviour:
   damageCoef: 1
   invincibility: 0
   invincibilityTime: 0.5
-  col: {fileID: 2938398021888079857}
+  col: {fileID: 0}
   deathTime: 10
   distancing: 0
   health: 200
   pv: {fileID: 0}
-  enemySpawner: {fileID: 0}
   ogPos: {x: 0, y: 0, z: 0}
   particleHeal: {fileID: 4448921864022606379, guid: 6d89c75154128ce408c9f1d6935e1f0f, type: 3}
   particlePossession: {fileID: 964986808903860898, guid: b98e5ef8b88297847bdbd9b68ad9e4bd, type: 3}
