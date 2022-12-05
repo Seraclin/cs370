@@ -6,7 +6,7 @@ using Photon.Realtime;
 
 public class Interactables : MonoBehaviour
 {
-    [SerializeField] int healing;
+    [SerializeField] public int healing;
     public PlayerHealth pHealth;
     public bool inventory; // check if item can be put into inventory
     public bool openable; // check if item is openable
@@ -19,10 +19,18 @@ public class Interactables : MonoBehaviour
     private bool chestOpened;
     public Transform spawnPoint;
     private Interactables itemInChestScript;
+    private GameObject playerobj;
 
     [SerializeField] Sprite openSprite; // chest or door open sprite
     [SerializeField] GameObject particleInteract; // particle when open sprite happens
     [SerializeField] PhotonView pv;
+
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player" && healing != 0)
+            playerobj = collision.gameObject;
+            pHealth = playerobj.GetComponent<PlayerHealth>();
+    }
 
     public void DoInteraction()
     {
