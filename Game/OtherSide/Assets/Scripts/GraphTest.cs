@@ -25,6 +25,7 @@ public class GraphTest : MonoBehaviour
         Debug.Log(keyDij);
         graphReady = true;
 
+        endLevel.SetActive(true);
         endLevel.transform.position = (keyDij + new Vector2(0.5f, 0.5f));
     }
 
