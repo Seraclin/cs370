@@ -15,7 +15,10 @@ MonoBehaviour:
   abilityIcon: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
   abilityName: Phase
   abilityDescription: Temporarily go undetected for a short period of time.
-  cooldownTime: 2
+  cooldownTime: 6
   activeTime: 3
   damage: 0
   cost: 0
+  knockback: 0
+  range: 0
+  isPassive: 0

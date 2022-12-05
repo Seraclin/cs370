@@ -403,16 +403,15 @@ MonoBehaviour:
   ren: {fileID: 7233263586582013295}
   anim: {fileID: 7233263586582013283}
   player: {fileID: 0}
-  maxhealth: 15
+  maxhealth: 45
   damageCoef: 1
   invincibility: 0
   invincibilityTime: 0.5
   col: {fileID: 7404517997101150337}
   deathTime: 20
   distancing: 1
-  health: 15
+  health: 45
   pv: {fileID: -6863469743574177061}
-  enemySpawner: {fileID: 0}
   ogPos: {x: 0, y: 0, z: 0}
   particleHeal: {fileID: 4448921864022606379, guid: 6d89c75154128ce408c9f1d6935e1f0f, type: 3}
   particlePossession: {fileID: 964986808903860898, guid: b98e5ef8b88297847bdbd9b68ad9e4bd, type: 3}
