@@ -17,7 +17,6 @@ public class Thrower : Ability
     public override void Activate(GameObject parent)
     {
         // Debug.Log("Melee Ability activated");
-        FindObjectOfType<AudioManager>().Play("meleeAttack");
 
         spawnPosition = parent.transform;
         Vector3 displacement = new Vector3(0, 0, 0);
@@ -45,6 +44,8 @@ public class Thrower : Ability
         cloneSkillPrefab.transform.rotation = Quaternion.Euler(0f, 0f, -rotZ - 90);
 
         cloneSkillPrefab.GetComponent<DamageOverTime>().damage = damage;
+        
+        FindObjectOfType<AudioManager>().Play("meleeAttack", cloneSkillPrefab);
     }
 
     /* Deactivate is called when the skill is cooldown

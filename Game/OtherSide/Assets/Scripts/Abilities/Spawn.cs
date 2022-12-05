@@ -20,7 +20,6 @@ public class Spawn : Ability
     public override void Activate(GameObject parent)
     {
         // Debug.Log("Melee Ability activated");
-        FindObjectOfType<AudioManager>().Play("meleeAttack");
 
         spawnPosition = parent.transform;
         Vector3 displacement = new Vector3(0, 0, 0);
@@ -35,6 +34,8 @@ public class Spawn : Ability
                 cloneSkillPrefab = Instantiate(enemyInstance, spawnPosition.position + 10 * direction, spawnPosition.rotation);
                 GameObject phit = Instantiate(spawnParticle, cloneSkillPrefab.transform);
                 cloneSkillPrefab.GetComponent<Enemy>().player = parent.GetComponent<Enemy>().player;
+                
+                FindObjectOfType<AudioManager>().Play("meleeAttack", cloneSkillPrefab);
             }
         }
 

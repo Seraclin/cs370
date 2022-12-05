@@ -52,6 +52,7 @@ public class Interactables : MonoBehaviour
             // change chest sprite to open chest sprite
             pv.RPC("changeSprite", RpcTarget.OthersBuffered);
           
+            FindObjectOfType<AudioManager>().Play("openChest"); 
         }
     }
     [PunRPC] public void changeSprite()

@@ -47,7 +47,6 @@ public class Enemy : MonoBehaviourPunCallbacks
         ogPos = this.transform.position;
         ren = gameObject.GetComponent<SpriteRenderer>();
         health = maxhealth;
-        FindObjectOfType<AudioManager>().Play("ghostApproach");
         pv = GetComponent<PhotonView>();
         anim = GetComponent<Animator>();
     }
