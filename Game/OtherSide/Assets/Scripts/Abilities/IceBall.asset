@@ -23,6 +23,6 @@ MonoBehaviour:
   range: 5
   isPassive: 0
   RangeInstance: {fileID: 1750885095948236177, guid: 7212b115ee6d0dd4c9282fffa3f74787, type: 3}
-  projectileSpeed: 300
+  projectileSpeed: 250
   pv: {fileID: 0}
   ptv: {fileID: 0}
