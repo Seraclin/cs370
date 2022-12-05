@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviourPunCallbacks
     {
         
     }
-    void SpawnPlayers()
+    public void SpawnPlayers()
     {
         pv.RPC("SpawnPlayers", RpcTarget.All);
     }

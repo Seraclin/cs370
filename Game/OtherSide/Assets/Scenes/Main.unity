@@ -22607,7 +22607,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1425113332}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: SpawnPlayer
+        m_MethodName: SpawnPlayers
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
