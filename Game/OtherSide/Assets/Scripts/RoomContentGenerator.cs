@@ -26,6 +26,7 @@ public class RoomContentGenerator : MonoBehaviour
 
 
     public UnityEvent RegenerateDungeon;
+    public DungeonData dd;
     /*
     private void Update()
     {
@@ -41,11 +42,15 @@ public class RoomContentGenerator : MonoBehaviour
     */
     public void GenerateRoomContent(DungeonData dungeonData)
     {
-        pv.RPC("GenerateContent2", RpcTarget.AllBuffered, dungeonData);
+        dd = dungeonData;
+        pv.RPC("GenerateContent2", RpcTarget.AllBuffered);
     }
-    [PunRPC] void GenerateContent2( DungeonData dungeonData)
+
+    [PunRPC] void GenerateContent2()
     {
-        foreach (GameObject item in spawnedObjects)
+        DungeonData dungeonData = dd;
+
+       foreach (GameObject item in spawnedObjects)
         {
             DestroyImmediate(item);
         }
