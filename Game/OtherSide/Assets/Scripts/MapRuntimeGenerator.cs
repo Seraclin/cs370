@@ -29,11 +29,17 @@ public class MapRuntimeGenerator : MonoBehaviour
     }
     private void Awake()
     {
-        if (PhotonNetwork.IsMasterClient)
-        {
-            OnStart?.Invoke();
-        }
+        pv.RPC("RunEverything", RpcTarget.OthersBuffered);
+
+        
+        
         
 
+    }
+
+    [PunRPC]
+    void RunEverything()
+    {
+        OnStart?.Invoke();
     }
 }
