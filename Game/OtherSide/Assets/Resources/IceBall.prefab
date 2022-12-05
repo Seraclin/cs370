@@ -104,7 +104,7 @@ MonoBehaviour:
   duration: 6
   particleTrail: {fileID: 8060286846786946212, guid: b5031b449cabd8b4a88990a56eb268a7, type: 3}
   particleImpact: {fileID: 4448921864022606379, guid: e18bc912b91cc7f43858067f60a5906b, type: 3}
-  pv: {fileID: 0}
+  pv: {fileID: 382852675466829137}
 --- !u!50 &7596844800399171590
 Rigidbody2D:
   serializedVersion: 4
