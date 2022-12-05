@@ -32,7 +32,6 @@ public class Enemy : MonoBehaviourPunCallbacks
     [SerializeField] float distancing; // for ranged enemy only
     [SerializeField] public int health;
     public PhotonView pv;
-    [SerializeField] GameObject enemySpawner;
     [SerializeField] Vector3 ogPos;
 
     [SerializeField] GameObject particleHeal; // particle for healing
@@ -132,13 +131,7 @@ public class Enemy : MonoBehaviourPunCallbacks
 
 
             pv.RPC("DestroyOnline", RpcTarget.OthersBuffered);
-            if (PhotonNetwork.IsMasterClient)
-            {
-   
-                EnemySpawner es = enemySpawner.GetComponent<EnemySpawner>();
-                
-                
-            }
+           
            
             Invoke("DestroyEnemy", deathTime);
             
