@@ -80,7 +80,7 @@ public class MenuController : MonoBehaviourPunCallbacks
 
     public override void OnJoinedRoom()
     {
-        PhotonNetwork.LoadLevel("RandomGenerationV3");
+        PhotonNetwork.LoadLevel("Main");
 
     }
 
