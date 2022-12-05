@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-[CustomEditor(typeof(AbstractDungeonGenerator), true)]
-public class RandomDungeonGeneratorEditor : Editor
-{
+//[CustomEditor(typeof(AbstractDungeonGenerator), true)]
+public class RandomDungeonGeneratorEditor 
+{/*
     AbstractDungeonGenerator generator;
 
     private void Awake()
@@ -20,5 +20,5 @@ public class RandomDungeonGeneratorEditor : Editor
         {
             generator.GenerateDungeon();
         }
-    }
+    }*/
 }
