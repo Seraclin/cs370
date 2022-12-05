@@ -146,4 +146,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a64dc532884c4f7daeed9b775c495c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scene: BossRoom
+  scene: 3

@@ -365,10 +365,10 @@ MonoBehaviour:
   ren: {fileID: 2938398021888079871}
   anim: {fileID: 2938398021888079859}
   player: {fileID: 0}
-  maxhealth: 200
+  maxhealth: 100
   damageCoef: 1
   invincibility: 0
-  invincibilityTime: 0.5
+  invincibilityTime: 0
   col: {fileID: 0}
   deathTime: 10
   distancing: 0

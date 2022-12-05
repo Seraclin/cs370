@@ -64,10 +64,14 @@ public class Enemy : MonoBehaviourPunCallbacks
         {
             health += h;
             tookdamage = true; // health was changed
-            invincibility = true;
+            if (!isBoss)
+            {
+                invincibility = true;
 
-            col.enabled = false;
-            Invoke("RemoveInvincibility", invincibilityTime);
+                col.enabled = false;
+                Invoke("RemoveInvincibility", invincibilityTime);
+            }
+            
         }
         else if (h > 0)// enemy is healed
         {
