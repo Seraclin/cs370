@@ -44,6 +44,7 @@ public class GameManager : MonoBehaviourPunCallbacks
         PhotonNetwork.Instantiate(playerPrefab.name, position,Quaternion.identity,0);
         GameCanvas.SetActive(false);
         SceneCamera.SetActive(false);
+        PhotonNetwork.CurrentRoom.IsOpen = false;
     }
     
 }
