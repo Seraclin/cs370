@@ -1,4 +1,4 @@
-## Otherside by Spooky Squad 
+# Otherside by Spooky Squad 
 <img width="720" alt="image" src="https://user-images.githubusercontent.com/53448490/206074833-ed8180aa-d5a3-4b63-bf4f-cec6235c0be6.png">
 
 Made in Unity `2021.3.10f1` for Emory University CS370: Computer Practicum Fall 2022
@@ -12,7 +12,7 @@ Itch.io link: [https://sacredstudios.itch.io/otherside](https://sacredstudios.it
 * Team Members: (Clown) Jessie Coleman [@SacredStudios](https://github.com/SacredStudios), James Song [@Sirious1y](https://github.com/Sirious1y), Miguel Simbahan [@Minuslight](https://github.com/Minuslight), Steve Wang [@steve-z-wang](https://github.com/steve-z-wang)
 
 
-### Credits:
+### Credits
 * Ghost || Pixel Asset Pack: [https://pop-shop-packs.itch.io/ghost-pixel-asset-pack](https://pop-shop-packs.itch.io/ghost-pixel-asset-pack)
 * Pixel_Poem Dungeon Tileset: [https://pixel-poem.itch.io/dungeon-assetpuck](https://pixel-poem.itch.io/dungeon-assetpuck)
 * 0x72_DungeonTilesetII: [https://0x72.itch.io/dungeontileset-ii](https://0x72.itch.io/dungeontileset-ii)
@@ -21,12 +21,12 @@ Itch.io link: [https://sacredstudios.itch.io/otherside](https://sacredstudios.it
 * Game Menu Background: [https://www.freepik.com/free-vector/medieval-castle-gate-night-palace-entry-exterior-with-arched-door-burning-torches-fortress-tower-architecture-fairytale-dungeon-building-facade-stone-brick-wall-cartoon-vector-illustration_21957272.htm](https://www.freepik.com/free-vector/medieval-castle-gate-night-palace-entry-exterior-with-arched-door-burning-torches-fortress-tower-architecture-fairytale-dungeon-building-facade-stone-brick-wall-cartoon-vector-illustration_21957272.htm) 
 
 
-### Why Does This Exist?
+## Why Does This Exist?
 
 This is a semester-long project for CS370: Computer Science Practicum Fall 2022 at Emory University, aiming to practice Scrum methodology and make a team project that both provides experience and teamwork. ***Otherside*** is an online, multiplayer, co-op, rogue-like pixel game about a ghost with the unique ability of possessing enemies. Like many games out there, it aims to give enjoyment, relaxation and to offer you and your friends a fun time.
 
 
-### Organization
+## Organization
 
 The Unity project was made in version `2021.3.10f1` in C#. Photon and ParrelSync are used online. In the `cs370/Game/Otherside/Assets` folder, are subfolders for sprites, tilesets, sounds, scripts, scenes, etc. named accordingly. Unity has files called “scene” files which store all the data for each level. Assets can be dragged into the scene in the form of `GameObjects`. These `GameObjects` can have a number of components attached to them that further modify their behavior such as scripts, colliders, animators. In the Resources folder, we save players, enemies, items, and abilities as `prefabs`: custom `GameObjects` that can be reused. For example, our `Player` prefab holds many script components for health, interacting, controls/movement, possession, and abilities, various colliders, UI elements, an animator, and audio listener. All prefabs must be stored in `Assets/Resources` and cannot be located in any subfolders. 
 
@@ -40,7 +40,7 @@ Ability information is inherited from the `Ability` abstract class and is organi
 Sprites are designed to be displayed in a 16x16 pixel format.
 
 
-### Setup
+## Setup
 
 To play on itch.io, you can click the [link](https://sacredstudios.itch.io/otherside) above. There are two menu options: ‘Start Game’ and ‘Tutorial’. The ‘Tutorial’ button will lead you to the tutorial level which is a single player level designed to familiarize you with the controls of the game. 
 
@@ -54,7 +54,7 @@ For the Unity project folder itself, you can open it (`cs370/Game/Otherside`) vi
 
 
 
-### Game Instructions
+## Game Instructions
 
 Navigate through a dungeon, defeating and possessing enemies along the way, while finding a way to escape. If your health reaches 0, you respawn back at the beginning of the level. 
 
