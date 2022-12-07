@@ -1,9 +1,9 @@
 ## Otherside by Spooky Squad 
+<img width="720" alt="image" src="https://user-images.githubusercontent.com/53448490/206074833-ed8180aa-d5a3-4b63-bf4f-cec6235c0be6.png">
 
 Made in Unity `2021.3.10f1` for Emory University CS370: Computer Practicum Fall 2022
 
-Itch.io link: [https://sacredstudios.itch.io/otherside](https://sacredstudios.itch.io/otherside) 
-
+Itch.io link: [https://sacredstudios.itch.io/otherside](https://sacredstudios.itch.io/otherside)
 
 ### The Spooky Squad
 
@@ -23,7 +23,7 @@ Itch.io link: [https://sacredstudios.itch.io/otherside](https://sacredstudios.it
 
 ### Why Does This Exist?
 
-This is a semester-long project for CS370: Computer Science Practicum Fall 2022 at Emory University, aiming to practice Scrum methodology and make a team project that both provides experience and teamwork. ***Otherside*** is an online, multiplayer, co-op, rogue-like game about a ghost with the unique ability of possessing enemies. Like many games out there, it aims to give enjoyment, relaxation and to offer you and your friends a fun time.
+This is a semester-long project for CS370: Computer Science Practicum Fall 2022 at Emory University, aiming to practice Scrum methodology and make a team project that both provides experience and teamwork. ***Otherside*** is an online, multiplayer, co-op, rogue-like pixel game about a ghost with the unique ability of possessing enemies. Like many games out there, it aims to give enjoyment, relaxation and to offer you and your friends a fun time.
 
 
 ### Organization
@@ -36,6 +36,8 @@ Refer to the `Zombie` prefab for creating an enemy. Enemies must follow a certai
 * Those two `AbilityHolder` scripts must be referenced by the `AbilityArray` script (order matters)
 
 Ability information is inherited from the `Ability` abstract class and is organized in the form of `ScriptableObjects` (attribute containers). For example, the `RangedAbility` inherits attributes/methods from `Ability` and defines other custom attributes (e.g. bullet speed). These `ScriptableObjects` can be dragged onto any `AbilityHolder` script to change that GameObject’s ability.
+
+Sprites are designed to be displayed in a 16x16 pixel format.
 
 
 ### Setup
@@ -52,17 +54,17 @@ For the Unity project folder itself, you can open it (`cs370/Game/Otherside`) vi
 
 
 
-Game Instructions:
+### Game Instructions
 
 Navigate through a dungeon, defeating and possessing enemies along the way, while finding a way to escape. If your health reaches 0, you respawn back at the beginning of the level. 
 
 Possess an enemy to heal yourself and temporarily gain their powerful abilities. 
 
-Controls: 
+#### Controls 
 
 W/A/S/D or arrow keys: to move up/left/down/right
 
-Combat:
+Combat
 
 Use your mouse to aim.
 
@@ -81,7 +83,7 @@ Default Abilities:
 Will-o-Wisp: shoots out a glowing projectile with low damage
 Phase: Become invisible to enemies (can still take damage)
 
-Enemies:
+### Enemies
 
 Chort: A demon with “Bite” and “Vamp”
 * Bite: a powerful melee attack
