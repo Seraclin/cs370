@@ -1,18 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
+using Photon.Pun;
+using Photon.Realtime;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class SceneSwitch : MonoBehaviour
 {
-    [SerializeField] public int scene;
+    [SerializeField] public string scene;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
             Debug.Log("Scene swap");
-            SceneManager.LoadScene(scene);
+            PhotonNetwork.LoadLevel(scene);
         }
     }
 }

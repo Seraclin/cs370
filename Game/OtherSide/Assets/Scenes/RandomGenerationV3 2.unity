@@ -420,6 +420,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5819769375686357744, guid: 669c07eb145dd8c48bcad687dc88fcfa, type: 3}
+      propertyPath: sceneViewId
+      value: 24
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 669c07eb145dd8c48bcad687dc88fcfa, type: 3}
 --- !u!1 &160715853 stripped
@@ -955,7 +959,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7953879059813917212, guid: da6d187beb6e4425ebcd7e91712d2d1d, type: 3}
       propertyPath: scene
-      value: 6
+      value: BossRoom
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da6d187beb6e4425ebcd7e91712d2d1d, type: 3}
@@ -26854,6 +26858,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5819769375686357744, guid: 669c07eb145dd8c48bcad687dc88fcfa, type: 3}
+      propertyPath: sceneViewId
+      value: 23
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 669c07eb145dd8c48bcad687dc88fcfa, type: 3}
 --- !u!1 &1738270375 stripped
@@ -27906,7 +27914,7 @@ Tilemap:
       - {fileID: 21300000, guid: a82b48abe41254f21a9281df25f39946, type: 3}
       - {fileID: 21300000, guid: 218c2372465e54481b83ef09e9a2daf5, type: 3}
       - {fileID: 21300000, guid: 7383f1ee8f56b40669fd48d0be6b2b7c, type: 3}
-      m_AnimationSpeed: 10
+      m_AnimationSpeed: 10.000001
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 13, y: 8, z: 0}
@@ -28096,7 +28104,7 @@ Tilemap:
       - {fileID: 21300000, guid: a82b48abe41254f21a9281df25f39946, type: 3}
       - {fileID: 21300000, guid: 218c2372465e54481b83ef09e9a2daf5, type: 3}
       - {fileID: 21300000, guid: 7383f1ee8f56b40669fd48d0be6b2b7c, type: 3}
-      m_AnimationSpeed: 10
+      m_AnimationSpeed: 10.000001
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 48, y: 22, z: 0}
@@ -28156,7 +28164,7 @@ Tilemap:
       - {fileID: 21300000, guid: 0038c56ee886c4d7aa0a8795d79e2832, type: 3}
       - {fileID: 21300000, guid: 73d3eeb16ddb548228abb4c0fc7ba3e8, type: 3}
       - {fileID: 21300000, guid: 632d4532bd67a416895fd80f550a977b, type: 3}
-      m_AnimationSpeed: 10.000001
+      m_AnimationSpeed: 10
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   m_TileAssetArray:
@@ -28839,7 +28847,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7953879059813917212, guid: da6d187beb6e4425ebcd7e91712d2d1d, type: 3}
       propertyPath: scene
-      value: 6
+      value: BossRoom
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da6d187beb6e4425ebcd7e91712d2d1d, type: 3}
