@@ -1,11 +1,11 @@
 ## Otherside by Spooky Squad 
 
-Made in Unity 2021.3.10f1 for Emory University CS370: Computer Practicum Fall 2022
+Made in Unity `2021.3.10f1` for Emory University CS370: Computer Practicum Fall 2022
 
 Itch.io link: [https://sacredstudios.itch.io/otherside](https://sacredstudios.itch.io/otherside) 
 
 
-### The Spooky Squad:
+### The Spooky Squad
 
 * Product Owner: Evan Del Carmen [@ebdelca](https://github.com/ebdelca)
 * Scrum Master (and owner of this repo): Samantha Lin [@Seraclin](https://github.com/Seraclin)
@@ -23,22 +23,19 @@ Itch.io link: [https://sacredstudios.itch.io/otherside](https://sacredstudios.it
 
 ### Why Does This Exist?
 
-This is a semester-long project for CS370: Computer Science Practicum Fall 2022 at Emory University, aiming to practice Scrum methodology and make a team project that both provides experience and teamwork. "Otherside" is an online, multiplayer, co-op, rogue-like game about a ghost with the unique ability of possessing enemies. Like many games out there, it aims to give enjoyment, relaxation and to offer you and your friends a fun time.
+This is a semester-long project for CS370: Computer Science Practicum Fall 2022 at Emory University, aiming to practice Scrum methodology and make a team project that both provides experience and teamwork. ***Otherside*** is an online, multiplayer, co-op, rogue-like game about a ghost with the unique ability of possessing enemies. Like many games out there, it aims to give enjoyment, relaxation and to offer you and your friends a fun time.
 
 
 ### Organization
 
-The Unity project was made in version `2021.3.10f1` in C#. Photon and ParrelSync are used online. In the `cs370/Game/Otherside/Assets` folder, are subfolders for sprites, tilesets, sounds, scripts, scenes, etc. named accordingly. Unity has files called “scene” files which store all the data for each level. Assets can be dragged into the scene in the form of “GameObjects”. These GameObjects can have a number of components attached to them that further modify their behavior such as scripts, colliders, animators. In the Resources folder, we save players, enemies, items, and abilities as “prefabs”: custom “GameObjects” that can be reused. For example, our “Player” prefab holds many script components for health, interacting, controls/movement, possession, and abilities, various colliders, UI elements, an animator, and audio listener. All prefabs must be stored in “Resources” and cannot be located in any subfolders. 
+The Unity project was made in version `2021.3.10f1` in C#. Photon and ParrelSync are used online. In the `cs370/Game/Otherside/Assets` folder, are subfolders for sprites, tilesets, sounds, scripts, scenes, etc. named accordingly. Unity has files called “scene” files which store all the data for each level. Assets can be dragged into the scene in the form of `GameObjects`. These `GameObjects` can have a number of components attached to them that further modify their behavior such as scripts, colliders, animators. In the Resources folder, we save players, enemies, items, and abilities as `prefabs`: custom `GameObjects` that can be reused. For example, our `Player` prefab holds many script components for health, interacting, controls/movement, possession, and abilities, various colliders, UI elements, an animator, and audio listener. All prefabs must be stored in `Assets/Resources` and cannot be located in any subfolders. 
 
-Refer to the ‘Zombie’ prefab for creating an enemy. Enemies must follow a certain structure: 
+Refer to the `Zombie` prefab for creating an enemy. Enemies must follow a certain structure: 
+* They must override the `enemy_base_anim` animator controller with their own `Animator Override Controller`. They must also have an idle and run animation.
+* Must have two `AbilityHolder` scripts (for primary and secondary abilities) that inherit from the ‘Ability’ ScriptableObject
+* Those two `AbilityHolder` scripts must be referenced by the `AbilityArray` script (order matters)
 
-
-
-* They must override the `enemy_base_anim` animator controller with their own Animator Override Controller. They must also have an idle and run animation.
-* Must have 2 ability holder scripts (for primary and secondary abilities) that inherit from the ‘Ability’ ScriptableObject
-* Those two ability holder scripts must be referenced by the AbilityArray script (order matters)
-
-Ability information is inherited from the Ability abstract class and is organized in the form of ScriptableObjects (attribute containers). For example, the RangedAbility inherits attributes/methods from Ability and defines other custom attributes (e.g. bullet speed). These ScriptableObjects can be dragged onto any AbilityHolder script to change that GameObject’s ability.
+Ability information is inherited from the `Ability` abstract class and is organized in the form of `ScriptableObjects` (attribute containers). For example, the `RangedAbility` inherits attributes/methods from `Ability` and defines other custom attributes (e.g. bullet speed). These `ScriptableObjects` can be dragged onto any `AbilityHolder` script to change that GameObject’s ability.
 
 
 ### Setup
@@ -51,7 +48,7 @@ Another screen will appear with buttons “Join Random Game” and “Create/Joi
 
 After room creation and/or joining, the lobby screen will display. This screen will show all the players currently connected to the lobby. Clicking start will begin the game with all players in the lobby
 
-For the Unity project folder itself, you can open it (cs370/Game/Otherside) via Unity Hub with editor version 2021.3.10f1 (other editor versions are not guaranteed to work). After loading the project, open the starting scene located at `Assets/Scenes/StartingScene` and press the play button to run the scene. To export the project, we used the WebGL build from Unity and exported a zip file to itch.io.
+For the Unity project folder itself, you can open it (`cs370/Game/Otherside`) via Unity Hub with editor version `2021.3.10f1` (other editor versions are not guaranteed to work). After loading the project, open the starting scene located at `Assets/Scenes/StartingScene` and press the play button to run the scene. To export the project, we used the WebGL build from Unity and exported a zip file to itch.io.
 
 
 
