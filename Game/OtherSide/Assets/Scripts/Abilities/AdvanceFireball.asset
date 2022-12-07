@@ -9,17 +9,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de0dc2b1fe9c10740aafee0ef60d751f, type: 3}
-  m_Name: URF
+  m_Script: {fileID: 11500000, guid: 1d6867e8d4d61f446b277345ab014cd5, type: 3}
+  m_Name: AdvanceFireball
   m_EditorClassIdentifier: 
   abilityIcon: {fileID: 0}
   abilityName: 
   abilityDescription: 
-  cooldownTime: 4
-  activeTime: 3
+  cooldownTime: 0
+  activeTime: 0
   damage: 0
   cost: 0
   knockback: 0
-  range: 5
+  range: 0
   isPassive: 0
-  cdReduce: 0.6
+  RangeInstance: {fileID: 0}
+  projectileSpeed: 0
+  pv: {fileID: 0}
+  ptv: {fileID: 0}
