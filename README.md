@@ -7,8 +7,6 @@ Itch.io link: [https://sacredstudios.itch.io/otherside](https://sacredstudios.it
 
 ### The Spooky Squad:
 
-
-
 * Product Owner: Evan Del Carmen [@ebdelca](https://github.com/ebdelca)
 * Scrum Master (and owner of this repo): Samantha Lin [@Seraclin](https://github.com/Seraclin)
 * Team Members: (Clown) Jessie Coleman [@SacredStudios](https://github.com/SacredStudios), James Song [@Sirious1y](https://github.com/Sirious1y), Miguel Simbahan [@Minuslight](https://github.com/Minuslight), Steve Wang [@steve-z-wang](https://github.com/steve-z-wang)
@@ -25,7 +23,7 @@ Itch.io link: [https://sacredstudios.itch.io/otherside](https://sacredstudios.it
 
 ### Why Does This Exist?
 
-This is a semester-long project for CS370: Computer Science Practicum Fall 2022 at Emory University, aiming to practice Scrum methodology and make a team project that both provides experience and teamwork. _Otherside _is an online, multiplayer, co-op, rogue-like game about a ghost with the unique ability of possessing enemies. Like many games out there, it aims to give enjoyment, relaxation and to offer you and your friends a fun time.
+This is a semester-long project for CS370: Computer Science Practicum Fall 2022 at Emory University, aiming to practice Scrum methodology and make a team project that both provides experience and teamwork. "Otherside" is an online, multiplayer, co-op, rogue-like game about a ghost with the unique ability of possessing enemies. Like many games out there, it aims to give enjoyment, relaxation and to offer you and your friends a fun time.
 
 
 ### Organization
