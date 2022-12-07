@@ -15,14 +15,14 @@ MonoBehaviour:
   abilityIcon: {fileID: 0}
   abilityName: 
   abilityDescription: 
-  cooldownTime: 0
+  cooldownTime: 2
   activeTime: 0
-  damage: 0
+  damage: 15
   cost: 0
   knockback: 0
-  range: 0
+  range: 5
   isPassive: 0
-  RangeInstance: {fileID: 0}
-  projectileSpeed: 0
+  RangeInstance: {fileID: 8210739079414165366, guid: f922e92d5a20b984e99aeb0d70c33355, type: 3}
+  projectileSpeed: 300
   pv: {fileID: 0}
   ptv: {fileID: 0}

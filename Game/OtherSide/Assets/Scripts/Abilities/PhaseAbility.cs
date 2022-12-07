@@ -21,7 +21,8 @@ public class PhaseAbility : Ability
     */
     public override void Deactivate(GameObject parent) // 
     {
-        Debug.Log("Melee Ability deactivated");
+        // Debug.Log("Melee Ability deactivated");
+        objectRenderer = parent.GetComponent<SpriteRenderer>();
         objectRenderer.color = original;
     }
 }
