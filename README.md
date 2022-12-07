@@ -113,7 +113,7 @@ Necromancer: A dark magician with “Voidball” and “Analyze”
 * Voidball: shoots out a bullet full of void energy
 * Analyze (Passive): targets hit by abilities will take more damage for a duration
 
-Boss:
 Skeleton King: The king of specters
+* A fearsome and mighty boss
 * He can emits his energy in 3 directions, hurting anything that touches it
 * He can summon his army of specters around him
