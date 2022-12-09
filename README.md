@@ -53,6 +53,11 @@ After room creation and/or joining, the lobby screen will display. This screen w
 For the Unity project folder itself, you can open it (`cs370/Game/Otherside`) via Unity Hub with editor version `2021.3.10f1` (other editor versions are not guaranteed to work). After loading the project, open the starting scene located at `Assets/Scenes/StartingScene` and press the play button to run the scene. To export the project, we used the WebGL build from Unity and exported a zip file to itch.io.
 
 
+## Random Dungeon Generation with Prefabs
+
+Random Dungeon generation for Singleplayer (Lobbies with only 1 player) works by utilizing Unity's Random Function. This is found in the scene RandomGenerationV3.  Dungeon generation starts after loading in, using Unity's Random function to randomly pick a direction of up, down, left, or right in our grid-based tilemap to paint the tiles which in turn create the rooms in our dungeon. Scriptable objects are used to determine the size of the room based on iterations of the function. Similarly, rooms are connected with "corridors" that pick a direction and have X configurable length. At the end of a corridor's length, a new room or a new corridor is generated. 
+
+Prefabs are generated in a similar fashion, taking data from the created "rooms" in order to find free tiles to place prefabs in certain coordinates. The end of the level, marked by a ladder sprite, moves you to the next scene which is the boss room scene. This is generated from the furthest point of the player spawn using Djikstra's algorithm to traverse through the dungeon and find the furthest node.
 
 ## Game Instructions
 
