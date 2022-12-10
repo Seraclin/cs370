@@ -121,3 +121,8 @@ Skeleton King: The king of specters
 * A fearsome and mighty boss
 * He can emits his energy in 3 directions, hurting anything that touches it
 * He can summon his army of specters around him
+
+##Online
+The game uses Photon Network for online multiplayer and networking services. Photon is a plugin for Unity and the free version can hold up to 25 concurrent players.
+*Photon handles instantiation of gameobjects such as players, enemies, items, etc.
+*It remains unused for single player mode.
