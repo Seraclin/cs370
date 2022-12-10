@@ -28,7 +28,7 @@ This is a semester-long project for CS370: Computer Science Practicum Fall 2022 
 
 ## Organization
 
-The Unity project was made in version `2021.3.10f1` in C#. Photon and ParrelSync are used online. In the `cs370/Game/Otherside/Assets` folder, are subfolders for sprites, tilesets, sounds, scripts, scenes, etc. named accordingly. Unity has files called “scene” files which store all the data for each level. Assets can be dragged into the scene in the form of `GameObjects`. These `GameObjects` can have a number of components attached to them that further modify their behavior such as scripts, colliders, animators. In the Resources folder, we save players, enemies, items, and abilities as `prefabs`: custom `GameObjects` that can be reused. For example, our `Player` prefab holds many script components for health, interacting, controls/movement, possession, and abilities, various colliders, UI elements, an animator, and audio listener. All prefabs must be stored in `Assets/Resources` and cannot be located in any subfolders. 
+The Unity project was made in version `2021.3.10f1` in C#. Photon and ParrelSync are used for online multiplayer. In the `cs370/Game/Otherside/Assets` folder, are subfolders for sprites, tilesets, sounds, scripts, scenes, etc. named accordingly. Unity has files called “scene” files which store all the data for each level. Assets can be dragged into the scene in the form of `GameObjects`. These `GameObjects` can have a number of components attached to them that further modify their behavior such as scripts, colliders, animators. In the Resources folder, we save players, enemies, items, and abilities as `prefabs`: custom `GameObjects` that can be reused. For example, our `Player` prefab holds many script components for health, interacting, controls/movement, possession, and abilities, various colliders, UI elements, an animator, and audio listener. All prefabs must be stored in `Assets/Resources` and cannot be located in any subfolders. 
 
 Refer to the `Zombie` prefab for creating an enemy. Enemies must follow a certain structure: 
 * They must override the `enemy_base_anim` animator controller with their own `Animator Override Controller`. They must also have an idle and run animation.
@@ -38,6 +38,12 @@ Refer to the `Zombie` prefab for creating an enemy. Enemies must follow a certai
 Ability information is inherited from the `Ability` abstract class and is organized in the form of `ScriptableObjects` (attribute containers). For example, the `RangedAbility` inherits attributes/methods from `Ability` and defines other custom attributes (e.g. bullet speed). These `ScriptableObjects` can be dragged onto any `AbilityHolder` script to change that GameObject’s ability.
 
 Sprites are designed to be displayed in a 16x16 pixel format.
+
+### Random Dungeon Generation with Prefabs
+
+Random Dungeon generation for Singleplayer (Lobbies with only 1 player) works by utilizing Unity's Random Function. This is found in the scene RandomGenerationV3.  Dungeon generation starts after loading in, using Unity's Random function to randomly pick a direction of up, down, left, or right in our grid-based tilemap to paint the tiles which in turn create the rooms in our dungeon. Scriptable objects are used to determine the size of the room based on iterations of the function. Similarly, rooms are connected with "corridors" that pick a direction and have X configurable length. At the end of a corridor's length, a new room or a new corridor is generated. 
+
+Prefabs are generated in a similar fashion, taking data from the created "rooms" in order to find free tiles to place prefabs in certain coordinates. The end of the level, marked by a ladder sprite, moves you to the next scene which is the boss room scene. This is generated from the furthest point of the player spawn using Djikstra's algorithm to traverse through the dungeon and find the furthest node.
 
 
 ## Setup
@@ -51,13 +57,6 @@ Another screen will appear with buttons “Join Random Game” and “Create/Joi
 After room creation and/or joining, the lobby screen will display. This screen will show all the players currently connected to the lobby. Clicking start will begin the game with all players in the lobby
 
 For the Unity project folder itself, you can open it (`cs370/Game/Otherside`) via Unity Hub with editor version `2021.3.10f1` (other editor versions are not guaranteed to work). After loading the project, open the starting scene located at `Assets/Scenes/StartingScene` and press the play button to run the scene. To export the project, we used the WebGL build from Unity and exported a zip file to itch.io.
-
-
-## Random Dungeon Generation with Prefabs
-
-Random Dungeon generation for Singleplayer (Lobbies with only 1 player) works by utilizing Unity's Random Function. This is found in the scene RandomGenerationV3.  Dungeon generation starts after loading in, using Unity's Random function to randomly pick a direction of up, down, left, or right in our grid-based tilemap to paint the tiles which in turn create the rooms in our dungeon. Scriptable objects are used to determine the size of the room based on iterations of the function. Similarly, rooms are connected with "corridors" that pick a direction and have X configurable length. At the end of a corridor's length, a new room or a new corridor is generated. 
-
-Prefabs are generated in a similar fashion, taking data from the created "rooms" in order to find free tiles to place prefabs in certain coordinates. The end of the level, marked by a ladder sprite, moves you to the next scene which is the boss room scene. This is generated from the furthest point of the player spawn using Djikstra's algorithm to traverse through the dungeon and find the furthest node.
 
 ## Game Instructions
 
