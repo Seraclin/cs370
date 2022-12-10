@@ -45,6 +45,12 @@ Random Dungeon generation for Singleplayer (Lobbies with only 1 player) works by
 
 Prefabs are generated in a similar fashion, taking data from the created "rooms" in order to find free tiles to place prefabs in certain coordinates. The end of the level, marked by a ladder sprite, moves you to the next scene which is the boss room scene. This is generated from the furthest point of the player spawn using Djikstra's algorithm to traverse through the dungeon and find the furthest node.
 
+### Online
+The game uses Photon Network for online multiplayer and networking services. Photon is a plugin for Unity and the free version can hold up to 25 concurrent players.
+
+* Photon handles instantiation of gameobjects such as players, enemies, items, etc.
+* It remains unused for single player mode.
+* Photon uses custom functions for lobbies/rooms/nicknames.
 
 ## Setup
 
@@ -122,8 +128,4 @@ Skeleton King: The king of specters
 * He can emits his energy in 3 directions, hurting anything that touches it
 * He can summon his army of specters around him
 
-### Online
-The game uses Photon Network for online multiplayer and networking services. Photon is a plugin for Unity and the free version can hold up to 25 concurrent players.
 
-* Photon handles instantiation of gameobjects such as players, enemies, items, etc.
-* It remains unused for single player mode.
